@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--	
+	Installer for RSS News Reader 4
+-->
+<?define ProductName="RSS News Reader 4" ?>
+<?define Manufacturer="Accessible and WebbIE" ?>
+<?define UpgradeCode="{F1C6DD42-72A0-4AE9-BE3B-D979BCBE73AC}" ?>
+<?define ProductVersion="4.0.0" ?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+    <Product Id="*" Language="1033" Manufacturer="$(var.Manufacturer)" Name="$(var.ProductName)" UpgradeCode="$(var.UpgradeCode)" Version="$(var.ProductVersion)">
+        <Package Id="*" Compressed="yes" InstallerVersion="301" InstallScope="perMachine" InstallPrivileges="elevated" Comments="Version $(var.ProductVersion)"/>
+        <Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="MANUFACTURERDIR" Name="$(var.Manufacturer)">			
+					<Directory Id="INSTALLDIR" Name="$(var.ProductName)">
+						<Component Feature="ProductFeature" Id="Common.Language.xml">
+							<File Id="Common.Language.xml" Source="SourceDir\Common.Language.xml" KeyPath="yes" />
+						</Component>
+						<Component Feature="ProductFeature" Id="default.opml">
+							<File Id="default.opml" Source="SourceDir\default.opml" KeyPath="yes" />
+						</Component>
+						<Component Feature="ProductFeature" Id="RSSNewsReader.exe">
+							<CreateFolder />
+							<File Id="RSSNewsReader.exe" Source="SourceDir\RSSNewsReader.exe" KeyPath="yes">
+								<Shortcut Id='EXEName.exe' Name='$(var.ProductName)' Directory='ManufacturerGroup' 
+								Icon='EXEName.exe' WorkingDirectory="INSTALLDIR" Advertise="yes">
+									<Icon Id='EXEName.exe' SourceFile='SourceDir\RSSNewsReader.ico' />
+								</Shortcut>
+								<!-- Uncomment to add desktop shortcut -->
+								<!-- <Shortcut Id='DesktopShortcut' Name='$(var.ProductName)' Directory='DesktopFolder' Icon='EXEName.exe' Advertise="yes" /> -->
+								<netfx:NativeImage Id="ngen_MyApplication.exe" Platform="32bit" Priority="0" AppBaseDirectory="INSTALLDIR" />
+							</File>
+							<util:EventSource Log="Application" Name="RSSNewsReader" EventMessageFile="[NETFRAMEWORK40INSTALLROOTDIR]EventLogMessages.dll"/>
+							<RemoveFile Id='Cleanup' On='uninstall' Name='*.*'/>
+							<RemoveFolder Id="CleanupFolder" On="uninstall" />
+							
+							<RegistryValue Root="HKLM" Key="SOFTWARE\$(var.ProductName)\RSSNewsReader.exe" Type="string" Value="Installed" />
+
+							<!-- 
+								REGISTRATION for default file handler etc.
+							
+								There's LOTS of entries, and they vary from Windows XP to Windows 8. 
+								
+								The ProgId for RSS News Reader is RSSNewsReader.OPML.4
+							-->
+							
+							<!-- Register app in "App Paths" for ShellExecute http://msdn.microsoft.com/en-us/library/ee872121(v=vs.85).aspx -->
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\RSSNewsReader.exe" Type="string" Value="[#RSSNewsReader.exe]" />
+
+							<!-- Entries in Classes\Applications - see http://msdn.microsoft.com/en-us/library/ee872121(v=vs.85).aspx -->
+							<!-- Give app a nice name. -->
+							<RegistryValue Root="HKLM" Key="Software\Classes\Applications\RSSNewsReader.exe" Type="string" Value="$(var.ProductName)" />
+							<!-- Tell Windows that the app can open opml files.  This means I'll show up in Open With. http://msdn.microsoft.com/en-us/library/ee872121(v=vs.85).aspx -->
+							<RegistryValue Root="HKLM" Key="Software\Classes\Applications\RSSNewsReader.exe\SupportedTypes" Name=".opml" Value="" Type="string" />
+							<!-- Tell Windows how to start the program. -->
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Clients\Applications\RSSNewsReader.exe\shell\open\command" Type="string" Value='"[#RSSNewsReader.exe]" "%1"' />
+
+
+							<!-- Register .opml file types, and that I can open them. http://msdn.microsoft.com/en-us/library/cc144148(v=vs.85).aspx -->
+							<!-- Add myself as an Open With option. -->
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\.opml\OpenWithProgids" Name="RSSNewsReader.OPML.4" Type="string" Value="" />
+							
+							<!-- Define the OPML file type in the registry -->
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\.opml" Name="PerceivedType" Type="string" Value="text" />
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\.opml" Name="Content Type" Type="string" Value="text/xml" />
+							<!-- We could also add Default as RSSNewsReader.OPML.4, which would make RSS Reader the default for OPML. 
+							But leave that to the user and Windows to sort out, not the installer. -->
+							
+							<!-- We could add keys to the SystemFileAssociations key. This is all from http://msdn.microsoft.com/en-us/library/cc144148(v=vs.85).aspx But not relevant for RSS News Reader.  -->
+							
+							
+							<!-- 
+								ProgId entry. 
+							-->
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\RSSNewsReader.OPML.4" Type="string" Value="RSS News Reader Feeds" />
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\RSSNewsReader.OPML.4\shell\open\command" Type="string" Value='"[#RSSNewsReader.exe]" "%1"' />
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\RSSNewsReader.OPML.4" Name="Content Type" Type="string" Value="text/xml" />
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\RSSNewsReader.OPML.4" Name="PerceivedType" Type="string" Value="text" />
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\RSSNewsReader.OPML.4\CLSID" Type="string" Value="{E3FDA1F9-E3FF-4332-ABF2-31139C395C01}" />
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\RSSNewsReader.OPML.4\Capabilities" Type="string" Name="ApplicationDescription" Value="RSS News Reader for blind and screenreader users" />
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\RSSNewsReader.OPML.4\Capabilities" Type="string" Name="ApplicationName" Value="$(var.ProductName)" />
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\RSSNewsReader.OPML.4\Capabilities" Type="string" Name="ApplicationIcon" Value="[#RSSNewsReader.exe],0" />
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\RSSNewsReader.OPML.4\Capabilities\FileAssociations" Type="string" Name=".opml" Value="RSSNewsReader.OPML.4" /> 
+							<RegistryValue Root="HKLM" Key="SOFTWARE\RegisteredApplications" Type="string" Name="$(var.ProductName)" Value="SOFTWARE\Classes\RSSNewsReader.OPML.4" /> 						
+						</Component>
+						<Component Feature="ProductFeature" Id="RSSNewsReader.exe.config">
+							<File Id="RSSNewsReader.exe.config" Source="SourceDir\RSSNewsReader.exe.config" />
+						</Component>
+						<Component Feature="ProductFeature" Id="RSSNewsReader.exe.manifest">
+							<File Id="RSSNewsReader.exe.manifest" Source="SourceDir\RSSNewsReader.exe.manifest" />
+						</Component>
+						<Component Feature="ProductFeature" Id="opmldoc.ico">
+							<File Id="opmldoc.ico" Source="SourceDir\opmldoc.ico" />
+							<!-- ProgId -->
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\RSSNewsReader.OPML.4\DefaultIcon" Type="string" Value="[#opmldoc.ico]" />
+						</Component>
+						<Component Feature="ProductFeature" Id="RSSNewsReader.Help_en.rtf">
+							<File Id="RSSNewsReader.Help_en.rtf" Source="SourceDir\RSSNewsReader.Help-en.rtf" />
+						</Component>
+						<Component Feature="ProductFeature">
+							<File Source="SourceDir\WebbIEUpdater.dll" KeyPath="yes"/>
+						</Component>
+						<Component Feature="ProductFeature" Id="RSSNewsReader.Language.xml">
+							<File Id="RSSNewsReader.Language.xml" Source="SourceDir\RSSNewsReader.Language.xml" />
+						</Component>
+					</Directory>
+					<Directory Id='ProgramMenuFolder'>
+						<Directory Id="ManufacturerGroup" Name="$(var.Manufacturer)">
+							<Component Id="ProgramGroup" Feature="ProductFeature"> 
+								<RemoveFolder Id="ProgramGroup" On="uninstall" />
+								<RegistryValue Root="HKCU" Key="SOFTWARE\$(var.ProductName)" Type="string" Value="Installed" />
+							</Component>
+						</Directory>
+					</Directory>
+				</Directory>
+			</Directory>
+			<Directory Id='WindowsFolder' />
+			<Directory Id='ProfilesFolder' />
+			<Directory Id="CommonAppDataFolder" />
+			<Directory Id='StartMenuFolder' />
+			<Directory Id='DesktopFolder' />			
+        </Directory>
+        <Feature Id="ProductFeature" Level="1" Title="$(var.ProductName)" ConfigurableDirectory="INSTALLDIR" />
+        <Media Id="1" Cabinet="rss.cab" EmbedCab="yes" CompressionLevel="none" />
+		<Property Id='WIXUI_INSTALLDIR' Value='INSTALLDIR' />
+		<!-- <UIRef Id='WixUI_Minimal' />
+		<WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
+		<WixVariable Id="WixUIBannerBmp" Value="bannrbmp.bmp" />
+		<WixVariable Id="WixUIDialogBmp" Value="dlgbmp.bmp" /> -->
+		<CustomAction Id="SAVETARGETDIR" Property="ARPINSTALLLOCATION" Value="[INSTALLDIR]" /> 
+		<InstallExecuteSequence>
+			<Custom Action="SAVETARGETDIR" After="InstallValidate" />
+		</InstallExecuteSequence>
+		<Property Id="MSIFASTINSTALL" Value="7" />
+		<Property Id='ARPPRODUCTICON' Value='EXEName.exe' />
+		<Property Id='ARPHELPLINK' Value='https://www.webbie.org.uk' />		
+		<!-- Upgrade self and prevent downgrade -->
+		<InstallExecuteSequence>
+			<!-- Uninstall old version BEFORE installing any of our own files. Less efficient but safer. -->
+			<RemoveExistingProducts After="InstallValidate" />
+			<!-- Run application -->
+			<Custom Action="LaunchApplication" After="InstallFinalize">NOT Installed AND SUPPRESS_START&lt;&gt;"1"</Custom>
+		</InstallExecuteSequence>
+		<Upgrade Id="$(var.UpgradeCode)">
+			<UpgradeVersion Minimum="0.0.1" Maximum="$(var.ProductVersion)" Property="UPGRADE_SELF" IncludeMinimum="yes" IncludeMaximum="no" IgnoreRemoveFailure="yes" MigrateFeatures="yes" ExcludeLanguages="yes" />
+			<UpgradeVersion Minimum="$(var.ProductVersion)" OnlyDetect="yes" Property="NEWERVERSIONDETECTED" />		
+		</Upgrade>		
+		<Condition Message="A newer version of [ProductName] is already installed.  You must uninstall that package before this one can be installed.">
+			NOT NEWERVERSIONDETECTED
+		</Condition> 	
+		<Property Id="WixShellExecTarget" Value="[#RSSNewsReader.exe]" />
+		<CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+    </Product>
+</Wix>

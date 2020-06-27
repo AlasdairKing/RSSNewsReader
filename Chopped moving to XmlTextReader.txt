@@ -1,0 +1,116 @@
+        public static RSSItem ParseToItem(System.Xml.XmlTextReader xtr, RSSType feedType)
+        {
+            string itemText;
+            if (feedType == RSSType.Atom)
+            {
+                System.Xml.XmlNamespaceManager nm = new System.Xml.XmlNamespaceManager(xtr.NameTable);
+                nm.AddNamespace("sugar", "http://www.w3.org/2005/Atom");
+                itemText = _itemNode.SelectSingleNode("sugar:title", nm).InnerText;
+                System.Xml.XmlNode summaryNode = _itemNode.SelectSingleNode("sugar:summary", nm);
+                if (summaryNode != null)
+                {
+                    itemText += ": " + summaryNode.InnerText;
+                }
+            }
+            else
+            {
+                itemText = _itemNode.SelectSingleNode("title").InnerText;
+            }
+            
+
+            if (_rssType == RSSType.Atom)
+            {
+                System.Xml.XmlNamespaceManager nm = new System.Xml.XmlNamespaceManager(_itemNode.OwnerDocument.NameTable);
+                nm.AddNamespace("sugar", "http://www.w3.org/2005/Atom");
+                return _itemNode.SelectSingleNode("sugar:link", nm).Attributes.GetNamedItem("href").InnerText;
+            }
+            else
+            {
+                return _itemNode.SelectSingleNode("link").InnerText;
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            
+            
+            
+            
+            
+            
+            //try
+            //{
+            //    currentFeed.Load(this._CurrentFeed.url);
+            //}
+            //catch (System.Net.WebException wbEx)
+            //{
+            //    lblStatus.Text = wbEx.Message;
+            //    return;
+            //}
+            //catch (System.Xml.XmlException xmlEx)
+            //{
+            //    lblStatus.Text = xmlEx.Message;
+            //    return;
+            //}
+
+            //// We've got this far, so the feed XML hasn't failed to parse or load.
+            //if (currentFeed.DocumentElement.Name == "feed")
+            //{
+            //    // Atom feed
+            //    System.Xml.XmlNamespaceManager nm = new System.Xml.XmlNamespaceManager(currentFeed.NameTable);
+            //    nm.AddNamespace("sugar", "http://www.w3.org/2005/Atom");
+            //    foreach (System.Xml.XmlNode item in currentFeed.DocumentElement.SelectNodes("//sugar:entry", nm))
+            //    {
+            //        RSSItem rssItem = new RSSItem(item, RSSItem.RSSType.Atom, this._CurrentFeed.url);
+            //        this._CurrentFeed.AddItem(rssItem);
+            //        System.Windows.Forms.Application.DoEvents();
+            //    }
+            //    //Populate/update (missing) webpage url in my OPML file if required.
+            //    System.Xml.XmlNodeList linkNodes = currentFeed.DocumentElement.SelectNodes("sugar:link", nm);
+            //    foreach (System.Xml.XmlNode linkNode in linkNodes)
+            //    {
+            //        if (linkNode.Attributes.GetNamedItem("type") == null)
+            //        {
+            //        }
+            //        else if (linkNode.Attributes.GetNamedItem("type").Value == "text/html")
+            //        {
+            //            // Got it.
+            //            if (linkNode.Attributes.GetNamedItem("href") == null)
+            //            {
+            //                // Uh, the node is correct, but it doesn't have an href value. Which is wrong, but might happen.
+            //                // So carry on looking
+            //            }
+            //            else
+            //            {
+            //                outlineNode.Attributes.GetNamedItem("htmlUrl").Value = linkNode.Attributes.GetNamedItem("href").Value;
+            //                break;
+            //            }
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    // RSS feed
+            //    foreach (System.Xml.XmlNode item in currentFeed.DocumentElement.SelectNodes("//item"))
+            //    {
+            //        RSSItem rssItem = new RSSItem(item, RSSItem.RSSType.RSS, this._CurrentFeed.url);
+            //        this._CurrentFeed.AddItem(rssItem);
+            //        System.Windows.Forms.Application.DoEvents();
+            //    }
+            //    //Populate/update (missing) webpage url in my OPML file if required.
+            //    outlineNode.Attributes.GetNamedItem("htmlUrl").Value = currentFeed.DocumentElement.SelectSingleNode("//link").InnerText;
+            //}

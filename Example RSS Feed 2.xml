@@ -1,0 +1,1515 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2full.xsl"?>
+<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:admin="http://webns.net/mvcb/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" version="2.0">
+  <channel>
+    <title><![CDATA[A List Apart: The Full Feed]]></title>
+    <link>http://alistapart.com</link>
+    <description>Articles, columns, and blog posts for people who make web sites.</description>
+    <dc:language>en</dc:language>
+    <dc:creator>The fine folks at A List Apart</dc:creator>
+    <dc:rights>Copyright 2013</dc:rights>
+    <dc:date>2013-05-02T11:42:33+00:00</dc:date>
+    <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://feeds.feedburner.com/alistapart/main" />
+    <feedburner:info uri="alistapart/main" />
+    <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
+    <item>
+      <title><![CDATA[Karen McGrane on Content: The Alternative is Nothing]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/8N_c-7U9_M0/the-alternative-is-nothing</link>
+      <guid isPermaLink="false">http://alistapart.com/column/the-alternative-is-nothing</guid>
+      <description>&lt;p&gt;The history of technology innovation is the history of disruption. New technologies become available and disrupt the market for more-established, higher-end products.&lt;/p&gt;
+
+&lt;p&gt;We’re witnessing one of the latest waves of technological disruption, as mobile devices put access to the internet in the hands of people who previously never had that power. Always-available connectivity through PCs and broadband connections has already transformed the lives of people who have it. Mobile internet will do the same for an even larger population worldwide.&lt;/p&gt;
+
+&lt;p&gt;Despite examples from countless industries where disruption has taken place, it’s easy to pretend that it won’t happen to the web. Today’s mobile internet is janky. It’s slow. It’s hard to navigate. It offers only a paltry subset of what’s available on the desktop. It’s hard to imagine anyone truly preferring it.&lt;/p&gt;
+
+&lt;p&gt;Clayton Christensen, author of &lt;cite&gt;The Innovator’s Dilemma&lt;/cite&gt;, argues that lower quality and less-than-adequate performance is, in fact, at the heart of what makes disruptive innovation happen:&lt;/p&gt;
+
+&lt;figure class="quote"&gt;&lt;blockquote&gt;In industry after industry, Christensen discovered, the new technologies that had brought the big, established companies to their knees weren’t better or more advanced—they were actually worse. The new products were low-end, dumb, shoddy, and in almost every way inferior. But the new products were usually cheaper and easier to use, and so people or companies who were not rich or sophisticated enough for the old ones started buying the new ones, and there were so many more of the regular people than there were of the rich, sophisticated people that the companies making the new products prospered. Christensen called these low-end products “disruptive technologies,” because, rather than sustaining technological progress toward better performance, they disrupted it.&lt;/blockquote&gt;
+&lt;figcaption&gt;Larissa MacFarquahar, &lt;a href="http://www.newyorker.com/reporting/2012/05/14/120514fa_fact_macfarquhar"&gt;The &lt;cite&gt;New Yorker&lt;/cite&gt;&lt;/a&gt;
+&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;h2&gt;Disruptive technologies aren’t competitive at the start&lt;/h2&gt;
+
+&lt;p&gt;In terms of quality, disruptive technologies don’t compete. They often have a less-polished design or are crafted of lower-quality materials, equivalent functionality (like bandwidth or memory) costs more compared to earlier products, and they don’t perform as well on key metrics.&lt;/p&gt;
+
+&lt;p&gt;People often point at the failings of the mobile internet as rationale for why it won’t overtake the desktop web. “No one will ever want to do that on mobile” gets used to justify short-sighted decisions. Truth is, we can’t predict all the ways that people will want to use mobile in the future. Jason Grigsby, co-author of &lt;cite&gt;Head First Mobile Web&lt;/cite&gt; (with Lyza Danger Gardner) says “We can&amp;#8217;t predict future behavior from a current experience that sucks.”&lt;/p&gt;
+
+&lt;h2&gt;Disruption happens from the low end&lt;/h2&gt;
+
+&lt;p&gt;Disruptive technologies take off because they create a new market for a product. People who previously could not afford a particular technology get access to it, in a form that (at least at the start) is less powerful and of lower quality. These people aren’t comparing between the more established technology and the new one. They have no other alternative.&lt;/p&gt;
+
+&lt;p&gt;McKinsey estimates that the mobile internet could bring billions of people online:&lt;/p&gt;
+
+&lt;figure class="quote"&gt;&lt;blockquote&gt;However, the full potential of the mobile Internet is yet to be realized; over the coming decade, this technology could fuel significant transformation and disruption, not least from the possibility that the mobile Internet could bring two billion to three billion more people into the connected world and the global economy.&lt;/blockquote&gt;
+&lt;figcaption&gt;&lt;a href="http://www.mckinsey.com/insights/business_technology/disruptive_technologies"&gt;Disruptive technologies: Advances that will transform life, business, and the global economy&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2&gt;Disruptive technologies eventually improve&lt;/h2&gt;
+
+&lt;p&gt;Over time, the quality of low-end technology improves. As more and more people buy into a cheaper, less-capable technology, more attention and focus goes toward refining it. Eventually, it overtakes its larger, more capable predecessor.&lt;/p&gt;
+
+&lt;p&gt;This is the challenge we face in mobile right now. Mobile won’t always be a secondary device or a limited, on-the-go use case. Mobile will be the internet. Comparing its shortcomings to what the desktop web does well is missing the point. Mobile will be &lt;em&gt;better&lt;/em&gt; than the desktop—but it will succeed on what it does uniquely well. &lt;/p&gt;
+
+&lt;p&gt;McKinsey estimates the astonishing potential economic upside of the mobile internet:&lt;/p&gt;
+
+&lt;figure class="quote"&gt;&lt;blockquote&gt;We estimate that for the applications we have sized, the mobile Internet could generate annual economic impact of $3.7 trillion to $10.8 trillion globally by 2025. This value would come from three main sources: improved delivery of services, productivity increases in select work categories, and the value from Internet use for the new Internet users who are likely to be added in 2025, assuming that they will use wireless access either all or part of the time.&lt;/blockquote&gt;
+&lt;figcaption&gt;&lt;a href="http://www.mckinsey.com/insights/business_technology/disruptive_technologies"&gt;Disruptive technologies: Advances that will transform life, business, and the global economy&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Today, the mobile internet provides a lousy experience. For billions of people coming online across the world, it will be their first (and only) way to access the web. The history of disruptive innovation shows that it’s okay if the mobile internet provides a less-than-adequate experience today. Most mobile internet users won’t be comparing between the desktop web and the mobile web. For these people, the alternative is &lt;em&gt;nothing&lt;/em&gt;. &lt;/p&gt;
+
+&lt;p&gt;Tomorrow, the mobile internet will provide a better experience. It’s up to us to make it happen.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/8N_c-7U9_M0" height="1" width="1"/&gt;</description>
+      <dc:subject><![CDATA[<a href="/topic/content">Content</a>, <a href="/topic/user-experience">User Experience</a>, <a href="/topic/industry">Industry</a>, <a href="/topic/mobile-multidevice">Mobile/Multidevice</a>]]></dc:subject>
+      <dc:date>2013-06-06T11:30:15+00:00</dc:date>
+      <feedburner:origLink>http://alistapart.com/column/the-alternative-is-nothing</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Designing for Breakpoints]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/zFkOLCNW-WE/designing-for-breakpoints</link>
+      <guid isPermaLink="false">http://alistapart.com/article/designing-for-breakpoints</guid>
+      <description>&lt;p&gt;Jeremy Keith notes that what happens between the breakpoints is just as important as the breakpoints themselves—perhaps even more so. While I agree with this, we do have to start somewhere. In a way, this part of the process reminds me of storyboarding, or creating animation keyframes, with the in-between frames being developed later. We’re going to do that here.&lt;/p&gt;
+
+&lt;aside class="supplement"&gt;&lt;strong&gt;Major breakpoints&lt;/strong&gt; are conditions that, when met, trigger major changes in your design. A major breakpoint might be, for example, where your entire layout must change from two columns to four.&lt;/aside&gt;
+
+&lt;p&gt;Let’s say you’ve chosen three basic design directions from your thumbnails. Think about what your &lt;strong&gt;major breakpoints&lt;/strong&gt; will look like (Figure 7.6). And here’s the key: &lt;em&gt;try to come up with as few major breakpoints as possible&lt;/em&gt;. That might sound crazy, since we’re talking about responsive design. After all, we have media queries, so let’s use about 12 of them, right? No! If a linear layout works for every screen and is &lt;em&gt;appropriate&lt;/em&gt; for your particular concept, then there’s no need for different layouts. In that case, simply describe what will happen when the screen gets larger. Will everything generally stay the same, with changes only to font size, line height and margins? If so, sketch those. For these variations, make thumbnails first, explore some options, and then move on to larger, more detailed sketches. Use your breakpoint graph as a guide at first and make sketches according to the breakpoints you’ve estimated on your graph.&lt;/p&gt;
+
+&lt;p&gt;When thinking about major breakpoints, remember to think about &lt;em&gt;device classes&lt;/em&gt;. If you’re thinking about smartphones, tablets, laptops/desktops, TVs, and game consoles, for example, you’re heading in the right direction. If you’re thinking in terms of brand names and specific operating systems, you’re on the wrong track. The idea is to think in terms of general device classifications and, sometimes, device capabilities. Capabilities are more important when designing web applications, since you should be thinking about what screens will look like both with and &lt;em&gt;without&lt;/em&gt; any particular capability.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rough sketches&lt;/strong&gt; of major breakpoints can help you determine:&lt;/p&gt;
+
+&lt;aside class="supplement"&gt;&lt;strong&gt;Rough sketches&lt;/strong&gt; are more detailed than thumbnails, but they shouldn’t take a long time to create. In a short period, you should have a sketch of each major breakpoint for each of your chosen designs. This should be enough to decide on one of the designs.&lt;/aside&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Whether or not more major breakpoints are needed&lt;/li&gt;
+&lt;li&gt;Which design choice will be the most labor intensive; you might opt for a design that will better fit within time and budget constraints&lt;/li&gt;
+&lt;li&gt;Whether or not a particular device class has been neglected or needs further consideration&lt;/li&gt;
+&lt;li&gt;What technologies you’ll need to develop the design responsively&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure data-picture data-alt="Figure 7.6"&gt;
+&lt;div data-src="/d/376/ch07-06_small.png" data-media="(max-width: 700px)"&gt;&lt;/div&gt;
+&lt;div data-src="/d/376/ch07-06_small_retina.png" data-media="(max-width: 700px) and (min-device-pixel-ratio: 2.0)"&gt;&lt;/div&gt;
+&lt;div data-src="/d/376/ch07-06_full.png" data-media="(min-width: 701px)"&gt;&lt;/div&gt;
+&lt;div data-src="/d/376/ch07-06_full_retina.png" data-media="(min-width: 701px) and (min-device-pixel-ratio: 2.0)"&gt;&lt;/div&gt;
+&lt;!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. --&gt;
+&lt;noscript&gt;&lt;img src="/d/376/ch07-06_full.png" alt=""&gt;&lt;/noscript&gt;
+&lt;figcaption&gt;Figure 7.6: Most websites need very few major breakpoints.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;aside class="supplement"&gt;&lt;strong&gt;Minor breakpoints&lt;/strong&gt; are conditions that, when met, trigger small changes in your design. An example would be moving form labels from above text fields to the left of those fields, while the rest of the design remains the same.&lt;/aside&gt;
+
+&lt;p&gt;So where and when will you sketch &lt;strong&gt;minor breakpoints&lt;/strong&gt;? &lt;em&gt;In the browser&lt;/em&gt;, when you do your web-based mockup. You’ll find out why and how in the next chapter. In the meantime, simply focus on making sketches of the state of your web pages or app screens at the major breakpoints of each design.&lt;/p&gt;
+
+&lt;p&gt;At this point, don’t worry too much if you notice that the initial breakpoints on your breakpoint graph simply won’t do. Those were just a starting point, and you’re free to revise your estimate based on your sketches. You might even decide that you need an extra breakpoint for a given design and record that in sketch form; you can add that breakpoint to your graph. This is a cycle of discovery, learning, and revision.&lt;/p&gt;
+
+&lt;h2&gt;Think about your content while sketching&lt;/h2&gt;
+
+&lt;p&gt;While sketching, you’ll certainly be thinking about the way things should look. My experience is that much UI sketching of this type revolves around the layout of elements on the screen. I’ve found it useful to keep thinking about the content while sketching, and to consider what will happen to the content in various situations. When designing responsively, it can be useful to consider how you’ll handle the following content in particular:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Text&lt;/li&gt;
+&lt;li&gt;Navigation&lt;/li&gt; 
+&lt;li&gt;Tables&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Oh, sure, there are many more things to consider, and you’ll end up creating your own list of “things to do some extra thinking about” as the project progresses. For now, let’s take a look at the items listed above.&lt;/p&gt;
+
+&lt;h3&gt;Text&lt;/h3&gt;
+
+&lt;p&gt;Before you say, “Hey, wait a minute, didn’t you just tell me that I didn’t have to draw text while sketching?” hear me out. While sketching, there are a couple of text-related issues you’ll need to tackle: column width and text size, both of which are relevant &lt;em&gt;in proportion to the screen and the other elements on the page&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Column width is fairly obvious, but it can be difficult to estimate how wide a column will be with &lt;em&gt;actual&lt;/em&gt; text. In this case, sketching on a device might give you a better idea of the actual space you have to work with. Another method I’ve used is just to make a simple HTML page that contains only text, and load that into a device’s browser (or even an emulator, which while not optimal still gives a more realistic impression than lines on paper). When the text seems too large or too small, you can adjust the font size accordingly. Once it seems right, you’ll be able to make your sketches a bit more realistic.&lt;/p&gt;
+
+&lt;aside class="supplement"&gt;&lt;b&gt;Note:&lt;/b&gt; Distinguish between &lt;strong&gt;touchability&lt;/strong&gt; and &lt;strong&gt;clickability&lt;/strong&gt;. Many designers, myself included, have made the mistake of refining links for people who click on them using a mouse, or even via the keyboard, without considering how touchable these links are for people on touch devices.&lt;/aside&gt;
+
+&lt;p&gt;Think about the size of links—not only the text size, but also the amount of space around them. Both of these factors play a role in the &lt;strong&gt;touchability&lt;/strong&gt; or &lt;strong&gt;clickability&lt;/strong&gt; of links (and buttons): large links and buttons are easier targets, but slightly smaller links with plenty of space around them can work just as well. That said, there’s a decent chance that no matter what you choose to sketch, you’ll end up making changes again when you create your mockups.&lt;/p&gt;
+
+&lt;p&gt;This is the great thing about sketching that I can’t repeat often enough: you’re going to refine your design in the browser anyway, so the speed with which you can try things out when sketching means you won’t have to do detail work more than once (unless your client has changes, but we all know that never happens).&lt;/p&gt;
+
+&lt;h3&gt;Navigation&lt;/h3&gt;
+
+&lt;p&gt;Navigation is another poster child for sketching on actual devices. The size issues are the same as with links, but there’s a lot more thinking to do in terms of the design of navigation for various devices, which means navigation might change significantly at each major breakpoint.&lt;/p&gt;
+
+&lt;p&gt;Think back to Bryan Rieger’s practice of designing in text first, and ponder what you would do &lt;em&gt;before&lt;/em&gt; the very first breakpoint if you had only plain HTML and CSS at your disposal—in other words, if you had no JavaScript. That means no, you can’t have your menu collapsed at the top of the screen and have it drop down when someone touches it. If you have your menu at the top, it’s in its expanded form and takes up all the vertical space it normally would.&lt;/p&gt;
+
+&lt;p&gt;This is a controversial enough subject, with even accessibility gurus in disagreement: JavaScript, after all, is currently considered an “accessibility supported” technology. But this isn’t necessarily about accessibility. It’s about &lt;em&gt;thinking&lt;/em&gt; about what happens when a browser lacks JavaScript support, or if the JavaScript available on the device is different than what you’d expect. Your content will be presented in a certain way before JavaScript does its thing with it, no matter what the browser. So why not think about what that initial state will be?&lt;/p&gt;
+
+&lt;p&gt;In the chapter on wireframes, I talked about my preferred pattern for navigation on the smallest screens: keep it near the bottom of the screen and place a link to that navigation near the top of the screen. JavaScript, when available and working as expected, can move that navigation up to the top and create the drop-down menu on the fly.&lt;/p&gt;
+
+&lt;p&gt;But a pattern is not design law, so how you choose to handle the smallest screens will depend on your project. If I had only a few links in my navigation, I might very well put the menu at the top from the very start, and there it would stay at every breakpoint.&lt;/p&gt;
+
+&lt;p&gt;Remember that JavaScript and CSS let you do a lot of rearranging of stuff on the screen. That knowledge should empower you to safely design a great page with plain HTML and use JavaScript and CSS to spice it up any way you like. This is the essence of progressive enhancement.&lt;/p&gt;
+
+&lt;h3&gt;Tables&lt;/h3&gt;
+
+&lt;p&gt;Tables! Oh, the bane of the responsive designer (or wait, is that images? Or video? Or layout? Ahem). Tables are tough to deal with on small screens. I’d love to tell you I have all the answers, but instead I have more questions. Hopefully, these will lead you to a solution. It’s good to think about these while you’re sketching.&lt;/p&gt;
+
+&lt;p&gt;First of all, what types of tables will you be dealing with? Narrow? Wide? Numerical? Textual? Your content inventory should give you enough information to answer these simple questions. Once you’ve considered those, try to categorize the types of tables you have into something like the following classes (Figure 7.7):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;Small-screen-friendly tables&lt;/b&gt;, which you’ll probably leave as they are, because they’re small enough and will work fine on most small screens.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Blockable tables&lt;/b&gt;, which you can alter with CSS so that each row in the table functions visually as a block item in a list (Figure 7.8).&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Chartable tables&lt;/b&gt;, which contain numerical data that can be transformed into a chart, graph, or other visualization that will take up less space on a small screen.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Difficult tables&lt;/b&gt;, which are hard enough to deal with that you’ll need to come up with a different plan for them, sometimes even on a case-by-case basis. These are our enemies, but unfortunately, are the friends of our clients, who all love Microsoft Excel. Oh well.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure data-picture data-alt="Figure 7.7"&gt;
+&lt;div data-src="/d/376/ch07-07_small.png" data-media="(max-width: 700px)"&gt;&lt;/div&gt;
+&lt;div data-src="/d/376/ch07-07_full.png" data-media="(min-width: 701px)"&gt;&lt;/div&gt;
+&lt;!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. --&gt;
+&lt;noscript&gt;&lt;img src="/d/376/ch07-07_full.png" alt=""&gt;&lt;/noscript&gt;
+&lt;figcaption&gt;Figure 7.7: There are several different types of tables, and different ways of dealing with them on small screens. (Sources: &lt;a href="http://mobilism.nl"&gt;mobilism.nl&lt;/a&gt; and &lt;a href="http://eu-verantwoording.nl/"&gt;eu-verantwoording.nl&lt;/a&gt;)&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;figure data-picture data-alt="Figure 7.8"&gt;
+&lt;div data-src="/d/376/ch07-08_small.png" data-media="(max-width: 700px)"&gt;&lt;/div&gt;
+&lt;div data-src="/d/376/ch07-08_full.png" data-media="(min-width: 701px)"&gt;&lt;/div&gt;
+&lt;!-- Fallback content for non-JS browsers. Same img src as the initial, unqualified source element. --&gt;
+&lt;noscript&gt;&lt;img src="/d/376/ch07-08_full.png" alt=""&gt;&lt;/noscript&gt;
+&lt;figcaption&gt;Figure 7.8: One way of dealing with small screen tables is to treat each row as a block.&lt;/figcaption&gt;&lt;/figure&gt;
+
+&lt;p&gt;Thinking again in terms of progressive enhancement, the base design should probably just include the whole table, which means that the user will have to scroll horizontally to see the whole thing in many cases. On top of this, we can employ CSS and JavaScript, when they’re available, to do some magic for us. Blockable and chartable tables can be &lt;em&gt;blocked&lt;/em&gt; with CSS and &lt;em&gt;charted&lt;/em&gt; with JavaScript. Plenty of designers and developers have experimented with many different options for tables, from simply making the table itself scrollable to exchanging columns and rows.&lt;/p&gt;
+
+&lt;p&gt;The fun part is that what you do on small screens isn’t necessarily what you’ll do on larger screens. That’s why now—when all you have to do is sketch and it won’t take much time—is the time to think about the changes you’ll be making at each breakpoint.&lt;/p&gt;
+
+&lt;h2&gt;What to do if you get stuck&lt;/h2&gt;
+
+&lt;p&gt;Every designer gets stuck at some point. It’s no big deal unless you treat it like one. There are countless ways to deal with it, from asking yourself &lt;em&gt;what if&lt;/em&gt; questions (“What if it weren’t a table, but a list?” is what I asked myself before “blockifying” the attendees table for the Mobilism site) to the cliché &lt;em&gt;taking a shower&lt;/em&gt;, which you hopefully do on a regular basis anyway. The reason this chapter focuses so much on sketching is because the act of drawing itself can actually stimulate your brain to come up with more ideas, provided you push it hard enough by sketching past your comfort zone of first-come ideas.&lt;/p&gt;
+
+&lt;p&gt;If your problem is that you’re stuck creatively, there are many inspiring books and resources to get your creative engine started during the bitter cold of designer’s block. Although there are plenty of resources on design and creativity itself (try such classics as Edward de Bono’s &lt;i&gt;Lateral Thinking&lt;/i&gt;), the greatest inspiration can come from sources outside the realm of design.&lt;sup data-footnote&gt;1&lt;/sup&gt; Trying to combine things that normally aren’t combined can lead to surprising results. It’s a simple little trick, but I’ve often used Brian Eno and Peter Schmidt’s &lt;i&gt;Oblique Strategies&lt;/i&gt; to force me to take a different approach.&lt;sup data-footnote&gt;2&lt;/sup&gt; Worst case, it’s a lot of fun. Best case, you’ve got a great idea!&lt;/p&gt;
+
+&lt;p&gt;If your problem is that you’re not sure how to handle something in the context of responsive design, there’s no harm in researching how others have solved problems like yours. Just be sure to use your creativity and tailor any ideas you might find to your own situation; after all, you’re a designer. At the time of this writing I find Brad Frost’s &lt;i&gt;This Is Responsive&lt;/i&gt; to be one of the most exhaustive collections of responsive design patterns and resources available.&lt;sup data-footnote&gt;3&lt;/sup&gt; You can spend hours going through there and you’ll certainly come across something that will get you unstuck.&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;Excerpted from &lt;i&gt;Responsive Design Workflow&lt;/i&gt; by Stephen Hay. Copyright © 2013.&lt;br /&gt;
+Used with permission of Pearson Education, Inc. and New Riders.&lt;/small&gt;&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/zFkOLCNW-WE" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-06-04T12:00:19+00:00</dc:date>
+      <feedburner:origLink>http://alistapart.com/article/designing-for-breakpoints</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[This week's sponsor: Typekit.]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/JTXkGXypII4/</link>
+      <guid isPermaLink="false">http://typekit.com/?utm_source=grok&amp;utm_medium=sponsor&amp;utm_content=gkge130201&amp;utm_campaign=general&amp;</guid>
+      <description>&lt;p&gt;Desktop fonts in &lt;a href="http://typekit.com/?utm_source=grok&amp;amp;utm_medium=sponsor&amp;amp;utm_content=gkge130201&amp;amp;utm_campaign=general"&gt;Adobe Typekit&lt;/a&gt;&lt;br /&gt;
+ &lt;br /&gt;
+Four years ago, we set out to on a goal to bring great typography to the web. Now, we&amp;#8217;re taking the next step in our evolution: desktop fonts and web fonts together in a single Typekit subscription.&lt;br /&gt;
+ &lt;br /&gt;
+On June 17, we&amp;#8217;ll be making 175 beautiful font families from the Typekit library available for desktop use. You&amp;#8217;ll be able to sync them to your computer and use them in all your applications for web mockups, print design, word processing, and more.&lt;br /&gt;
+ &lt;br /&gt;
+Want a sneak peek? Ben &lt;a href="http://blog.typekit.com/2013/05/06/sneak-preview-syncing-fonts-to-your-desk"&gt;made a screencast&lt;/a&gt; showing how it works. Let us know what you think!&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/JTXkGXypII4" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-06-03T17:00:05+00:00</dc:date>
+      <feedburner:origLink>http://typekit.com/?utm_source=grok&amp;utm_medium=sponsor&amp;utm_content=gkge130201&amp;utm_campaign=general&amp;</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Maps Should Be Crafted, Not “Plugged In”]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/MYIFRr9DzKI/maps-should-be-crafted-not-plugged-in</link>
+      <guid isPermaLink="false">http://cognition.happycog.com/article/maps-should-be-crafted-not-plugged-in</guid>
+      <description>&lt;a href="http://cognition.happycog.com/article/maps-should-be-crafted-not-plugged-in" style="font-size: 18px;"&gt;» Maps Should Be Crafted, Not “Plugged In”&lt;/a&gt;&lt;br&gt;&lt;br&gt;Web designers: erase the line between “the map” and “the content“ by harnessing the power of open-source Leaflet and your own fresh creative thinking. In the tradition of ALA’s recent “Hack Your Maps,” Happy Cog’s Brandon Rosage shares how to make location a central aspect of the content experience—not just a visual aid. &lt;br&gt;&lt;br&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/MYIFRr9DzKI" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-05-30T17:10:40+00:00</dc:date>
+      <feedburner:origLink>http://cognition.happycog.com/article/maps-should-be-crafted-not-plugged-in</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Amazon Web Services Introduces a New API]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/MXux5aUPqRA/aws-iam-now-supports-amazon-facebook-and-google-identity-federation.html</link>
+      <guid isPermaLink="false">http://aws.typepad.com/aws/2013/05/aws-iam-now-supports-amazon-facebook-and-google-identity-federation.html</guid>
+      <description>&lt;a href="http://aws.typepad.com/aws/2013/05/aws-iam-now-supports-amazon-facebook-and-google-identity-federation.html" style="font-size: 18px;"&gt;» Amazon Web Services Introduces a New API&lt;/a&gt;&lt;br&gt;&lt;br&gt;Amazon Web Services Identity and Access Management (IAM) is expanding to support web identity federation. Developers can integrate Amazon.com, Facebook, or Google identity into their app by using the new AWS Security Token Service (STS) API, &lt;code&gt;AssumeRoleWithWebIdentity&lt;/code&gt;, to request temporary security credentials.
+ &lt;br&gt;&lt;br&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/MXux5aUPqRA" height="1" width="1"/&gt;</description>
+      <dc:subject><![CDATA[<a href="/topic/application-development">Application Development</a>]]></dc:subject>
+      <dc:date>2013-05-30T01:00:20+00:00</dc:date>
+      <feedburner:origLink>http://aws.typepad.com/aws/2013/05/aws-iam-now-supports-amazon-facebook-and-google-identity-federation.html</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Responsive Web Design Easter Egg]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/fnj2UIH-fVc/responsive-web-design-easter-egg</link>
+      <guid isPermaLink="false">http://alistapart.com/blog/post/responsive-web-design-easter-egg</guid>
+      <description>&lt;p&gt;Three years ago in these pages, ALA technical editor &lt;a href="http://alistapart.com/author/emarcotte"&gt;Ethan Marcotte&lt;/a&gt; fired the shot heard &amp;#8217;round the web. ALA designer &lt;a href="http://alistapart.com/author/mikepick"&gt;Mike Pick&lt;/a&gt; thought it might be fun to celebrate the third anniversary of &amp;#8220;&lt;a href="http://alistapart.com/article/responsive-web-design"&gt;Responsive Web Design&lt;/a&gt;&amp;#8221; (&lt;cite&gt;A List Apart&lt;/cite&gt; Issue No. 306, May 25, 2010) by secreting an Easter Egg in the original article; our illustrator, &lt;a href="http://alistapart.com/author/kcornell"&gt;Kevin Cornell&lt;/a&gt;, rose to the challenge. &lt;/p&gt;
+
+&lt;p&gt;To see it in action, visit &lt;a href="http://alistapart.com/article/responsive-web-design"&gt;alistapart.com/article/responsive-web-design&lt;/a&gt;, grab the edge of the browser window (device permitting), and perform the responsive resize mambo. (ALA&amp;#8217;s &lt;a href="http://alistapart.com/author/murtaugh"&gt;Tim Murtaugh&lt;/a&gt;, who coded the Easter Egg, has provided a &lt;a href="http://d.alistapart.com/misc-images/responsive-illos-b.mp4"&gt;handy video demo&lt;/a&gt; of what you&amp;#8217;ll see.)&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/fnj2UIH-fVc" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-05-29T17:48:50+00:00</dc:date>
+      <feedburner:origLink>http://alistapart.com/blog/post/responsive-web-design-easter-egg</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Do Users Care About Your Latest News? (Spoiler: No.)]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/NYo3YYDB34Y/</link>
+      <guid isPermaLink="false">http://boagworld.com/content-strategy/website-news/</guid>
+      <description>&lt;a href="http://boagworld.com/content-strategy/website-news/" style="font-size: 18px;"&gt;» Do Users Care About Your Latest News? (Spoiler: No.)&lt;/a&gt;&lt;br&gt;&lt;br&gt;Paul Boag takes a look at some analytics to see what it can tell us about the effectiveness of putting your "latest news" on your home page.&lt;br&gt;&lt;br&gt;℅ &lt;a class="attribution-link" href="https://twitter.com/DiaryCS/status/339469261082882048"&gt;@DiaryCS&lt;/a&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/NYo3YYDB34Y" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-05-28T20:02:14+00:00</dc:date>
+      <feedburner:origLink>http://boagworld.com/content-strategy/website-news/</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Cennydd Bowles on UX & Design: On Changing the World]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/PfzRNQJZag4/on-changing-the-world</link>
+      <guid isPermaLink="false">http://alistapart.com/column/on-changing-the-world</guid>
+      <description>&lt;p&gt;We hear it mostly from proud CEOs and recruiters, as a sweet nothing designed to tempt candidates to drop their counter-offers, or a statement in a desperate pitch deck. We’re changing the world! All it takes is a few hundred fearsome intellects and laptops. Are you in or out?&lt;/p&gt;
+
+&lt;p&gt;It’s a bold claim, and when it crops up in more laughable contexts it’s easy to discount as hubris. But consider the claim more closely and it’s harder to deny. Technology loves to demolish the status quo, and it’s doing it with aplomb.&lt;/p&gt;
+
+&lt;p&gt;The world is struggling to come to terms with the implications of such rapid change. So far, specific industries&amp;#8201;—&amp;#8201;music, news, film&amp;#8201;—&amp;#8201;have had to pick up most of the debris, but now technology is destabilizing some of society’s central pillars: law, finance, education, defense, and politics. We’ve recently seen the rise of a rogue currency outside the global financial system. Crowdsourced vigilantism. The further erosion of the concept of ownership. State-sponsored hacking. Technologists are already making buildings busier than any hospital, and cities ten times the size of Tokyo. We’re hacking around the limitations of space and time. It’s sci-fi stuff, unevenly distributed straight into our inboxes. Today we label these feats “digital,” but before long that qualifier will no longer make much sense. &lt;/p&gt;
+
+&lt;p&gt;It’s hardly surprising that work on this scale challenges existing systems and behaviors. &lt;/p&gt;
+
+&lt;figure class="quote"&gt;
+&lt;blockquote&gt;Once you have something that grows faster than education grows, you’re always going to get a pop culture.&lt;/blockquote&gt;
+&lt;figcaption&gt;&lt;a href="http://queue.acm.org/detail.cfm?id=1039523"&gt;Alan Kay&lt;/a&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;From the inside, it’s exciting to see technology race ahead of the social frameworks that surround it. Our industry is in thrall to disruption, just so long as it happens to someone else. And although we can feign disinterest&amp;#8201;—“It’s not our fault you can’t keep up…”—&amp;#8201;power is a fresh, intoxicating phenomenon for geeks like us.&lt;/p&gt;
+
+&lt;p&gt;Outside our bubble, the change is more worrying. Technology is becoming the lingua franca of the modern elite, but it’s a language the world doesn’t yet fully understand. Today, a tiny clique has disproportionate influence on global culture. This group is largely young, male, white, and concentrated around wealthy urban regions, particularly the San Francisco Bay Area.&lt;/p&gt;
+
+&lt;p&gt;Doubtless many readers identify with this group, as do I. But we must admit it’s not a group that’s terribly well versed in the ways of the world. Therefore, those of us in the privileged position of affecting the course of technology have a duty to inform others of our intentions and listen to their feedback.&lt;/p&gt;
+
+&lt;p&gt;Grass-roots schemes like the UK’s &lt;a href="http://www.codeclub.org.uk"&gt;Code Club&lt;/a&gt; encourage digital literacy by introducing the public to the fundamentals of programming. These are important and welcome initiatives. But as well as raw technical knowledge, we need to stir up public debate on the societal implications of technology. Who controls our data? How does &lt;abbr title="Digital Rights Management"&gt;DRM&lt;/abbr&gt; affect commerce and the public’s possessions? What will privacy mean in a Glass-wearing era?&lt;/p&gt;
+
+&lt;p&gt;The tech industry is well placed to begin these conversations—not because we understand the likely cultural impact (frankly, we’re pretty clueless there) but because we have advanced warning of emerging technologies.&lt;/p&gt;
+
+&lt;p&gt;As &lt;a href="http://www.billbuxton.com/"&gt;Bill Buxton&lt;/a&gt; has argued, new technologies take roughly 20 years to reach the mainstream. The mouse, the touchscreen, the mobile phone, wearable computers: none was an overnight success. All existed as prototypes in &lt;abbr title="research and development"&gt;R&amp;amp;D&lt;/abbr&gt; labs and thought experiments in academic papers long before they were commercialized.&lt;/p&gt;
+
+&lt;p&gt;Industry insiders can all take a strong guess at what will be the next generation’s disruptive digital technologies. It’s time to talk about the potential impact of 3D printing, voice inputs, pervasive networks, and embedded computing today, not when the products hit the shelves.&lt;/p&gt;
+
+&lt;p&gt;We already have the tools required to begin these discussions: blogs, tweets, conference talks, conversations with friends outside the industry. We can also reach further by taking up the issues with government representatives or the media, writing books, and starting public campaigns. But soapboxes and councils aren’t the only way to raise these issues: our products can also speak for us.&lt;/p&gt;
+
+&lt;p&gt;One way we can clarify the function and implications of new technology is to design self-disclosure into it. Innovative products should help users form accurate mental models of how they work, and discuss consequences the user may not have considered. For example, a voice-operated technology could explain how to prevent others from triggering it, or remind the user to be conscious of her environment before issuing sensitive commands. A networked car telemetry system could notify the user exactly who has access to this data, and why sharing it with the insurance company could lead to lower premiums.&lt;/p&gt;
+
+&lt;p&gt;This notion of self-disclosure doesn’t sit too well with the modern preference for seamlessness. I’ve previously questioned whether the &lt;a href="http://alistapart.com/column/looking-beyond-user-centered-design"&gt;“invisible interface” deprecates style&lt;/a&gt; and risks homogenizing design. But there are broader questions too.&lt;/p&gt;
+
+&lt;p&gt;The black box model&amp;#8201;—&amp;#8201;a device or product that hides its mechanics and complexity&amp;#8201;—&amp;#8201;can be useful for designing appealing, marketable products. However, it can also act against users’ interests.&lt;/p&gt;
+
+&lt;p&gt;First, black boxes are harder to diagnose and debug. Without an entry point (serviceable hardware, an API, or even just some flashing LEDs) and knowledge of how the thing works, a black box can be stubborn and uncommunicative when something goes wrong. Imagine a house full of co-operating devices that all fail because an OS somewhere in that network has crashed. The designer of this system must provide some visibility into the workings of the network, allowing the user to resolve the problem.&lt;/p&gt;
+
+&lt;p&gt;Second, black box devices have the potential to reduce the user’s agency. It’s hard to understand a device that seems to act of its own accord. A seamless device demands trust, but offers no way for the user to decide if that trust is warranted. There’s a risk that invisible interfaces could therefore become breeding grounds for unethical design. Since the user has little insight into the workings of the system, it becomes easier to slip personal data to an unknown IP, connect to a premium-rate phone line, or perform some other hostile act.&lt;/p&gt;
+
+&lt;p&gt;So seamlessness may not be the right model for new genres of technology. Perhaps it’s better for the first wave of innovative devices to be explicit about their workings and implications, helping the public to understand and react appropriately. Once people become more familiar with the technology, designers can carefully taper this self-disclosure off.&lt;/p&gt;
+
+&lt;p&gt;It may be harder to design a slick user experience if we expose the workings of a device, but advocating transparency is about designing a good experience for humankind, not just a single user. It demonstrates an ethical, holistic mindset that’s becoming ever more important as technology becomes central to people’s lives.&lt;/p&gt;
+
+&lt;p&gt;For ethical values to thrive in our field, we can’t let the pace of change seduce us into thinking we&amp;#8217;ve no time for them. Designers and engineers alike need to think deeply about the implications of the things we make, and appreciate the value of doing so. We also need role models. I long for our industry to stop fetishizing entrepreneurs and billion-dollar buyouts, and instead to praise technologists who inform the public about new technology, or companies that make tough decisions for the greater good.&lt;/p&gt;
+
+&lt;p&gt;Individuals within the tech industry also need the courage to do the right thing. The job market is so strong that the only response to unethical pressure from employers should be a hearty middle-fingered farewell. And where &lt;a href="http://alistapart.com/article/dark-patterns-deception-vs.-honesty-in-ui-design"&gt;dark patterns&lt;/a&gt; do emerge, the industry must highlight these dirty tricks, and explain to the public how they can avoid being taken for a ride.&lt;/p&gt;
+
+&lt;p&gt;Finally, the tech community should educate itself about global issues. Our tiny elite needs to understand the world in order to affect it positively. Efforts to travel, to learn about other cultures and contexts, and to consider use cases beyond those of our nearest neighbors will help reduce the risk of technological imperialism. It would be a mistake to assume that a solution that works for a Western techie will work for a North African trader.&lt;/p&gt;
+
+&lt;p&gt;These are complex times for the tech industry, and the consequences of taking a wrong step could be severe. Let’s dedicate thoughtful time to ensure the effect we’re having on the world is positive. The results will also be good for our own industry: an informed public means a greater trust of and appetite for our work.&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/PfzRNQJZag4" height="1" width="1"/&gt;</description>
+      <dc:subject><![CDATA[<a href="/topic/user-experience">User Experience</a>, <a href="/topic/interaction-design">Interaction Design</a>]]></dc:subject>
+      <dc:date>2013-05-28T12:30:00+00:00</dc:date>
+      <feedburner:origLink>http://alistapart.com/column/on-changing-the-world</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[The Design of Code: Organizing JavaScript]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/x0nEW66nHaE/the-design-of-code-organizing-javascript</link>
+      <guid isPermaLink="false">http://alistapart.com/article/the-design-of-code-organizing-javascript</guid>
+      <description>&lt;p&gt;Great design is a product of care and attention applied to areas that matter, resulting in a useful, understandable, and hopefully beautiful user interface. But don’t be fooled into thinking that design is left only for designers.&lt;/p&gt;
+
+&lt;p&gt;There is a lot of design in code, and I don’t mean code that builds the user interface—I mean the design &lt;em&gt;of&lt;/em&gt; code.&lt;/p&gt;
+
+&lt;p&gt;Well-designed code is much easier to maintain, optimize, and extend, making for more efficient developers. That means more focus and energy can be spent on building great things, which makes everyone happy—users, developers, and stakeholders.&lt;/p&gt;
+
+&lt;p&gt;There are three high-level, language-agnostic aspects to code design that are particularly important.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;System architecture—The basic layout of the codebase. Rules that govern how various components, such as models, views, and controllers, interact with each other.&lt;/li&gt;
+&lt;li&gt;Maintainability—How well can the code be improved and extended?&lt;/li&gt;
+&lt;li&gt;Reusability—How reusable are the application’s components? How easily can each implementation of a component be customized?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In looser languages, specifically JavaScript, it takes a bit of discipline to write well-designed code. The JavaScript environment is so forgiving that it’s easy to throw bits and pieces everywhere and still have things work. Establishing system architecture early (and sticking to it!) provides constraints to your codebase, ensuring consistency throughout.&lt;/p&gt;
+
+&lt;p&gt;One approach I’m fond of consists of a tried-and-true software design pattern, the module pattern, whose extensible structure lends itself to a solid system architecture and a maintainable codebase. I like building modules within a jQuery plugin, which makes for beautiful reusability, provides robust options, and exposes a well-crafted API.&lt;/p&gt;
+
+&lt;p&gt;Below, I’ll walk through how to craft your code into well-organized components that can be reused in projects to come.&lt;/p&gt;
+
+&lt;h2&gt;The module pattern&lt;/h2&gt;
+
+&lt;p&gt;There are a &lt;em&gt;lot&lt;/em&gt; of design patterns out there, and equally as many resources on them. &lt;a href="https://twitter.com/addyosmani"&gt;Addy Osmani&lt;/a&gt; wrote an &lt;a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/"&gt;amazing (free!) book&lt;/a&gt; on design patterns in JavaScript, which I highly recommend to developers of all levels.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript"&gt;module pattern&lt;/a&gt; is a simple structural foundation that can help keep your code clean and organized. A “module” is just a standard object literal containing methods and properties, and that simplicity is the best thing about this pattern: even someone unfamiliar with traditional software design patterns would be able to look at the code and instantly understand how it works.&lt;/p&gt;
+
+&lt;p&gt;In applications that use this pattern, each component gets its own distinct module. For example, to build autocomplete functionality, you’d create a module for the textfield and a module for the results list. These two modules would work together, but the textfield code wouldn’t touch the results list code, and vice versa.&lt;/p&gt;
+
+&lt;p&gt;That decoupling of components is why the module pattern is great for building solid system architecture. Relationships within the application are well-defined; anything related to the textfield is managed by the textfield module, not strewn throughout the codebase—resulting in clear code.&lt;/p&gt;
+
+&lt;p&gt;Another benefit of module-based organization is that it is inherently maintainable. Modules can be improved and optimized independently without affecting any other part of the application.&lt;/p&gt;
+
+&lt;p&gt;I used the module pattern for the basic structure of &lt;a href="http://jpanelmenu.com/"&gt;jPanelMenu&lt;/a&gt;, the jQuery plugin I built for off-canvas menu systems. I’ll use that as an example to illustrate the process of building a module.&lt;/p&gt;
+
+&lt;h2&gt;Building a module&lt;/h2&gt;
+
+&lt;p&gt;To begin, I define three methods and a property that are used to manage the interactions of the menu system.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var jpm = {
+    animated: true,
+    openMenu: function( ) {
+        …
+        this.setMenuStyle( );
+    },
+    closeMenu: function( ) {
+        …
+        this.setMenuStyle( );
+    },
+    setMenuStyle: function( ) { … }
+};&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The idea is to break down code into the smallest, most reusable bits possible. I could have written just one &lt;code&gt;toggleMenu( )&lt;/code&gt; method, but creating distinct &lt;code&gt;openMenu( )&lt;/code&gt; and &lt;code&gt;closeMenu( )&lt;/code&gt; methods provides more control and reusability within the module.&lt;/p&gt;
+
+&lt;p&gt;Notice that calls to module methods and properties from &lt;em&gt;within&lt;/em&gt; the module itself (such as the calls to &lt;code&gt;setMenuStyle( )&lt;/code&gt;) are prefixed with the &lt;code&gt;this&lt;/code&gt; keyword—that’s how modules access their own members.&lt;/p&gt;
+
+&lt;p&gt;That’s the basic structure of a module. You can continue to add methods and properties as needed, but it doesn’t get any more complex than that. After the structural foundations are in place, the reusability layer—options and an exposed API—can be built on top.&lt;/p&gt;
+
+&lt;h2&gt;jQuery plugins&lt;/h2&gt;
+
+&lt;p&gt;The third aspect of well-designed code is probably the most crucial: reusability. This section comes with a caveat. While there are obviously ways to build and implement reusable components in raw JavaScript (we’re about 90 percent of the way there with our module above), I prefer to build jQuery plugins for more complex things, for a few reasons.&lt;/p&gt;
+
+&lt;p&gt;Most importantly, it’s a form of unobtrusive communication. If you used jQuery to build a component, you should make that obvious to those implementing it. Building the component as a jQuery plugin is a great way to say that jQuery is required.&lt;/p&gt;
+
+&lt;p&gt;In addition, the implementation code will be consistent with the rest of the jQuery-based project code. That’s good for aesthetic reasons, but it also means (to an extent) that developers can predict how to interact with the plugin without too much research. Just one more way to build a better developer interface.&lt;/p&gt;
+
+&lt;p&gt;Before you begin building a jQuery plugin, ensure that the plugin does not conflict with other JavaScript libraries using the &lt;code&gt;$&lt;/code&gt; notation. That’s a lot simpler than it sounds—just wrap your plugin code like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;(function($) {
+    // jQuery plugin code here
+})(jQuery);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next, we set up our plugin and drop our previously built module code inside. A plugin is just a method defined on the jQuery &lt;code&gt;($)&lt;/code&gt; object.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;(function($) {
+    $.jPanelMenu = function( ) {
+        var jpm = {
+            animated: true,
+            openMenu: function( ) {
+                …
+                this.setMenuStyle( );
+            },
+            closeMenu: function( ) {
+                …
+                this.setMenuStyle( );
+            },
+            setMenuStyle: function( ) { … }
+        };
+    };
+})(jQuery);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;All it takes to use the plugin is a call to the function you just created.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var jpm = $.jPanelMenu( );&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Options&lt;/h2&gt;
+
+&lt;p&gt;Options are essential to any truly reusable plugin because they allow for customizations to each implementation. Every project brings with it a slew of design styles, interaction types, and content structures. Customizable options help ensure that you can adapt the plugin to fit within those project constraints.&lt;/p&gt;
+
+&lt;p&gt;It’s best practice to provide good default values for your options. The easiest way to do that is to use jQuery’s &lt;code&gt;$.extend( )&lt;/code&gt; method, which accepts (at least) two arguments.&lt;/p&gt;
+
+&lt;p&gt;As the first argument of &lt;code&gt;$.extend( )&lt;/code&gt;, define an object with all available options and their default values. As the second argument, pass through the passed-in options. This will merge the two objects, overriding the defaults with any passed-in options.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;(function($) {
+    $.jPanelMenu = function(options) {
+        var jpm = {
+            options: $.extend({
+                'animated': true,
+                'duration': 500,
+                'direction': 'left'
+            }, options),
+            openMenu: function( ) {
+                …
+                this.setMenuStyle( );
+            },
+            closeMenu: function( ) {
+                …
+                this.setMenuStyle( );
+            },
+            setMenuStyle: function( ) { … }
+        };
+    };
+})(jQuery);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Beyond providing good defaults, options become almost self-documenting—someone can look at the code and see all of the available options immediately.&lt;/p&gt;
+
+&lt;p&gt;Expose as many options as is feasible. The customization will help in future implementations, and flexibility never hurts.&lt;/p&gt;
+
+&lt;h2&gt;API&lt;/h2&gt;
+
+&lt;p&gt;Options are terrific ways to customize how a plugin works. An API, on the other hand, enables extensions to the plugin’s functionality by exposing methods and properties for the implementation code to take advantage of.&lt;/p&gt;
+
+&lt;p&gt;While it’s great to expose as much as possible through an API, the outside world shouldn’t have access to all internal methods and properties. Ideally, you should expose only the elements that will be used.&lt;/p&gt;
+
+&lt;p&gt;In our example, the exposed API should include calls to open and close the menu, but nothing else. The internal &lt;code&gt;setMenuStyle( )&lt;/code&gt; method runs when the menu opens and closes, but the public doesn’t need access to it.&lt;/p&gt;
+
+&lt;p&gt;To expose an API, return an object with any desired methods and properties at the end of the plugin code. You can even map returned methods and properties to those within the module code—this is where the beautiful organization of the module pattern really shines.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;(function($) {
+    $.jPanelMenu = function(options) {
+        var jpm = {
+            options: $.extend({
+                'animated': true,
+                'duration': 500,
+                'direction': 'left'
+            }, options),
+            openMenu: function( ) {
+                …
+                this.setMenuStyle( );
+            },
+            closeMenu: function( ) {
+                …
+                this.setMenuStyle( );
+            },
+            setMenuStyle: function( ) { … }
+        };
+
+        return {
+            open: jpm.openMenu,
+            close: jpm.closeMenu,
+            someComplexMethod: function( ) { … }
+        };
+    };
+})(jQuery);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;API methods and properties will be available through the object returned from the plugin initialization.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var jpm = $.jPanelMenu({
+    duration: 1000,
+    …
+});
+jpm.open( );&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Polishing developer interfaces&lt;/h2&gt;
+
+&lt;p&gt;With just a few simple constructs and guidelines, we’ve built ourselves a reusable, extensible plugin that will help make our lives easier. Like any part of what we do, experiment with this structure to see if it works for you, your team, and your workflow.&lt;/p&gt;
+
+&lt;p&gt;Whenever I find myself building something with a potential for reuse, I break it out into a module-based jQuery plugin. The best part about this approach is that it forces you to use—and test—the code you write. By using something as you build it, you’ll quickly identify strengths, discover shortcomings, and plan changes.&lt;/p&gt;
+
+&lt;p&gt;This process leads to battle-tested code ready for open-source contributions, or to be sold and distributed. I’ve released my (mostly) polished plugins as open-source projects on &lt;a href="https://github.com/acolangelo"&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Even if you aren’t building something to be released in the wild, it’s still important to think about the design of your code. Your future self will thank you.&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/x0nEW66nHaE" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-05-21T12:00:38+00:00</dc:date>
+      <feedburner:origLink>http://alistapart.com/article/the-design-of-code-organizing-javascript</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Writing Testable JavaScript]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/EcxNHDRHkTM/writing-testable-javascript</link>
+      <guid isPermaLink="false">http://alistapart.com/article/writing-testable-javascript</guid>
+      <description>&lt;p&gt;We’ve all been there: that bit of JavaScript functionality that started out as just a handful of lines grows to a dozen, then two dozen, then more. Along the way, a function picks up a few more arguments; a conditional picks up a few more conditions. And then one day, the bug report comes in: something’s broken, and it’s up to us to untangle the mess.&lt;/p&gt;
+
+&lt;p&gt;As we ask our client-side code to take on more and more responsibilities—indeed, whole applications are living largely in the browser these days—two things are becoming clear. One, we can’t just point and click our way through testing that things are working as we expect; automated tests are key to having confidence in our code. Two, we’re probably going to have to change how we write our code in order to make it possible to write tests.&lt;/p&gt;
+
+&lt;p&gt;Really, we need to change how we code? Yes—because even if we know that automated tests are a good thing, most of us are probably only able to write integration tests right now. Integration tests are valuable because they focus on how the pieces of an application work together, but what they don’t do is tell us whether individual &lt;em&gt;units of functionality&lt;/em&gt; are behaving as expected.&lt;/p&gt;
+
+&lt;p&gt;That’s where unit testing comes in. And we’ll have a very hard time &lt;em&gt;writing unit tests&lt;/em&gt; until we start &lt;em&gt;writing testable JavaScript&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Unit vs. integration: what’s the difference?&lt;/h2&gt;
+
+&lt;p&gt;Writing integration tests is usually fairly straightforward: we simply write code that describes how a user interacts with our app, and what the user should expect to see as she does. &lt;a href="http://docs.seleniumhq.org/"&gt;Selenium&lt;/a&gt; is a popular tool for automating browsers. &lt;a href="https://github.com/jnicklas/capybara"&gt;Capybara&lt;/a&gt; for Ruby makes it easy to talk to Selenium, and there are plenty of tools for other languages, too.&lt;/p&gt;
+
+&lt;p&gt;Here’s an integration test for a portion of a search app:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;def test_search
+  fill_in(&amp;#39;q&amp;#39;, :with =&amp;gt; &amp;#39;cat&amp;#39;)
+  find(&amp;#39;.btn&amp;#39;).click
+  assert( find(&amp;#39;#results li&amp;#39;).has_content?(&amp;#39;cat&amp;#39;), &amp;#39;Search results are shown&amp;#39; )
+  assert( page.has_no_selector?(&amp;#39;#results li.no-results&amp;#39;), &amp;#39;No results is not shown&amp;#39; )
+end&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Whereas an integration test is interested in a user’s interaction with an app, a unit test is narrowly focused on a small piece of code:&lt;/p&gt;
+
+&lt;figure class="quote"&gt;
+&lt;blockquote&gt;When I call a function with a certain input, do I receive the expected output? &lt;/blockquote&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Apps that are written in a traditional procedural style can be very difficult to unit test—and difficult to maintain, debug, and extend, too. But if we write our code with our future unit testing needs in mind, we will not only find that writing the tests becomes more straightforward than we might have expected, but also that we’ll simply &lt;em&gt;write better code&lt;/em&gt;, too.&lt;/p&gt;
+
+&lt;p&gt;To see what I’m talking about, let’s take a look at a simple search app:&lt;/p&gt;
+
+&lt;figure&gt;&lt;img src="http://d.alistapart.com/375/app.png" alt="Srchr"&gt;&lt;/figure&gt;
+
+&lt;p&gt;When a user enters a search term, the app sends an XHR to the server for the corresponding data. When the server responds with the data, formatted as JSON, the app takes that data and displays it on the page, using client-side templating. A user can click on a search result to indicate that he “likes” it; when this happens, the name of the person he liked is added to the “Liked” list on the right-hand side.&lt;/p&gt;
+
+&lt;p&gt;A “traditional” JavaScript implementation of this app might look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var tmplCache = {};
+
+function loadTemplate (name) {
+  if (!tmplCache[name]) {
+    tmplCache[name] = $.get(&amp;#39;/templates/&amp;#39; + name);
+  }
+  return tmplCache[name];
+}
+
+$(function () {
+
+  var resultsList = $(&amp;#39;#results&amp;#39;);
+  var liked = $(&amp;#39;#liked&amp;#39;);
+  var pending = false;
+
+  $(&amp;#39;#searchForm&amp;#39;).on(&amp;#39;submit&amp;#39;, function (e) {
+    e.preventDefault();
+
+    if (pending) { return; }
+
+    var form = $(this);
+    var query = $.trim( form.find(&amp;#39;input[name=&amp;quot;q&amp;quot;]&amp;#39;).val() );
+
+    if (!query) { return; }
+
+    pending = true;
+
+    $.ajax(&amp;#39;/data/search.json&amp;#39;, {
+      data : { q: query },
+      dataType : &amp;#39;json&amp;#39;,
+      success : function (data) {
+        loadTemplate(&amp;#39;people-detailed.tmpl&amp;#39;).then(function (t) {
+          var tmpl = _.template(t);
+          resultsList.html( tmpl({ people : data.results }) );
+          pending = false;
+        });
+      }
+    });
+
+    $(&amp;#39;&amp;lt;li&amp;gt;&amp;#39;, {
+      &amp;#39;class&amp;#39; : &amp;#39;pending&amp;#39;,
+      html : &amp;#39;Searching &amp;amp;hellip;&amp;#39;
+    }).appendTo( resultsList.empty() );
+  });
+
+  resultsList.on(&amp;#39;click&amp;#39;, &amp;#39;.like&amp;#39;, function (e) {
+    e.preventDefault();
+    var name = $(this).closest(&amp;#39;li&amp;#39;).find(&amp;#39;h2&amp;#39;).text();
+    liked.find(&amp;#39;.no-results&amp;#39;).remove();
+    $(&amp;#39;&amp;lt;li&amp;gt;&amp;#39;, { text: name }).appendTo(liked);
+  });
+
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;My friend &lt;a href="https://twitter.com/ajpiano"&gt;Adam Sontag&lt;/a&gt; calls this &lt;cite&gt;Choose Your Own Adventure&lt;/cite&gt; code—on any given line, we might be dealing with presentation, or data, or user interaction, or application state. Who knows! It’s easy enough to write integration tests for this kind of code, but it’s hard to test individual &lt;em&gt;units of functionality&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;What makes it hard? Four things:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A general lack of structure; almost everything happens in a &lt;code&gt;$(document).ready()&lt;/code&gt; callback, and then in anonymous functions that can’t be tested because they aren’t exposed.&lt;/li&gt;
+&lt;li&gt;Complex functions; if a function is more than 10 lines, like the submit handler, it’s highly likely that it’s doing too much.&lt;/li&gt;
+&lt;li&gt;Hidden or shared state; for example, since &lt;code&gt;pending&lt;/code&gt; is in a closure, there’s no way to test whether the pending state is set correctly.&lt;/li&gt;
+&lt;li&gt;Tight coupling; for example, a &lt;code&gt;$.ajax&lt;/code&gt; success handler shouldn’t need direct access to the DOM.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Organizing our code&lt;/h2&gt;
+
+&lt;p&gt;The first step toward solving this is to take a less tangled approach to our code, breaking it up into a few different areas of responsibility:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Presentation and interaction&lt;/li&gt;
+&lt;li&gt;Data management and persistence&lt;/li&gt;
+&lt;li&gt;Overall application state&lt;/li&gt;
+&lt;li&gt;Setup and glue code to make the pieces work together&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the “traditional” implementation shown above, these four categories are intermingled—on one line we’re dealing with presentation, and two lines later we might be communicating with the server.&lt;/p&gt;
+
+&lt;figure&gt;&lt;img src="http://d.alistapart.com/375/code-lines.png" alt="Code Lines"&gt;&lt;/figure&gt;
+
+&lt;p&gt;While we can absolutely write integration tests for this code—and we should!—writing unit tests for it is pretty difficult. In our functional tests, we can make assertions such as “when a user searches for something, she should see the appropriate results,” but we can’t get much more specific. If something goes wrong, we’ll have to track down exactly where it went wrong, and our functional tests won’t help much with that.&lt;/p&gt;
+
+&lt;p&gt;If we rethink how we write our code, though, we can write unit tests that will give us better insight into where things went wrong, and also help us end up with code that’s easier to reuse, maintain, and extend.&lt;/p&gt;
+
+&lt;p&gt;Our new code will follow a few guiding principles:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Represent each distinct piece of behavior as a separate object that falls into one of the four areas of responsibility and doesn’t need to know about other objects. This will help us avoid creating tangled code.&lt;/li&gt;
+&lt;li&gt;Support configurability, rather than hard-coding things. This will prevent us from replicating our entire HTML environment in order to write our tests.&lt;/li&gt;
+&lt;li&gt;Keep our objects’ methods simple and brief. This will help us keep our tests simple and our code easy to read.&lt;/li&gt;
+&lt;li&gt;Use constructor functions to create instances of objects. This will make it possible to create “clean” copies of each piece of code for the sake of testing.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To start with, we need to figure out how we’ll break our application into different pieces. We’ll have three pieces dedicated to presentation and interaction: the Search Form, the Search Results, and the Likes Box.&lt;/p&gt;
+
+&lt;figure&gt;&lt;img src="http://d.alistapart.com/375/app-views.png" alt="Application Views"&gt;&lt;/figure&gt;
+
+&lt;p&gt;We’ll also have a piece dedicated to fetching data from the server and a piece dedicated to gluing everything together.&lt;/p&gt;
+
+&lt;p&gt;Let’s start by looking at one of the simplest pieces of our application: the Likes Box. In the original version of the app, this code was responsible for updating the Likes Box:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var liked = $(&amp;#39;#liked&amp;#39;);
+
+var resultsList = $(&amp;#39;#results&amp;#39;);
+
+
+// ...
+
+
+resultsList.on(&amp;#39;click&amp;#39;, &amp;#39;.like&amp;#39;, function (e) {
+  e.preventDefault();
+
+  var name = $(this).closest(&amp;#39;li&amp;#39;).find(&amp;#39;h2&amp;#39;).text();
+
+  liked.find( &amp;#39;.no-results&amp;#39; ).remove();
+
+  $(&amp;#39;&amp;lt;li&amp;gt;&amp;#39;, { text: name }).appendTo(liked);
+
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The Search Results piece is completely intertwined with the Likes Box piece and needs to know a lot about its markup. A much better and more testable approach would be to create a Likes Box object that’s responsible for manipulating the DOM related to the Likes Box:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var Likes = function (el) {
+  this.el = $(el);
+  return this;
+};
+
+Likes.prototype.add = function (name) {
+  this.el.find(&amp;#39;.no-results&amp;#39;).remove();
+  $(&amp;#39;&amp;lt;li&amp;gt;&amp;#39;, { text: name }).appendTo(this.el);
+};&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This code provides a constructor function that creates a new instance of a Likes Box. The instance that’s created has an &lt;code&gt;.add()&lt;/code&gt; method, which we can use to add new results. We can write a couple of tests to prove that it works:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var ul;
+
+setup(function(){
+  ul = $(&amp;#39;&amp;lt;ul&amp;gt;&amp;lt;li class=&amp;quot;no-results&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&amp;#39;);
+});
+
+test(&amp;#39;constructor&amp;#39;, function () {
+  var l = new Likes(ul);
+  assert(l);
+});
+
+test(&amp;#39;adding a name&amp;#39;, function () {
+  var l = new Likes(ul);
+  l.add(&amp;#39;Brendan Eich&amp;#39;);
+
+  assert.equal(ul.find(&amp;#39;li&amp;#39;).length, 1);
+  assert.equal(ul.find(&amp;#39;li&amp;#39;).first().html(), &amp;#39;Brendan Eich&amp;#39;);
+  assert.equal(ul.find(&amp;#39;li.no-results&amp;#39;).length, 0);
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Not so hard, is it? Here we’re using &lt;a href="http://visionmedia.github.io/mocha/"&gt;Mocha&lt;/a&gt; as the test &lt;em&gt;framework&lt;/em&gt;, and &lt;a href="http://chaijs.com/"&gt;Chai&lt;/a&gt; as the &lt;em&gt;assertion library&lt;/em&gt;. Mocha provides the &lt;code&gt;test&lt;/code&gt; and &lt;code&gt;setup&lt;/code&gt; functions; Chai provides &lt;code&gt;assert&lt;/code&gt;. There are plenty of other test frameworks and assertion libraries to choose from, but for the sake of an introduction, I find these two work well. You should find the one that works best for you and your project—aside from Mocha, &lt;a href="http://qunitjs.com/"&gt;QUnit&lt;/a&gt; is popular, and &lt;a href="http://theintern.io/"&gt;Intern&lt;/a&gt; is a new framework that shows a lot of promise.&lt;/p&gt;
+
+&lt;p&gt;Our test code starts out by creating an element that we’ll use as the container for our Likes Box. Then, it runs two tests: one is a sanity check to make sure we can make a Likes Box; the other is a test to ensure that our &lt;code&gt;.add()&lt;/code&gt; method has the desired effect. With these tests in place, we can safely refactor the code for our Likes Box, and be confident that we’ll know if we break anything.&lt;/p&gt;
+
+&lt;p&gt;Our new application code can now look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var liked = new Likes(&amp;#39;#liked&amp;#39;);
+var resultsList = $(&amp;#39;#results&amp;#39;);
+
+
+
+// ...
+
+
+
+resultsList.on(&amp;#39;click&amp;#39;, &amp;#39;.like&amp;#39;, function (e) {
+  e.preventDefault();
+
+  var name = $(this).closest(&amp;#39;li&amp;#39;).find(&amp;#39;h2&amp;#39;).text();
+
+  liked.add(name);
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The Search Results piece is more complex than the Likes Box, but let’s take a stab at refactoring that, too. Just as we created an &lt;code&gt;.add()&lt;/code&gt; method on the Likes Box, we also want to create methods for interacting with the Search Results. We’ll want a way to add new results, as well as a way to &amp;#8220;broadcast&amp;#8221; to the rest of the app when things happen within the Search Results—for example, when someone likes a result.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var SearchResults = function (el) {
+  this.el = $(el);
+  this.el.on( &amp;#39;click&amp;#39;, &amp;#39;.btn.like&amp;#39;, _.bind(this._handleClick, this) );
+};
+
+SearchResults.prototype.setResults = function (results) {
+  var templateRequest = $.get(&amp;#39;people-detailed.tmpl&amp;#39;);
+  templateRequest.then( _.bind(this._populate, this, results) );
+};
+
+SearchResults.prototype._handleClick = function (evt) {
+  var name = $(evt.target).closest(&amp;#39;li.result&amp;#39;).attr(&amp;#39;data-name&amp;#39;);
+  $(document).trigger(&amp;#39;like&amp;#39;, [ name ]);
+};
+
+SearchResults.prototype._populate = function (results, tmpl) {
+  var html = _.template(tmpl, { people: results });
+  this.el.html(html);
+};&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, our old app code for managing the interaction between Search Results and the Likes Box could look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var liked = new Likes(&amp;#39;#liked&amp;#39;);
+var resultsList = new SearchResults(&amp;#39;#results&amp;#39;);
+
+
+// ...
+
+
+$(document).on(&amp;#39;like&amp;#39;, function (evt, name) {
+  liked.add(name);
+})&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It’s much simpler and less entangled, because we’re using the &lt;code&gt;document&lt;/code&gt; as a global message bus, and passing messages through it so individual components don’t need to know about each other. (Note that in a real app, we’d use something like &lt;a href="http://backbonejs.org"&gt;Backbone&lt;/a&gt; or the &lt;a href="https://github.com/tildeio/rsvp.js"&gt;RSVP&lt;/a&gt; library to manage events. We’re just triggering on &lt;code&gt;document&lt;/code&gt; to keep things simple here.) We’re also hiding all the dirty work—such as finding the name of the person who was liked—inside the Search Results object, rather than having it muddy up our application code. The best part: we can now write tests to prove that our Search Results object works as we expect:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var ul;
+var data = [ /* fake data here */ ];
+
+setup(function () {
+  ul = $(&amp;#39;&amp;lt;ul&amp;gt;&amp;lt;li class=&amp;quot;no-results&amp;quot;&amp;gt;&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&amp;#39;);
+});
+
+test(&amp;#39;constructor&amp;#39;, function () {
+  var sr = new SearchResults(ul);
+  assert(sr);
+});
+
+test(&amp;#39;display received results&amp;#39;, function () {
+  var sr = new SearchResults(ul);
+  sr.setResults(data);
+
+  assert.equal(ul.find(&amp;#39;.no-results&amp;#39;).length, 0);
+  assert.equal(ul.find(&amp;#39;li.result&amp;#39;).length, data.length);
+  assert.equal(
+    ul.find(&amp;#39;li.result&amp;#39;).first().attr(&amp;#39;data-name&amp;#39;),
+    data[0].name
+  );
+});
+
+test(&amp;#39;announce likes&amp;#39;, function() {
+  var sr = new SearchResults(ul);
+  var flag;
+  var spy = function () {
+    flag = [].slice.call(arguments);
+  };
+
+  sr.setResults(data);
+  $(document).on(&amp;#39;like&amp;#39;, spy);
+
+  ul.find(&amp;#39;li&amp;#39;).first().find(&amp;#39;.like.btn&amp;#39;).click();
+
+  assert(flag, &amp;#39;event handler called&amp;#39;);
+  assert.equal(flag[1], data[0].name, &amp;#39;event handler receives data&amp;#39; );
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The interaction with the server is another interesting piece to consider. The original code included a direct &lt;code&gt;$.ajax()&lt;/code&gt; request, and the callback interacted directly with the DOM:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;$.ajax(&amp;#39;/data/search.json&amp;#39;, {
+  data : { q: query },
+  dataType : &amp;#39;json&amp;#39;,
+  success : function( data ) {
+    loadTemplate(&amp;#39;people-detailed.tmpl&amp;#39;).then(function(t) {
+      var tmpl = _.template( t );
+      resultsList.html( tmpl({ people : data.results }) );
+      pending = false;
+    });
+  }
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Again, this is difficult to write a unit test for, because so many different things are happening in just a few lines of code. We can restructure the data portion of our application as an object of its own:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var SearchData = function () { };
+
+SearchData.prototype.fetch = function (query) {
+  var dfd;
+
+  if (!query) {
+    dfd = $.Deferred();
+    dfd.resolve([]);
+    return dfd.promise();
+  }
+
+  return $.ajax( &amp;#39;/data/search.json&amp;#39;, {
+    data : { q: query },
+    dataType : &amp;#39;json&amp;#39;
+  }).pipe(function( resp ) {
+    return resp.results;
+  });
+};&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, we can change our code for getting the results onto the page:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;var resultsList = new SearchResults(&amp;#39;#results&amp;#39;);
+
+var searchData = new SearchData();
+
+// ...
+
+searchData.fetch(query).then(resultsList.setResults);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Again, we’ve dramatically simplified our application code, and isolated the complexity within the Search Data object, rather than having it live in our main application code. We’ve also made our search interface testable, though there are a couple caveats to bear in mind when testing code that interacts with the server.&lt;/p&gt;
+
+&lt;p&gt;The first is that we don’t want to &lt;em&gt;actually&lt;/em&gt; interact with the server—to do so would be to reenter the world of integration tests, and because we’re responsible developers, we already have tests that ensure the server does the right thing, right? Instead, we want to &amp;#8220;mock&amp;#8221; the interaction with the server, which we can do using the &lt;a href="http://sinonjs.org/"&gt;Sinon&lt;/a&gt; library. The second caveat is that we should also test non-ideal paths, such as an empty query.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;test(&amp;#39;constructor&amp;#39;, function () {
+  var sd = new SearchData();
+  assert(sd);
+});
+
+suite(&amp;#39;fetch&amp;#39;, function () {
+  var xhr, requests;
+
+  setup(function () {
+    requests = [];
+    xhr = sinon.useFakeXMLHttpRequest();
+    xhr.onCreate = function (req) {
+      requests.push(req);
+    };
+  });
+
+  teardown(function () {
+    xhr.restore();
+  });
+
+  test(&amp;#39;fetches from correct URL&amp;#39;, function () {
+    var sd = new SearchData();
+    sd.fetch(&amp;#39;cat&amp;#39;);
+
+    assert.equal(requests[0].url, &amp;#39;/data/search.json?q=cat&amp;#39;);
+  });
+
+  test(&amp;#39;returns a promise&amp;#39;, function () {
+    var sd = new SearchData();
+    var req = sd.fetch(&amp;#39;cat&amp;#39;);
+
+    assert.isFunction(req.then);
+  });
+
+  test(&amp;#39;no request if no query&amp;#39;, function () {
+    var sd = new SearchData();
+    var req = sd.fetch();
+    assert.equal(requests.length, 0);
+  });
+
+  test(&amp;#39;return a promise even if no query&amp;#39;, function () {
+    var sd = new SearchData();
+    var req = sd.fetch();
+
+    assert.isFunction( req.then );
+  });
+
+  test(&amp;#39;no query promise resolves with empty array&amp;#39;, function () {
+    var sd = new SearchData();
+    var req = sd.fetch();
+    var spy = sinon.spy();
+
+    req.then(spy);
+
+    assert.deepEqual(spy.args[0][0], []);
+  });
+
+  test(&amp;#39;returns contents of results property of the response&amp;#39;, function () {
+    var sd = new SearchData();
+    var req = sd.fetch(&amp;#39;cat&amp;#39;);
+    var spy = sinon.spy();
+
+    requests[0].respond(
+      200, { &amp;#39;Content-type&amp;#39;: &amp;#39;text/json&amp;#39; },
+      JSON.stringify({ results: [ 1, 2, 3 ] })
+    );
+
+    req.then(spy);
+
+    assert.deepEqual(spy.args[0][0], [ 1, 2, 3 ]);
+  });
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For the sake of brevity, I’ve left out the refactoring of the Search Form, and also simplified some of the other refactorings and tests, but you can see a finished version of the app &lt;a href="https://github.com/rmurphey/testable-javascript"&gt;here&lt;/a&gt; if you’re interested.&lt;/p&gt;
+
+&lt;p&gt;When we’re done rewriting our application using testable JavaScript patterns, we end up with something much cleaner than what we started with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-javascript"&gt;$(function() {
+  var pending = false;
+
+  var searchForm = new SearchForm(&amp;#39;#searchForm&amp;#39;);
+  var searchResults = new SearchResults(&amp;#39;#results&amp;#39;);
+  var likes = new Likes(&amp;#39;#liked&amp;#39;);
+  var searchData = new SearchData();
+
+  $(document).on(&amp;#39;search&amp;#39;, function (event, query) {
+    if (pending) { return; }
+
+    pending = true;
+
+    searchData.fetch(query).then(function (results) {
+      searchResults.setResults(results);
+      pending = false;
+    });
+
+    searchResults.pending();
+  });
+
+  $(document).on(&amp;#39;like&amp;#39;, function (evt, name) {
+    likes.add(name);
+  });
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Even more important than our much cleaner application code, though, is the fact that we end up with a codebase that is thoroughly tested. That means we can safely refactor it and add to it without the fear of breaking things. We can even write new tests as we find new issues, and then write the code that makes those tests pass.&lt;/p&gt;
+
+&lt;h2&gt;Testing makes life easier in the long run&lt;/h2&gt;
+
+&lt;p&gt;It’s easy to look at all of this and say, &amp;#8220;Wait, you want me to write more code to do the same job?&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;The thing is, there are a few inescapable facts of life about Making Things On The Internet. You will spend time designing an approach to a problem. You will test your solution, whether by clicking around in a browser, writing automated tests, or—&lt;em&gt;shudder&lt;/em&gt;—letting your users do your testing for you in production. You will make changes to your code, and other people will use your code. Finally: there will be bugs, no matter how many tests you write.&lt;/p&gt;
+
+&lt;p&gt;The thing about testing is that while it might require a bit more time at the outset, it really does save time in the long run. You’ll be patting yourself on the back the first time a test you wrote catches a bug before it finds its way into production. You’ll be grateful, too, when you have a system in place that can prove that your bug fix really does fix a bug that slips through.&lt;/p&gt;
+
+&lt;h2&gt;Additional resources&lt;/h2&gt;
+
+&lt;p&gt;This article just scratches the surface of JavaScript testing, but if you’d like to learn more, check out:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://lanyrd.com/2012/full-frontal/sztqh/"&gt;My presentation&lt;/a&gt; from the 2012 Full Frontal conference in Brighton, UK.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://gruntjs.com/"&gt;Grunt&lt;/a&gt;, a tool that helps automate the testing process and lots of other things.&lt;/li&gt;
+&lt;li&gt;&lt;cite&gt;&lt;a href="http://www.amazon.com/Test-Driven-JavaScript-Development-Developers-Library/dp/0321683919/ref=sr_1_1?ie=UTF8&amp;amp;qid=1366506174&amp;amp;sr=8-1&amp;amp;keywords=test+driven+javascript+development"&gt;Test-Driven JavaScript Development&lt;/a&gt;&lt;/cite&gt; by Christian Johansen, the creator of the Sinon library. It is a dense but informative examination of the practice of testing JavaScript.&lt;/li&gt;
+&lt;/ul&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/EcxNHDRHkTM" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-05-21T12:00:56+00:00</dc:date>
+      <feedburner:origLink>http://alistapart.com/article/writing-testable-javascript</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Matt Mullenweg on Yahoo-Tumblr]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/mtIeSUFNVF0/</link>
+      <guid isPermaLink="false">http://ma.tt/2013/05/yahooblr/</guid>
+      <description>&lt;a href="http://ma.tt/2013/05/yahooblr/" style="font-size: 18px;"&gt;» Matt Mullenweg on Yahoo-Tumblr&lt;/a&gt;&lt;br&gt;&lt;br&gt;“We’re at the cusp of understanding the ultimate value of web publishing platforms, particularly ones that work cross-domain.”–Matt Mullenweg of WordPress.&lt;br&gt;&lt;br&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/mtIeSUFNVF0" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-05-20T12:30:02+00:00</dc:date>
+      <feedburner:origLink>http://ma.tt/2013/05/yahooblr/</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[MapBox Develops an Open Source Vector Format for Maps]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/6RkzuwjWbwM/</link>
+      <guid isPermaLink="false">http://mapbox.com/blog/vector-tiles/</guid>
+      <description>&lt;a href="http://mapbox.com/blog/vector-tiles/" style="font-size: 18px;"&gt;» MapBox Develops an Open Source Vector Format for Maps&lt;/a&gt;&lt;br&gt;&lt;br&gt;MapBox's new vector-based map tiles are more stable, more scalable, and customizable to an amazing degree.&lt;br&gt;&lt;br&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/6RkzuwjWbwM" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-05-13T20:13:39+00:00</dc:date>
+      <feedburner:origLink>http://mapbox.com/blog/vector-tiles/</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Paul Irish on Chrome Moving to Blink]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/_FjSLm1-zBM/paul-irish-on-chrome-moving-to-blink</link>
+      <guid isPermaLink="false">http://alistapart.com/blog/post/paul-irish-on-chrome-moving-to-blink</guid>
+      <description>&lt;p class="question"&gt;&lt;b&gt;I know you’ve been asked this plenty of times already, but: no new vendor prefixes, right? &lt;em&gt;Right?&lt;/em&gt;&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;Nope, none! They’re great in theory but turns out they fail in practice, so we’re joining &lt;a href="http://lists.w3.org/Archives/Public/public-webapps/2012OctDec/0731.html"&gt;Mozilla&lt;/a&gt; and the &lt;a href="http://www.w3.org/blog/CSS/2012/08/30/resolutions-53/"&gt;W3C CSS WG&lt;/a&gt; and moving away them. There’s a few parts to this.&lt;/p&gt;
+
+&lt;p&gt;Firstly, we won’t be migrating the existing &lt;code&gt;-webkit-&lt;/code&gt; prefixed properties to a &lt;code&gt;-chrome-&lt;/code&gt; or &lt;code&gt;-blink-&lt;/code&gt; prefix, that’d just make extra work for everyone. Secondly, we inherited some existing properties that are prefixed. Some, like &lt;code&gt;-webkit-transform&lt;/code&gt;, are standards track and we work with the CSS WG to move ahead those standards while we fix any remaining issues in our implementation and we’ll unprefix them when they’re ready. Others, like &lt;code&gt;-webkit-box-reflect&lt;/code&gt; are not standards track and we’ll bring them to standards bodies or responsibly deprecate these on a case-by-case basis. Lastly, we’re not introducing any new CSS properties behind a prefix.&lt;/p&gt;
+
+&lt;p class="question"&gt;&lt;b&gt;Pinky swear?&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;Totes. New stuff will be available to experiment with behind a flag you can turn on in &lt;code&gt;about:flags&lt;/code&gt; called &amp;#8220;Experimental Web Platform Features&amp;#8221;. When the feature is ready, it’ll graduate to Canary, and then follow its ~12 week path down through Dev Channel, Beta to all users at Stable.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href="http://www.chromium.org/blink#vendor-prefixes"&gt;Blink prefix policy&lt;/a&gt; is documented and, in fact, WebKit just nailed down their &lt;a href="https://lists.webkit.org/pipermail/webkit-dev/2013-May/024850.html"&gt;prefix policy&lt;/a&gt; going forward. If you’re really into prefix drama (and who isn’t!) Chris Wilson and I discussed this a lot more on &lt;a href="http://5by5.tv/webahead/51"&gt;the Web Ahead podcast&lt;/a&gt; [37:20].&lt;/p&gt;
+
+&lt;p class="question"&gt;&lt;b&gt;How long before we can try Blink out in Chrome?&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;Blink’s been in Chrome Canary as of the day we announced it. The codebase was 99.9% the same when Blink launched, so no need to rush out and check everything. All your sites should be pretty much the same. &lt;/p&gt;
+
+&lt;p&gt;Chrome 27 has the Blink engine, and that’s available on the beta channel for 
+Win, Mac, Linux, ChromeOS and Android. (See the &lt;a href="https://googledrive.com/host/0B8R1QvA3x5IbWll3M0hIYXVLZlk/"&gt;full beta/stable/dev/canary 
+view&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p class="question"&gt;&lt;b&gt;While the internals are apt to be fairly different, will there be any radical changes to the rendering side of things in the near future?&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;Nothing too alarming, layout and CSS stuff is all staying the same. Grid layout is still in development, though, and our Windows text rendering has been getting a new backend that we can hook up soon, greatly boosting the quality of webfont rendering there.&lt;/p&gt;
+
+&lt;p&gt;We’re also interested in better taking advantage of multiple cores on machines, so the more we can move painting, layout (aka reflow), and style recalculation to a separate thread, but the faster everyone’s sites will render. We’re already doing multi-threaded painting on ChromeOS and Android, and looking into doing it on Mac &amp;amp; Windows. If you’re interested in these &lt;a href="http://www.chromium.org/blink/developer-faq#TOC-What-sorts-of-things-should-I-expect-from-Chrome-"&gt;experimental efforts&lt;/a&gt; or watching new feature proposals, take a look at the &lt;a href="https://groups.google.com/a/chromium.org/forum/?fromgroups#!forum/blink-dev"&gt;blink-dev mailing list&lt;/a&gt;. A recent proposed experiment is called &lt;a href="https://groups.google.com/a/chromium.org/d/topic/blink-dev/V1vJmirHUGE/discussion"&gt;Oilpan&lt;/a&gt;, where we’ll look into the advantages of moving the implementation of Chrome’s DOM into JavaScript.&lt;/p&gt;
+
+&lt;p class="question"&gt;&lt;b&gt;Will features added to Blink be contributed back to the WebKit project? Short term; long term?&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;Since Blink launched there’s been a few patches that have been landed in both Blink and WebKit, though this is expected to decline in the long-term, as the code bases will diverge.&lt;/p&gt;
+
+&lt;p class="question"&gt;&lt;b&gt;When are we likely to start seeing Blink-powered versions of Chrome on Android? Is it even possible on iOS, or is iOS Chrome still stuck with a Safari webview due to Apple’s policies?&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;Blink is now in the &lt;a href="https://play.google.com/store/apps/details?id=com.chrome.beta&amp;amp;hl=en"&gt;Chrome Beta for Android&lt;/a&gt;. Chrome for iOS, due to platform limitations, is based on the WebKit-based WebView that’s provided by iOS. &lt;/p&gt;
+
+&lt;p class="question"&gt;&lt;b&gt;Part of this move seems to be giving Google the freedom to remove old or disused features that have been collecting dust in WebKit for ages. There must be a few things high on that list—what are some of those things, and how can we be certain their removal won’t lead to the occasional broken website?&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;A few old ’n crusty things that we’re looking at removing: the &lt;a href="http://www.w3.org/wiki/HTML/Elements/isindex"&gt;isindex attribute&lt;/a&gt;, &lt;a href="https://groups.google.com/a/chromium.org/forum/?fromgroups=#!topic/blink-dev/5mNHirgyOzM"&gt;RangeException&lt;/a&gt;, and &lt;a href="https://groups.google.com/a/chromium.org/forum/?fromgroups=#!topic/blink-dev/JoerJvQlWFY"&gt;XMLHttpRequestException&lt;/a&gt;. Old things that have little use in the wild and just haven’t gotten a spring cleaning from the web platform for ages. &lt;/p&gt;
+
+&lt;p&gt;Now, we don’t want to break the web, and that’s something that web browser engineers have always been kept very aware of. We carefully gauge real-world usage of things like CSS and DOM features before deprecating anything. At Google we have a copy of the web that we run queries against, so we have a pretty OK idea of what CSS and JavaScript out there is using. &lt;/p&gt;
+
+&lt;p&gt;Blink also has over 32,000 tests in its test suite, and manual confirmation that over 100 sites work great before every release ships. And we’re working closely with the W3C and Adobe to share tests and testing infrastructure across browsers, with the goals of reducing maintenance burden, improving interoperability, and increasing test coverage. Eventually we’d like all new features to ship with shared conformance tests, ensuring interoperability even as we add cutting-edge stuff.&lt;/p&gt;
+
+&lt;p&gt;Still, any deprecation has to be done responsibly. There’s now a draft Blink &lt;a href="https://groups.google.com/a/chromium.org/forum/?fromgroups=#!topic/blink-dev/nmIDo1w9dwg"&gt;process for deprecating features&lt;/a&gt; which includes:&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Anonymous metrics to understand how much any specific feature is used “in the wild”&lt;/li&gt;
+	&lt;li&gt;”Intent to deprecate” emails that hit blink-dev months before anything is 
+removed&lt;/li&gt;
+	&lt;li&gt;Warnings that you’ll find in your DevTools console if you’re using anything 
+deprecated&lt;/li&gt;
+	&lt;li&gt;Mentions on the Chromium blog like &lt;a href="http://blog.chromium.org/2013/04/chrome-27-beta-speedier-web-and-new.html"&gt;this Chrome 27 
+wrap-up&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p class="question"&gt;&lt;b&gt;Did part of the decision to branch away from WebKit involve resistance to adding a Dart VM? WebKit’s goals &lt;a href="http://www.webkit.org/projects/goals.html"&gt;explicitly mention JavaScript&lt;/a&gt;, and Apple representatives have been &lt;a href="https://lists.webkit.org/pipermail/webkit-dev/2011-December/018806.html](https://lists.webkit.org/pipermail/webkit-dev/2011-December/018806.html"&gt;fairly vocal&lt;/a&gt; about &lt;a href="https://lists.webkit.org/pipermail/webkit-dev/2011-December/018822.html](https://lists.webkit.org/pipermail/webkit-dev/2011-December/018822.html"&gt;not seeing a need&lt;/a&gt;.&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;Nope, not at all. The decision was made by the core web platform engineers. Introducing a new VM to a browser introduces considerable maintenance cost (we saw this with V8 and JavaScriptCore both in WebKit) and right now Dart isn’t yet ready to be considered for an integration with Blink. (more on that in a sec). Blink’s got strong &lt;a href="http://www.chromium.org/blink#compatibility"&gt;principles around compatibility risk&lt;/a&gt; and this guides a lot of the decisions around our commitments to potential features as they are proposed. You can hear a more &lt;a href="https://www.youtube.com/watch?feature=player_embedded&amp;amp;v=TlJob8K_OwE#at=1046"&gt;complete answer here from Darin Fisher&lt;/a&gt;, one of the Chrome web platform leads.&lt;/p&gt;
+
+&lt;p class="question"&gt;&lt;b&gt;Have any non-WebKit browsers recently expressed an interest in Dart? A 
+scripting language that &lt;a href="https://gist.github.com/paulmillr/1208618#file-dart-txt-L320"&gt;only stands to work in one browser&lt;/a&gt; sounds a little 
+VBScript-y.&lt;/em&gt;&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;Not yet, but since Dart compiles to JavaScript and runs across the modern web, it’s not gated by other browsers integrating the VM. But it’s still early days, Dart has not yet reached a stable 1.0 milestone and that there are still technical challenges with the Dart VM around performance and memory management. Still, It’s important to point out that Dart is an open source project, with a bunch of external contributors and committers.&lt;/p&gt;
+
+&lt;p&gt;Let me take a moment to provide my own perspective on Dart. :) Now, as you know, I’m a JavaScript guy, so early on, I took a side and and considered Dart an enemy. JavaScript should win; Dart is bad! But then I came to realize the Dart guys aren’t just setting out to improve the authoring and scalability of web application development. They also really want the web to win.&amp;nbsp; Now I’ve recently spoke about how &lt;a href="http://www.lukew.com/ff/entry.asp?1716"&gt;The Mobile Web Is In Trouble&lt;/a&gt;, and clarified that my priorities are seeing it provide a fantastic user experience to everyone. For me, seeing the mobile web be successful trumps language wars and certainly quibbling over syntax. So I’m happy to see developers embrace the authoring advantages of Coffeescript, the smart subset of JavaScript strict mode, the legendary Emscripten &amp;amp; asm.js combo, the compiler feedback of TypeScript and the performance ambitions of Dart. It’s worth trying out technologies that can leapfrog the current expectations of the user experience that we can deliver. Our web is worth it.&lt;/p&gt;
+
+&lt;p class="question"&gt;&lt;b&gt;Will Opera be using the Chromium version of Blink wholesale, as far as you know? Are we likely to see some divergence between Opera and Chrome?&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;As I understand it, Opera Mobile, Opera Desktop, and Opera Mini will all be based on Chromium. This means that they’ll not only share the exact version of Blink that Chrome uses, but also the same graphics stack, JavaScript engine, and networking stack. Already, Opera has contributed some great things to Blink and we’re excited about what’s next.&lt;/p&gt;
+
+&lt;p class="question"&gt;&lt;b&gt;Why the name “Blink,” anyway?&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;Haha. Well&amp;hellip; it’s a two parter. First, Blink evokes a certain feeling of speed and simplicity—two core principles of Chrome. Then, Chrome has a little tradition of slightly ironic names. Chrome itself is all about minimizing the browser chrome, and the Chromebook Pixel is all about not seeing any pixels at all. So naturally, it fits that Blink will never support the infamous &lt;code&gt;&amp;lt;blink&amp;gt;&lt;/code&gt; tag. ;)&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;3z&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/_FjSLm1-zBM" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-05-13T15:43:06+00:00</dc:date>
+      <feedburner:origLink>http://alistapart.com/blog/post/paul-irish-on-chrome-moving-to-blink</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[W3C to Publish Encrypted Media Extensions Specification]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/f7uMGgccqS4/perspectives_on_encrypted_medi.html</link>
+      <guid isPermaLink="false">http://www.w3.org/QA/2013/05/perspectives_on_encrypted_medi.html</guid>
+      <description>&lt;a href="http://www.w3.org/QA/2013/05/perspectives_on_encrypted_medi.html" style="font-size: 18px;"&gt;» W3C to Publish Encrypted Media Extensions Specification&lt;/a&gt;&lt;br&gt;&lt;br&gt;The W3C announced today that it intends to publish the controversial Encrypted Media Extensions extension specification despite highly outspoken resistance, paving the way for native web DRM.
+
+&lt;br&gt;&lt;br&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/f7uMGgccqS4" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-05-10T15:25:29+00:00</dc:date>
+      <feedburner:origLink>http://www.w3.org/QA/2013/05/perspectives_on_encrypted_medi.html</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Research Tips For Designers and Developers]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/Qq8IuA20lkY/better-stakeholder-interviews</link>
+      <guid isPermaLink="false">http://cognition.happycog.com/article/better-stakeholder-interviews</guid>
+      <description>&lt;a href="http://cognition.happycog.com/article/better-stakeholder-interviews" style="font-size: 18px;"&gt;» Research Tips For Designers and Developers&lt;/a&gt;&lt;br&gt;&lt;br&gt;How is the waterfall web design process like the childhood game of “Telephone,” and how can we fix it? Bringing designers and developers into the discovery and research phase is a good start, says Happy Cog creative director Chris Cashdollar, who shares stakeholder interviewing tips in this helpful Cognition post.&lt;br&gt;&lt;br&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/Qq8IuA20lkY" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-05-10T15:19:45+00:00</dc:date>
+      <feedburner:origLink>http://cognition.happycog.com/article/better-stakeholder-interviews</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Rachel Andrew on the Business of Web Dev: You Can&#8217;t Do Everything]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/yiLQQ29l58s/you-cant-do-everything</link>
+      <guid isPermaLink="false">http://alistapart.com/column/you-cant-do-everything</guid>
+      <description>&lt;p&gt;In any given day I can find myself reading up on a new W3C proposal, fixing an issue with our tax return, coding an add-on for our product, writing a conference presentation, building a server, creating a video tutorial, and doing front end development for one of our sites. Without clients dictating my workload I’m in the enviable position of being able to choose where to focus my efforts. However, I can’t physically do everything.&lt;/p&gt;
+
+&lt;p&gt;I’m one half of a two-person web development business—the team behind the little CMS, Perch. I’m also an author and speaker on subjects that range from CSS to technical support, and I enjoy all of it.&lt;/p&gt;
+
+&lt;p&gt;When we were a service business, what I was actually working on was largely dictated by the requirements of our clients. Whether they wanted to pay me to build servers, manage projects, or write code didn’t really matter. I was exchanging my time for money, doing a range of things I enjoyed. Now that we’re a product company, my greatest challenge is working out where I am best spending my time, while avoiding falling down a rabbit hole of interesting things I have discovered while performing some other task.&lt;/p&gt;
+
+&lt;p&gt;The quote that I opened this column with reflects the dilemma I seem to face daily. I can choose to place my attention anywhere. But if I dart around between tasks, none of them get my full attention. At the very least, progress on everything becomes painfuly slow as I spend an hour on one thing and two on another, inching them all forward. I can’t claim to have the perfect solution to managing this problem, but I have started to develop a process for deciding what needs to be done, and whether I am the best person to be doing it.&lt;/p&gt;
+
+&lt;p&gt;First and foremost you need to identify what needs doing. I am a great fan of &lt;a href="http://en.wikipedia.org/wiki/Getting_Things_Done"&gt;Getting Things Done&lt;/a&gt; and regularly review our business and my personal goals, and the tasks that will go into meeting them. Once I have a list of tasks, I can assess them against the following criteria:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Am I the only person who can do this?&lt;/li&gt;
+&lt;li&gt;Does the business or product benefit from me in particular doing this?&lt;/li&gt;
+&lt;li&gt;Is this a task I really enjoy doing?&lt;/li&gt;
+&lt;li&gt;Will I learn anything new by doing this?&lt;/li&gt;
+&lt;li&gt;What am I not doing if I choose to do this?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Am I the only person who can do this?&lt;/h2&gt;
+
+&lt;p&gt;Things that fall into group one, the things that only I can do, need investigating. It isn’t ideal for any business to have things that only one person can do. It might be that I need to deal with that task &lt;em&gt;today&lt;/em&gt;, but how can I make it so that in the future someone else could? Until the middle of last year, our accounts were a case in point. Although we had an accountant do our end of year tax returns, I was the only person who fully understood the complex processes developed to deal with the many incoming small payments for Perch licenses. Taking on a bookkeeper meant I had to formalize and document all of those processes. As a result I don’t have to do the day-to-day books, but perhaps more importantly the business isn’t reliant on knowledge that is only in my head.&lt;/p&gt;
+
+&lt;h2&gt;Does the business or product benefit from me in particular doing this?&lt;/h2&gt;
+
+&lt;p&gt;It can make sense to keep some tasks internal. I wouldn’t completely outsource our technical support, or our social media activity, or even our marketing. The public face of our product is very much about us being a small, friendly business. Our customers get to talk to us, the product developers; we share their frustrations and they help us decide on where to put time into new features. There may well be real reasons to keep certain tasks as a role of the core person or team, even if they would seem straightforward to outsource.&lt;/p&gt;
+
+&lt;h2&gt;Is this a task I really enjoy doing?&lt;/h2&gt;
+
+&lt;p&gt;Running a business can involve hard work and long hours. If you feel you have to outsource bits of your job that you love doing because it makes most sense as a business, you may end up pretty miserable. For those of us running small software companies, it’s likely we have ended up here because we like to code. So it’s important to me that I spend some of my time actually writing code—even if it might be more sensible from a business perspective for me to just manage other people who are writing code.&lt;/p&gt;
+
+&lt;p&gt;I believe that our products and businesses are better when we love being involved with them. To have a successful business, it’s likely that you will always have important things to do that you find less enjoyable than designing or writing code, however I don’t think we should be beating ourselves over the head. Doing what we love is really what has been behind the success of our product. It is completely ok to hang onto some tasks because you simply enjoy doing them.&lt;/p&gt;
+
+&lt;h2&gt;Will I learn anything new by doing this?&lt;/h2&gt;
+
+&lt;p&gt;I might really enjoy a particular project, but I find a helpful way to decide if I should do something or contract it out is to see whether I will learn anything new by doing it myself. For example, I have just sent out a sizeable chunk of front-end development. It is a rebuild of an existing site, and I think there are lots of practical and performance gains to be had by rebuilding it. It would have been nice to have done that work myself, but I wouldn’t have learned anything by doing it. Therefore I made the decision that this would be a good piece of work to outsource to a contractor. I can manage that project and make sure that I’m happy with the end result, but I don’t need to actually write the code.&lt;/p&gt;
+
+&lt;p&gt;Our business benefits by us having knowledge and understanding. I’m currently spending quite a lot of time learning about automation (using &lt;a href="https://puppetlabs.com/"&gt;Puppet&lt;/a&gt;) and modern ways of managing systems while rebuilding our infrastructure. I could have brought someone in to do this work for me, and may well do so in future. Yet by updating my systems administration skills, I’m ensuring that within the business we maintain a good level of knowledge about our infrastructure.&lt;/p&gt;
+
+&lt;h2&gt;What am I not doing if I choose to do this?&lt;/h2&gt;
+
+&lt;p&gt;As part of a tiny team of two, I’ll always have a number of tasks on the go. Ultimately, choosing to take on one task means not doing something else. It might be another task in the business that gets pushed back. It might be personal things like exercise, or spending time with family and friends. To be able to understand the implications of selecting one thing to work on over another, you need to have a really good overview of all the things that are trying to get your attention.&lt;/p&gt;
+
+&lt;p&gt;Having clear business goals and objectives in the first place can make this decision-making so much easier. When you find yourself in the position of being able to do anything, it is so easy to run around picking up tasks and trying to do everything. The trick is to take that step back; to see where you can be more strategic with which tasks you tackle and which you delegate. This approach can help you be far more productive and give you space to enjoy the work you are doing while meeting your business goals.&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/yiLQQ29l58s" height="1" width="1"/&gt;</description>
+      <dc:subject><![CDATA[<a href="/topic/business">Business</a>, <a href="/topic/project-management">Project Management</a>, <a href="/topic/workflow-tools">Workflow & Tools</a>]]></dc:subject>
+      <dc:date>2013-05-09T12:30:53+00:00</dc:date>
+      <feedburner:origLink>http://alistapart.com/column/you-cant-do-everything</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Breaking the 1000ms Time to Glass Mobile Barrier]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/VpCuD_mMqCU/breaking-the-1000ms-time-to-glass-mobile-barrier</link>
+      <guid isPermaLink="false">http://alistapart.com/blog/post/breaking-the-1000ms-time-to-glass-mobile-barrier</guid>
+      <description>&lt;p&gt;Ilya Grigorik discusses in detail how to construct a mobile website that loads as quickly as possible. A site that not only renders in 1 second, but one that is also visible in 1 second. With hard statistics as evidence to show why this matters, Ilya discusses techniques to deliver a 1000 millisecond experience.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;iframe width="696" height="392" src="http://www.youtube.com/embed/Il4swGfTOSM?rel=0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/figure&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/VpCuD_mMqCU" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-05-08T17:03:31+00:00</dc:date>
+      <feedburner:origLink>http://alistapart.com/blog/post/breaking-the-1000ms-time-to-glass-mobile-barrier</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Karen McGrane on Content: WYSIWTF]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/8MK6ULY0bLI/wysiwtf</link>
+      <guid isPermaLink="false">http://alistapart.com/column/wysiwtf</guid>
+      <description>&lt;p&gt;Arguing for “separation of content from presentation” implies a neat division between the two. The reality, of course, is that content and form, structure and style, can never be fully separated. Anyone who’s ever written a document and played around to see the impact of different fonts, heading weights, and whitespace on the way the writing flows knows this is true. Anyone who’s ever squinted at HTML code, trying to parse text from tags, knows it too.&lt;/p&gt;
+
+&lt;p&gt;On one hand, the division of labor between writing and presentation can be seen at every point in our history. Ancient scribes chiseling stone tablets, medieval monks copying illuminated manuscripts, printers placing movable type—we’ve never assumed that the person who produces the document and the person who comes up with the ideas must be one and the same.&lt;/p&gt;
+
+&lt;p&gt;And yet, we know that medium and message are intertwined so tightly, they can’t be easily split apart. Graphic designers rail against the notion that “look and feel” can be painted on at the end of the process, because design influences meaning. The more skilled we are as communicators, the more we realize that the separation of content from presentation is an industrial-age feint, an attempt to standardize and segment tasks that are deeply connected.&lt;/p&gt;
+
+&lt;p&gt;Today, we try to enforce the separation of content and form because it’s good for the web. It’s what makes web standards possible. It enables social sharing and flexible reuse of content. It supports accessibility. It’s what will keep us sane as we try to get content onto hundreds of new devices and form factors.&lt;/p&gt;
+
+&lt;p&gt;When talking about how best to separate content from presentation, designers and developers tend to focus on front-end code—which makes sense, because that’s what we have the most control over. But, as with so many challenges we have with content on the web, the real issue lies in the tools we give content creators to help them structure, manage, and publish their content. The form that content takes depends as much on CMS as it does on CSS.&lt;/p&gt;
+
+&lt;p&gt;How should content management tools guide content creators to focus on meaning and structure? What’s the right amount of control over presentation and styling in the CMS? And how should these tools evolve as we break out of the web page metaphor and publish content flexibly to multiple platforms? Let’s look at three tools that sit at the intersection of content and form.&lt;/p&gt;
+
+&lt;h2&gt;Preview button&lt;/h2&gt;
+
+&lt;p&gt;Even the most die-hard structured content editors still like seeing what their work is going to look like. Writers print out documents for editing to give them a different view from what they see on the screen. Bloggers instinctively hit the preview button to look at their work the way a user will see it.&lt;/p&gt;
+
+&lt;p&gt;Whoops. Decades of work refining the emulators between desktop publishing programs and laser printers means that writers can feel confident that their document will look virtually identical, regardless of where it’s printed. We’ve carried that assumption over to the web, where it’s categorically untrue. Different browsers render content in their own vexingly special way. Users can change the font size—even add their own custom style sheet. Today, the same document will render differently on desktops, tablets, and mobile devices. The preview button is a lie.&lt;/p&gt;
+
+&lt;p&gt;Yet we can’t just throw the baby out with the bathwater. In fact, seeing content in context becomes even &lt;em&gt;more&lt;/em&gt; important as our content now lives across devices and platforms. Instead of throwing up our hands and saying “preview is broken,” it’s time to invent a better preview button.&lt;/p&gt;
+
+&lt;p&gt;One publishing company I know of has built its own custom preview rendering interface, which shows content producers an example of how each story will appear on the desktop web, the mobile web, and an app. Is it perfect? Far from it. Content will appear in many more contexts than just those three. Is it better than nothing? Absolutely.&lt;/p&gt;
+
+&lt;h2&gt;WYSIWYG&lt;/h2&gt;
+
+&lt;p&gt;The desktop publishing revolution ushered in by the Macintosh allowed the user to see a document on screen in a form that closely mirrored the printed version. The toolbar at the top of the screen enabled the user to add formatting—change the font, insert an image, add typographic effects like headings and bullets, and much more.&lt;/p&gt;
+
+&lt;p&gt;In an effort to carry over this ease of use to the web, we allow content creators to embed layout and styling information directly into their content. Unfortunately, the code added by content creators can be at odds with the style sheet, and it’s difficult for developers to parse what’s style and what’s substance. When it comes time to put that content on other platforms, we wind up with a muddled mess.&lt;/p&gt;
+
+&lt;p&gt;What is the right amount of formatting control to give content creators? That’s a difficult question to answer, because it pierces right to the heart of what’s stylistic and what’s semantic. Even something as simple as adding bold and italic text forces us to ask if we’re really just styling the text, or adding semantic meaning (say, a book title or a warning message.)&lt;/p&gt;
+
+&lt;p&gt;Better content modeling can solve some of these problems, encouraging content creators to appropriately “chunk” their text. By banishing blobs of text with formatting embedded and replacing them with chunks of clean, presentation-independent content, we’re building in the distinction between content and form right from the start.&lt;/p&gt;
+
+&lt;p&gt;But imagining that each “chunk” of content is a field in the database (with its own input field) rapidly devolves into the absurd. That way lies madness. The real solution isn’t necessarily to “banish blobs,” but to replace the WYSIWYG toolbar with semantic markup. Rather than entering all text into discrete fields, content authors wrap text that describes what it is. Our book title doesn’t need to be a separate field if we can wrap it in the proper tags.&lt;/p&gt;
+
+&lt;p&gt;Defining what goes in a field and what goes in a tag requires a tighter collaboration between content authors, CMS architects, and front-end developers. It’s time we started having these conversations.&lt;/p&gt;
+
+&lt;h2&gt;Inline editing&lt;/h2&gt;
+
+&lt;p&gt;We’re evolving. Not satisfied to rely just on tools that are vestiges of the desktop publishing era, we’re developing new and innovative ways to mix up content and formatting that are unique to the way the web works. There’s no better example of this than inline editing.&lt;/p&gt;
+
+&lt;p&gt;Inline editing allows content creators to directly manipulate content in the interface, with no separation between the editing screen and the display. Medium offers an editing interface that’s &lt;a href="https://medium.com/about/df8eac9f4a5e"&gt;identical to the desktop display&lt;/a&gt; and in-place editing is being &lt;a href="http://drupal.org/project/spark"&gt;added to Drupal 8 core&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;One of the questions I get asked most frequently is “how can I get my content creators to understand why it’s so important to add structure and metadata to their content?” This, I believe, is one of the fundamental challenges we’re facing on the web, particularly as we adapt to a multi-channel future. Inline editing encourages content creators to focus on the visual presentation of the desktop interface. Just at the moment when we need content creators to think about the underlying structure, we’re investing in tools that obscure the “connective tissue.”&lt;/p&gt;
+
+&lt;p&gt;Jeff Eaton sums up this problem nicely in a post called &lt;a href="https://www.lullabot.com/articles/inline-editing-and-cost-leaky-abstractions"&gt;Inline Editing and the Cost of Leaky Abstractions&lt;/a&gt;:&lt;/p&gt;
+
+&lt;figure class="quote"&gt;&lt;blockquote&gt;&lt;p&gt;The editing interfaces we offer to users send them important messages, whether we intend it or not. They are affordances, like knobs on doors and buttons on telephones. If the primary editing interface we present is also the visual design seen by site visitors, we are saying: “This page is what you manage! The things you see on it are the true form of your content.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The best solution isn’t to build tools that hide that complexity from the user, that make them think that the styling they’re adding to the desktop site is the “real” version of the content. Instead, our goal should be to communicate the appropriate complexity of the interface, and help guide users to add the right structure and styling.&lt;/p&gt;
+
+&lt;p&gt;The era of “desktop publishing” is over. Same goes for the era where we privilege the desktop web interface above all others. The tools we create to manage our content are vestiges of the desktop publishing revolution, where we tried to enable as much direct manipulation of content as possible. In a world where we have infinite possible outputs for our content, it’s time to move beyond tools that rely on visual styling to convey semantic meaning. If we want true separation of content from form, it has to start in the CMS.&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/8MK6ULY0bLI" height="1" width="1"/&gt;</description>
+      <dc:subject><![CDATA[<a href="/topic/content">Content</a>, <a href="/topic/html">HTML</a>]]></dc:subject>
+      <dc:date>2013-05-02T11:42:33+00:00</dc:date>
+      <feedburner:origLink>http://alistapart.com/column/wysiwtf</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Magic Numbers and Progressive Enhancement]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/MCz34tjVTp0/magic-numbers-and-progressive-enhancement</link>
+      <guid isPermaLink="false">http://alistapart.com/blog/post/magic-numbers-and-progressive-enhancement</guid>
+      <description>&lt;p&gt;Chris Coyier explains &lt;a href="http://css-tricks.com/magic-numbers-in-css/"&gt;Magic Numbers&lt;/a&gt;:&lt;/p&gt;
+
+&lt;figure class="quote"&gt;
+&lt;blockquote&gt;Magic numbers in CSS refer to values which “work” under some circumstances but are frail and prone to break when those circumstances change. They are usually always related to fonts.&lt;/blockquote&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Many good examples in that post, and in the comments, but the one that stood out for me was Chris&amp;#8217; attempt to flank a heading with horizontal lines:&lt;/p&gt;
+
+&lt;figure class="quote"&gt;
+&lt;blockquote&gt;In a recent post &lt;a href="http://css-tricks.com/line-on-sides-headers/"&gt;Line-On-Sides Headers&lt;/a&gt;, I used a line-height value that was a magic number. Let’s say you used the technique around text with a fancy @font-face font. Let’s say that font doesn’t load or the user overrides it or the page is being viewed in a browser that don’t support @font-face. The fallback font will load, and that fallback font might have drastically different sizing than the custom font. The lines on the outside of the fallback font are now awkwardly placed, not centered like we wanted.&lt;/blockquote&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Of course, I don&amp;#8217;t need to tell Chris (he was only trying to illustrate a technique and its shortcomings), but it bears mentioning whenever I get the chance: progressive enhancement is &lt;a href="https://readmill.com/vasilis/reads/a-pocket-guide-to-combining-typefaces/highlights/x3ywfw"&gt;part of typography now&lt;/a&gt;. First, style text in a generic way (like, without flanking horizontal lines). Then, if the fonts you intend are active, use &lt;a href="https://github.com/typekit/webfontloader"&gt;WebFont Loader&lt;/a&gt; (or &lt;a href="http://help.typekit.com/customer/portal/articles/6787-Font-events"&gt;Typekit font events&lt;/a&gt;) to follow up with rules that depend on the presence (and the dimensions) of those fonts.&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/MCz34tjVTp0" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-04-30T18:23:32+00:00</dc:date>
+      <feedburner:origLink>http://alistapart.com/blog/post/magic-numbers-and-progressive-enhancement</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Even Better In-Browser Mockups with Node.js]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/JIuRksQbUN4/even-better-in-browser-mockups-with-node.js</link>
+      <guid isPermaLink="false">http://alistapart.com/article/even-better-in-browser-mockups-with-node.js</guid>
+      <description>&lt;p&gt;Designing in the browser has all sorts of benefits, like producing more accurate, comprehensive results and removing the extra step of converting from image file to markup and CSS. But even sites designed in a browser still require pasting in content, faking interactions with the server, and creating placeholder JavaScript that isn’t usable on the live site.&lt;/p&gt;
+
+&lt;p&gt;Wouldn’t it be nice if we could go from just designing layouts and interactions to designing the whole client side of the application during the same process?&lt;/p&gt;
+
+&lt;p&gt;This is where Node comes in.&lt;/p&gt;
+
+&lt;p&gt;Node.js is a server-side JavaScript platform. It isn’t a web server, but it allows you to easily create one. It also lets you create utilities that run on web servers, like setup and minification utilities and general-purpose command line tools.&lt;/p&gt;
+
+&lt;p&gt;Node started in 2009 and generated considerable interest, probably because it gave JavaScript developers an opportunity to write server-side code even if they lacked a server-side background. It didn’t hurt that Chrome had established a reputation for being solid and fast, and Node used its V8 engine.&lt;/p&gt;
+
+&lt;p&gt;Today, it’s possible to run production servers on Node, and many people are doing so successfully. Taking it that far, however, is an investment. The Node project, and all the community-created modules that make it so awesome, is still a moving target. But even if you’re not ready to write and launch entire sites with Node, it’s plenty stable enough to use as a development tool.&lt;/p&gt;
+
+&lt;p&gt;It’s JavaScript, so if you can wire up a jQuery event handler, you can write a web server. It’s lightweight, so you can run it on your laptop and keep streaming music in the background. It’s dead simple to download, set up, and build in, so you don’t need the esoteric knowledge of an IT support person to get going with it. And the payoff is that instead of mockups and hard-coded data, you can design a set of client-side assets, page templates, and data schemas that are ready to launch to production.&lt;/p&gt;
+
+&lt;h2&gt;Getting started&lt;/h2&gt;
+
+&lt;p&gt;Installing Node locally for the most common environments is a piece of cake. You can download &lt;a href="http://nodejs.org/download/"&gt;installers&lt;/a&gt; that include Node as well as npm, its package manager, from the project’s site. Installing it on a remote server is not quite that easy, but &lt;a href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager"&gt;good documentation&lt;/a&gt; is available to help you out. After running through the installation process, you should be able to go to your terminal or command line and test it out.&lt;/p&gt;
+
+&lt;p&gt;If you don’t tell Node to run a specific file, you get a Read-Eval-Print Loop, or REPL. If you type &lt;code&gt;node&lt;/code&gt; in your terminal or command prompt, you can begin to execute arbitrary JavaScript. For example, after starting the REPL, type &lt;code&gt;var a = 9;&lt;/code&gt;. The REPL will respond with undefined. Now type &lt;code&gt;a * 3&lt;/code&gt; (or any other number) and it will respond with the correct result. You can make things more interesting by defining a function and then calling it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&gt; function sayHello( name ) { return “Hello, “ + name; }
+undefined
+&gt; sayHello( “A List Apart” );
+‘Hello, A List Apart’&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To break out of the REPL, or end any other Node execution (like a running web server), press Ctrl+C. In the case of the REPL, you’ll need to press it twice to confirm.&lt;/p&gt;
+
+&lt;p&gt;While it’s nice to know Node can perform basic arithmetic and string concatenation, its value to us as developers is in running programs. You can see an example of one such program, a basic web server, on the project’s homepage. They suggest creating a file called &lt;code&gt;example.js&lt;/code&gt; with this code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var http = require(’http’);
+http.createServer(function (req, res) {
+  res.writeHead(200, {’Content-Type’: ‘text/plain’});
+  res.end(’Hello World\n’);
+}).listen(1337, ‘127.0.0.1’);
+console.log(’Server running at http://127.0.0.1:1337/’);&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This makes use of only one module, the core module &lt;code&gt;http&lt;/code&gt;. As you can probably guess, the &lt;code&gt;http&lt;/code&gt; module contains all the basic stuff you need to serve a site over HTTP. Node contains a tightly edited collection of &lt;a href="http://nodejs.org/api/"&gt;core modules&lt;/a&gt; that provide things like event handlers, file system access, and abstractions for various network protocols. But just as you probably use a JavaScript library or framework to speed up and bulletproof development on the client side, for Node development beyond a simple &amp;quot;Hello World&amp;quot; you generally add other non-core modules using npm.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;http&lt;/code&gt; module does contain a &lt;code&gt;createServer&lt;/code&gt; function, though, which is all you need to create a bare-bones web server. In the code above, once the server has been created, it listens to port 1337 on your local machine. When it receives a request, it sends back a text response.&lt;/p&gt;
+
+&lt;p&gt;One thing to note is that the work here is done in event handlers, as are most things in Node. The callback in &lt;code&gt;createServer()&lt;/code&gt; handles a connection event, which occurs every time a new client contacts the server. To start this server, type &lt;code&gt;node example.js&lt;/code&gt; in your terminal, and then open a browser to http://127.0.0.1:1337. This triggers the connection event, and you should see the message in the callback.&lt;/p&gt;
+
+&lt;p&gt;To obtain any serious value from a Node server—even one not intended to ever go to production—it’s best to get familiar with the modules in npm. There are thousands available, but those you’d need to create a basic web application are some of the oldest and most stable, so don’t feel obligated to research them all before getting started. One that definitely comes in handy for designing an application is &lt;a href="http://expressjs.com/"&gt;Express&lt;/a&gt;, an uncomplicated web application framework.&lt;/p&gt;
+
+&lt;p&gt;If you’re accustomed to installing open source projects by cloning a GitHub repository or downloading a zip file, you’ll probably enjoy npm. To install Express with npm, for example, go to your terminal or command line and type &lt;code&gt;npm install express&lt;/code&gt;. As long as you’re online and have permission to write to your machine, this fetches all the code and assets Express needs to run, as well as any modules it has as dependencies. The first time you run npm from your working directory, all these elements will end up in a new &lt;code&gt;node_modules&lt;/code&gt; subdirectory. Now the module is ready to be used in Node programs the same way we used &lt;code&gt;http&lt;/code&gt;, via the &lt;code&gt;require&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;h2&gt;Designing applications&lt;/h2&gt;
+
+&lt;p&gt;The ideal use case for designing your application with Node is a single-page application in which the server mostly provides data, but Node is still useful for a more traditional site. Of course, you want to begin development with requirements defined as precisely as possible, but implementation tends to expose requirements you hadn’t considered, and some of those can have a considerable impact on your timeline. Even in a server-driven application where it may not be possible to reuse data structures and templates as-is, creating client-only versions helps test your assumptions about the data you need and how you’ll use it.&lt;/p&gt;
+
+&lt;p&gt;If you’re developing a single-page app, the justification is much easier. You’ll need to think about optimizing your communication with the server to require as few requests as possible, which means knowing how data should be packaged up by each server endpoint and how you’ll cache the data on receipt (if at all).&lt;/p&gt;
+
+&lt;p&gt;An advantage of having JavaScript on the server is that templates can be rendered by the same template engine on either the client or server side. This allows you to experiment on both sides and optimize for your situation. It’s also a timesaver to render the templates with JavaScript objects and consider only the way data must eventually be grouped (not how it&amp;#8217;s stored in a database). Designing these groupings of data is the bulk of the work we can do with Node toward the end of what we traditionally consider application design.&lt;/p&gt;
+
+&lt;p&gt;Piecing together each page from disparate parts from all over the server is messy for an application in any language. Instead, whatever renders a page should have clear dependencies, and the result of each page or data request should combine those dependencies into a cohesive and sensibly organized unit.&lt;/p&gt;
+
+&lt;p&gt;If you’ve worked in a server-side framework in which a page or view is tied to a single object or model, and where additional data is imported and exposed in a different way, you probably understand how the alternative gets to be a nuisance. You’re probably also aware that the solution is a good view-model whose data is defined by each view, not the models that feed it. With this exercise, we aim to map out what goes in those view-models.&lt;/p&gt;
+
+&lt;h2&gt;Using templates&lt;/h2&gt;
+
+&lt;p&gt;There’s a strong likelihood that your production server does not run JavaScript, so you may end up converting templates you produce in this design phase. You could attempt to mitigate this by choosing a template engine like &lt;a href="http://mustache.github.io/"&gt;Mustache&lt;/a&gt; with existing parsers for a huge list of languages. Or you might choose one with minimal logic available (I find that the only things I want for a truly flexible template are conditionals, loops, and partials) and the option of changing the delimiters around the template tags to agree with your server template language. I’d argue that the process of getting all the data correctly placed in your HTML is a lot more difficult than doing a find and replace on the end result, so creating a template in JavaScript that you can use easily is time well spent even if it can’t be parsed by your production server.&lt;/p&gt;
+
+&lt;p&gt;You could choose to design the UI of your pages using hard-coded mockup data first and add the template tags afterward, or you could start with a template and some mockup data ready to go in your Node server. Even though it’s an extra step, I find the former easier, because the latter tends to require extra shifting of the mockup data. Starting with hard-coded data lets me examine the finished mockup and see what kinds of &amp;quot;objects&amp;quot; are present (e.g., a user, an item for sale, or a status update). That helps me create a flexible object hierarchy in my data more easily. But you may be naturally amazing at creating object hierarchies, so, by all means, do what you feel.&lt;/p&gt;
+
+&lt;p&gt;Wherever you begin, hammering out your templates should give you an indication of which parts of each page are dynamic and which data each requires. If subsections of your pages are rendered separately because they’re reused on different parent pages or because they’re also rendered by the client, converting your markup to templates also allows you to find the right balance between never repeating code and having absurdly tiny templates.&lt;/p&gt;
+
+&lt;h2&gt;Real fake server interactions&lt;/h2&gt;
+
+&lt;p&gt;If you’ve created high-fidelity wireframes that run in a browser, you know the annoyance of having only parts of a page be interactive, since every click means having to create a new view (even if you have a series of items that share the same behavior when clicked). You also know about copying and pasting the same data into multiple places, and updating each of them separately if the manner of presenting data should change. Designing your app with a server behind it removes those frustrations.&lt;/p&gt;
+
+&lt;p&gt;With the support of a server, it’s not a problem if the same data shows up in different displays all over the workflow you’re designing. Since the data lives on your Node server, you can write it once and reuse it as many ways as you like. You still have to consider how you’ll move it from server to client, though. When a user clicks on one of many items in a list, will she be taken to a new page, or will more data appear inline? Is the former the non-JavaScript fallback for the latter? Working that out for your app will tell you which endpoints the server needs, and which parameters need to be sent to it in query strings, form posts, or URLs. It’ll also help define the API for those requests, telling anyone who might work on your production server which keys you expect to correspond to which pieces of data.&lt;/p&gt;
+
+&lt;p&gt;Having a server to work with is especially nice if you’re in the business of making asynchronous requests. Obviously, you can get your mockup data, which is excellent, but you can also lazy-load assets like templates or stylesheets to consume that data. Testing the process of getting data and assets to the client validates your assumptions about not only the way you’re packaging them, but how you’re storing and structuring them. And, of course, it means a lot less wasted client-side JavaScript.&lt;/p&gt;
+
+&lt;h2&gt;A mockup you can use&lt;/h2&gt;
+
+&lt;p&gt;The end result of all this should be that you’ve moved all the mockup pieces out of your client-side JavaScript and HTML. You have a Node server that might not match your production framework, but does have clear definitions of everything the client side expects to exist—possibly even all viewable in a single file. You have templates and client-side requests that may require substitutions, but also separate your data from everything else and are at minimum easily convertible to whatever format is needed for production.&lt;/p&gt;
+
+&lt;p&gt;Could you do the same with any other server under the sun? Absolutely. But if you already know JavaScript and aren’t aiming to become a server-side developer, it makes sense to use the skills you already have. Node makes that pretty easy, while also letting you dig as deeply as you want into more complex servers, should your ambitions change. It’s simple to get going and flexible to extend, making Node an awesome tool for designing applications.&lt;/p&gt;
+
+&lt;p&gt;Ready to take your new Node skills for a spin? In &amp;ldquo;&lt;a href="http://alistapart.com/article/node-at-work-a-walkthrough/"&gt;Node at Work: A Walkthrough&lt;/a&gt;,&amp;rdquo; I’ll take you through a live demo, and get specific about how to refine your own mockups.&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/JIuRksQbUN4" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-04-30T12:00:07+00:00</dc:date>
+      <feedburner:origLink>http://alistapart.com/article/even-better-in-browser-mockups-with-node.js</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Node at Work: A Walkthrough]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/1XsqLkwaSO8/node-at-work-a-walkthrough</link>
+      <guid isPermaLink="false">http://alistapart.com/article/node-at-work-a-walkthrough</guid>
+      <description>&lt;p&gt;In my first article, “&lt;a href="http://alistapart.com/article/even-better-in-browser-mockups-with-node.js"&gt;Even Better In-Browser Mockups with Node.js&lt;/a&gt;,” I explained why Node.js makes designing applications easier and more efficient, and how to get started. Now it’s time to see your new design process in action.&lt;/p&gt;
+
+&lt;p&gt;Rather than figuring out all your requirements and API schemas just to design your comps with mockup content hard-coded and server interactions faked—only to throw it all away when you go back and implement things “for real”—you can use Node.js to skip the hard-coding and produce client-side code that’s ready for beta at the end of the design stage.&lt;/p&gt;
+
+&lt;p&gt;The process looks a lot like good ol’ &lt;a href="/article/responsive-comping-obtaining-signoff-with-mockups"&gt;designing in the browser&lt;/a&gt;, but with more JavaScript and an additional layer:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Design the layout and styling&lt;/li&gt;
+&lt;li&gt;Convert the markup to a JavaScript template&lt;/li&gt;
+&lt;li&gt;Create an initialization function&lt;/li&gt;
+&lt;li&gt;Create a simple Node.js server&lt;/li&gt;
+&lt;li&gt;Add a mockup data object to the server&lt;/li&gt;
+&lt;li&gt;Add server functions to serve static pages and JSON&lt;/li&gt;
+&lt;li&gt;Request and consume the JSON on the client&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Sound daunting? Don’t worry. The first step takes approximately a zillion times longer than any of the others. So if you’ve already mastered the design, you’ll find the rest of these steps more than manageable.&lt;/p&gt;
+
+&lt;p&gt;In this walkthrough, we’ll build a feature for a mock art store. If you want to follow along at home, you can clone my &lt;a href="https://github.com/garann/coolartstore"&gt;GitHub repository&lt;/a&gt;. (If you need help installing, see the &lt;a href="https://github.com/garann/coolartstore/blob/master/README.md"&gt;README&lt;/a&gt;, or just take a peek at the &lt;a href="http://coolartstore.rs.af.cm/"&gt;live demo&lt;/a&gt;—I’ll cover all the steps and code below.)&lt;/p&gt;
+
+&lt;h2&gt;Creating templates&lt;/h2&gt;
+
+&lt;p&gt;Once you have a solid design and the markup to accompany it, converting it to a template you can use for all examples is more efficient than creating duplicate markup for each one. The hard part’s over; you already thought about where data points would be used in the design when you created it. With those choices fresh in your mind, go back and mark up your HTML with data in whatever template language you prefer.&lt;/p&gt;
+
+&lt;p&gt;For my example, I’m using a store selling art prints. Here’s a snippet of my initial markup:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;h2&amp;gt;Two Acrobats with a Dog&amp;lt;/h2&amp;gt;
+&amp;lt;h3&amp;gt;Pablo Picasso&amp;lt;/h3&amp;gt;
+&amp;lt;img src=&amp;quot;img/102.jpg&amp;quot; alt=&amp;quot;Two Acrobats with a Dog&amp;quot; class=&amp;quot;active&amp;quot; /&amp;gt;
+&amp;lt;ul class=&amp;quot;info&amp;quot;&amp;gt;
+	&amp;lt;li&amp;gt;8&amp;quot; x 11&amp;quot;&amp;lt;/li&amp;gt;
+	&amp;lt;li&amp;gt;acid-free paper&amp;lt;/li&amp;gt;
+	&amp;lt;li&amp;gt;suitable for matting&amp;lt;/li&amp;gt;
+&amp;lt;/ul&amp;gt;
+&amp;lt;span class=&amp;quot;price&amp;quot;&amp;gt;$49.99&amp;lt;/span&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Think of your templates as places to define your requirements for both data and its formatting on the client side. If you can also reuse it for client-side rendering, that’s awesome—but that may not be relevant to your application. As long as you have good data, converting from one template language to another is trivial, so don’t agonize over which template engine to use.&lt;/p&gt;
+
+&lt;p&gt;You do need a template engine that will work in both the browser and Node.js, however. If you’re unsure, search for your template engine on &lt;a href="https://github.com/"&gt;GitHub&lt;/a&gt; and verify that there’s a guide to installing it via &lt;a href="https://npmjs.org/"&gt;npm&lt;/a&gt; in the manual, as well as a minified script for use on the client. I prefer &lt;a href="http://olado.github.io/doT/index.html"&gt;doT.js&lt;/a&gt;, so here’s that snippet again marked up to add data using doT:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;h2&amp;gt;{{=it.title}}&amp;lt;/h2&amp;gt;
+&amp;lt;h3&amp;gt;{{=it.artist.name}}&amp;lt;/h3&amp;gt;
+&amp;lt;img src=&amp;quot;img/{{=it.id}}.jpg&amp;quot; alt=&amp;quot;{{=it.title}}&amp;quot; class=&amp;quot;active&amp;quot; /&amp;gt;
+&amp;lt;ul class=&amp;quot;info&amp;quot;&amp;gt;
+	{{~it.info :info_item}}
+	&amp;lt;li&amp;gt;{{=info_item}}&amp;lt;/li&amp;gt;
+	{{~}}
+&amp;lt;/ul&amp;gt;
+&amp;lt;span class=&amp;quot;price&amp;quot;&amp;gt;{{=it.price}}&amp;lt;/span&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I like to save my templates in their own directory at the same level as my JavaScript directory, so now I store that as &lt;code&gt;tmpl/detail.dot&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Initializing the client&lt;/h2&gt;
+
+&lt;p&gt;Since we want to be able to use our templates in both Node and the browser, they need to be stored outside of the HTML and loaded and compiled when we open the page. To start, save the minified version of your template engine and add a script tag to your page to include it. Once that’s done, you can fetch the template, compile it, and then continue on with any other initialization work in your main JavaScript file. I’m using jQuery in my example, so my code looks like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var detailTmpl;
+
+$.when( 
+	$.get( &amp;quot;tmpl/detail.dot&amp;quot;, function( tmpl ) {
+		detailTmpl = doT.template( tmpl );
+	}, &amp;quot;text&amp;quot; ) 
+).then( init );&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That mysterious &lt;code&gt;init&lt;/code&gt; function? That’s where I’ll put any interactivity I want to add to my currently static mockup. For the moment I’m only creating one interaction, so my &lt;code&gt;init&lt;/code&gt; function is pretty simple:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function init() {
+	$( &amp;quot;div.content&amp;quot; ).on( &amp;quot;click&amp;quot;, &amp;quot;div.result&amp;quot;, showDetail );
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This code can be made much more elegant using &lt;a href="http://requirejs.org/"&gt;Require.js&lt;/a&gt; with its text plugin. That’s beyond the scope of this demo, but I highly encourage it for production.&lt;/p&gt;
+
+&lt;p&gt;We’ll handle template rendering in &lt;code&gt;showDetail()&lt;/code&gt;, but we have to add a server and data store before writing that function, since right now we lack any data &lt;em&gt;to&lt;/em&gt; render.&lt;/p&gt;
+
+&lt;h2&gt;Creating a server&lt;/h2&gt;
+
+&lt;p&gt;If I reload my page now and open the browser console, I get a JavaScript error. That’s because I’m trying to load my template via an XMLHttpRequest (XHR) on a page being served from the file system, in violation of the &lt;a href="http://en.wikipedia.org/wiki/Same_origin_policy"&gt;same origin policy&lt;/a&gt;. I can’t even check that my template works until the page is served properly (i.e., from a server).&lt;/p&gt;
+
+&lt;p&gt;To whip up a simple Node server that allows me to run my XHRs, I do a few things:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Move all my existing assets into a new subdirectory called &lt;code&gt;public&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Open my terminal or command line to my working directory and run &lt;code&gt;npm install express&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Add a server.js file to the working directory&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We could write everything from scratch, of course, but it’s more work than is necessary for a basic server. The &lt;a href="http://expressjs.com/"&gt;Express&lt;/a&gt; framework provides a number of abstractions of server and application concepts. For the initial version of the server, the only one we’ll need is its ability to serve static resources. We can use it by adding four lines of code to &lt;code&gt;server.js&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var express = require( &amp;quot;express&amp;quot; ),
+	app = express();
+
+app.use( express.static( __dirname + &amp;quot;/public&amp;quot; ) );
+
+app.listen( 3000 );&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once you start your server by typing &lt;code&gt;node server.js&lt;/code&gt; in your open terminal or command line, you can view your page at http://localhost:3000 (adding a filename if necessary), and the error related to loading the template ought to disappear.&lt;/p&gt;
+
+&lt;h2&gt;Adding server-side data&lt;/h2&gt;
+
+&lt;p&gt;While it’s certainly nice to be able to use XHRs, we&amp;#8217;re creating the Node server to use it as a representation of the real server—and real servers store data. Though it’s not hard to create a data store that works with a Node server, it’s even less difficult to create one big &lt;a href="https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Values,_variables,_and_literals?redirectlocale=en-US&amp;amp;redirectslug=Core_JavaScript_1.5_Guide/Values,_Variables,_and_Literals%23Object_literals"&gt;object literal&lt;/a&gt;. For a mockup, that’s all we really need. One of the goals here is to define the data objects we need to support in our new design, so the format of this object can be determined by the template we just added. For my example, I need an object structured something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var products = {
+	&amp;quot;102&amp;quot;: {
+		id: 102,
+		title: &amp;quot;Two Acrobats with a Dog&amp;quot;,
+		artist: {
+			name: &amp;quot;Pablo Picasso&amp;quot;
+		},
+		price: &amp;quot;$49.99&amp;quot;,
+		info: [
+			&amp;quot;8\&amp;quot; x 11\&amp;quot;&amp;quot;,
+			&amp;quot;acid-free paper&amp;quot;,
+			&amp;quot;suitable for matting&amp;quot;
+		]
+	}
+};&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that &lt;code&gt;products&lt;/code&gt; could just as easily be an array, but I want to be able to quickly find my products—once I have more than one in my fake data store—by ID. Aside from that little twist, the data look exactly like the content hard-coded in my original HTML. If I want to add more data, including things that might break the layout in unpredictable ways, I can just copy this structure and make substitutions. Well, almost.&lt;/p&gt;
+
+&lt;h2&gt;Returning data from the server&lt;/h2&gt;
+
+&lt;p&gt;If you’ve dealt with other server-side frameworks, creating endpoints for XHRs might seem intimidating, but Express makes it really easy. We don’t need any special setup to define a server endpoint as a target for asynchronous requests. All we have to do is define the path on the server where we want to accept requests and a callback. The callback receives a request object (for doing things like getting passed-in data) and a response object (for defining what we return to the client). To return the data in my products object, I add a few lines of code at the bottom of server.js:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;app.get( &amp;quot;/detail/:id&amp;quot;, function( req, res ) {
+	res.send( products[ req.params.id ] );
+});
+
+app.listen( 3000 );&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;See? Easy. If I restart my server and go to http://localhost:3000/detail/102, I should see my object data. To break down what’s going on with the ID in the path, we’ve named the data at that position in the path &amp;quot;id&amp;quot; with the &lt;code&gt;:id&lt;/code&gt; bit, and it then becomes available as a property of &lt;code&gt;req.params&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The names and positions of parameters are up to us, and if our path were super complex, we could also use regular expressions to split out multiple pieces of data. Express also gives us the option of accepting data from the query string or from a POST. Of all the pieces we’re creating, however, the paths are the most likely to change in production, so it’s to our advantage to keep them as readable as possible.&lt;/p&gt;
+
+&lt;p&gt;Besides sending pure data to the client, we also want to be able to send rendered HTML, in case a user is linked directly to a product detail or doesn’t have JavaScript available. We might also want HTML for our own consumption via XHR, if we find that client-side rendering is slowing us down. So we add a second endpoint below the one we just created to do that:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;app.get( &amp;quot;/product/:id&amp;quot;, function( req, res ) {
+	res.render( &amp;quot;detail&amp;quot;, products[ req.params.id ] );
+});&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For simplicity’s sake, and because the first path served JSON for an overlay while this provides a full page, I’ve used a different pathname, but kept the same pattern. This time, instead of the response’s send function, I use &lt;code&gt;render()&lt;/code&gt;. Express provides some magic to make template rendering work out of the box, but since I’m using doT instead of Jade (the default template engine of Express), I have to do some additional setup.&lt;/p&gt;
+
+&lt;p&gt;First I have to go back to the terminal or command line, stop my Node server, and install my template engine using &lt;code&gt;npm install doT&lt;/code&gt; and the consolidate module (which provides Express compatibility for a number of popular template engines) using &lt;code&gt;npm install consolidate&lt;/code&gt;. Now I’ve got both of those in my &lt;code&gt;node_modules&lt;/code&gt; directory and can use them in &lt;code&gt;server.js&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Since doT (and probably your template engine of choice, as well) is accessed through consolidate, consolidate is the only additional module I need to require at the top of &lt;code&gt;server.js&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var express = require( &amp;quot;express&amp;quot; ),
+	app = express(),
+	cons = require( &amp;quot;consolidate&amp;quot; );&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I want to continue serving some of my other pages statically, so I add my template configuration stuff below the existing &lt;code&gt;app.use&lt;/code&gt; line in my code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;app.use( express.static( _dirname + &amp;quot;/public&amp;quot; ) );
+app.engine( &amp;quot;dot&amp;quot;, cons.dot );
+app.set( &amp;quot;view engine&amp;quot;, &amp;quot;dot&amp;quot; );
+app.set( &amp;quot;views&amp;quot;, _dirname + &amp;quot;/public/tmpl&amp;quot; );&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Those three new lines set doT (as exposed by consolidate) as the view engine, register files ending in &lt;code&gt;.dot&lt;/code&gt; as templates, and tell Express to look in &lt;code&gt;/public/tmpl&lt;/code&gt; for templates to use. So when Node sees &lt;code&gt;res.render( &amp;quot;detail&amp;quot;, { ... } )&lt;/code&gt;, it knows to expand &lt;code&gt;&amp;quot;detail&amp;quot;&lt;/code&gt; to &lt;code&gt;/public/tmpl/detail.dot&lt;/code&gt; and render it as a doT template. Now I can restart my server, go to http://localhost:3000/product/102, and see my template rendered statically, without creating a separate server-side file.&lt;/p&gt;
+
+&lt;h2&gt;Fetching dynamic data&lt;/h2&gt;
+
+&lt;p&gt;Our template now works as a static page, but there’s still one more step to get our mockup populated with the data from the server. Remember the &lt;code&gt;showDetail&lt;/code&gt; function from our main client-side script? It’s time to flesh that out.&lt;/p&gt;
+
+&lt;p&gt;In my simple example, the overlay my template will populate already exists as a hidden &lt;code&gt;div&lt;/code&gt; on the main page, and it appears when the user clicks a &lt;code&gt;div&lt;/code&gt; containing a summary of the content. This div has a data attribute storing the ID of the product that corresponds to the key and id property in my server-side data object. Once that click event happens and &lt;code&gt;showDetail()&lt;/code&gt; is called, I just need to do this: &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function showDetail( e ) {
+	var id = $( this ).data( &amp;quot;id&amp;quot; );
+	$.get( &amp;quot;detail/&amp;quot; + id, function( info ) {
+		$( &amp;quot;div.detail&amp;quot; ).html( detailTmpl( info ) );
+		$( &amp;quot;div.detail&amp;quot; ).show();
+	}
+}&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The path above is the same one I defined in &lt;code&gt;server.js&lt;/code&gt;. If you chose a different name for yours, use that name here on the client. When I receive the data object from the server, I pass it to &lt;code&gt;detailTmpl()&lt;/code&gt;, the compiled version of my template. The result of the &lt;code&gt;detailTmpl&lt;/code&gt; function is the HTML to populate my overlay.&lt;/p&gt;
+
+&lt;h2&gt;Onward&lt;/h2&gt;
+
+&lt;p&gt;So there you have it! A mockup that mimics the interactions it will have with its production server precisely on the client, without the need for hard-coded data or temporary workarounds. Despite the simple exercise, the process I’ve outlined accomplishes a good deal of the setup necessary to create other workflows that require server interactions. For instance, I can fill my fake data store with more products and use that to render the initial page that triggers my overlay without having to revisit my mockup data, and my application will show the correct values in any view I add to it.&lt;/p&gt;
+
+&lt;p&gt;If you’d like to explore beyond just serving HTML and JSON, consider adding in &lt;a href="http://socket.io"&gt;Socket.io&lt;/a&gt; to allow real-time interaction for multiple clients or Require.js to manage your assets on the client. You could also move your CSS into templates and serve different builds of your site for different browsers or devices. Your mockup can be as sophisticated and reflect as many of its production requirements as you choose. At the end, the lion’s share of your client-side code is done and ready to use.&lt;/p&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/1XsqLkwaSO8" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-04-30T12:00:52+00:00</dc:date>
+      <feedburner:origLink>http://alistapart.com/article/node-at-work-a-walkthrough</feedburner:origLink>
+    </item>
+    <item>
+      <title><![CDATA[Principles of Writing Consistent, Idiomatic JavaScript]]></title>
+      <link>http://feedproxy.google.com/~r/alistapart/main/~3/5CfpcP1kjcE/</link>
+      <guid isPermaLink="false">https://github.com/rwldrn/idiomatic.js/</guid>
+      <description>&lt;a href="https://github.com/rwldrn/idiomatic.js/" style="font-size: 18px;"&gt;» Principles of Writing Consistent, Idiomatic JavaScript&lt;/a&gt;&lt;br&gt;&lt;br&gt;If you’re looking for a thorough JavaScript style guide for your team, &lt;a href="https://twitter.com/rwaldron"&gt;Rick Waldron&lt;/a&gt;’s &lt;i&gt;Principles of Writing Consistent, Idiomatic JavaScript&lt;/i&gt; is a great place to start.&lt;br&gt;&lt;br&gt;&lt;img src="http://feeds.feedburner.com/~r/alistapart/main/~4/5CfpcP1kjcE" height="1" width="1"/&gt;</description>
+      <dc:subject />
+      <dc:date>2013-04-29T15:47:16+00:00</dc:date>
+      <feedburner:origLink>https://github.com/rwldrn/idiomatic.js/</feedburner:origLink>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Accessible RSS Language file. Edit in a Unicode/UTF-8 text editor only. Make a backup copy first. -->
+<language>
+  <item>
+    <key>frmMain.Text</key>
+    <explanation />
+    <content language="en">Podcatcher</content>
+  </item>
+  <item>
+    <key>frmMain.mnuFeeds.Text</key>
+    <explanation></explanation>
+    <content language="cz">Webové kanály</content>
+    <content language="en">&amp;Podcasts</content>
+    <content language="pl">&amp;Adresy kanałów</content>
+    <content language="es">&amp;Alimentos del sitio web</content>
+  </item>
+  <item>
+    <key>frmMain.mnuFeedsAdd.Text</key>
+    <explanation></explanation>
+    <content language="cz">&amp;Přidat webový kanál</content>
+    <content language="en">&amp;Add feed</content>
+    <content language="pl">&amp;Dodaj kanał</content>
+    <content language="es">&amp;Añadir alimento del sitio web</content>
+  </item>
+  <item>
+    <key>frmMain.mnuFeedsDeleteallwebsitefeeds.Text</key>
+    <explanation></explanation>
+    <content language="en">&amp;Delete all website RSS news feeds</content>
+  </item>
+  <item>
+    <key>Do you really want to delete every RSS news feed?</key>
+    <explanation>Shown to confirm deleting every news feed.</explanation>
+    <content language="en">Do you really want to delete every RSS news feed?</content>
+  </item>
+  <item>
+    <key>frmMain.mnuFeedsNext.Text</key>
+    <content language="en">&amp;Next</content>
+    <content language="cz">Další</content>
+    <content language="es">&amp;Siguiente</content>
+    <explanation></explanation>
+    <content language="pl">&amp;Następny</content>
+  </item>
+  <item>
+    <key>frmMain.mnuFeedsPrevious.Text</key>
+    <explanation></explanation>
+    <content language="en">&amp;Previous</content>
+    <content language="cz">Předchozí</content>
+    <content language="es">&amp;Anterior</content>
+    <content language="pl">&amp;Poprzedni</content>
+  </item>
+  <item>
+    <key>Getting news...</key>
+    <explanation />
+    <content language="en">Getting news...</content>
+    <content language="es">Obteniendo noticias…</content>
+  </item>
+  <item>
+    <key>Enter website address where you want to search for RSS feeds:</key>
+    <explanation />
+    <content language="en">Enter website address where you want to search for RSS feeds:</content>
+    <content language="es">Entre la dirección del sitio web dónde quiere buscar alimentos RSS:</content>
+  </item>
+  <item>
+    <key>No news items</key>
+    <explanation />
+    <content language="en">No news items</content>
+    <content language="es">No hay noticias</content>
+  </item>
+  <item>
+    <key>No RSS news feeds found</key>
+    <explanation />
+    <content language="en">No RSS news feeds found</content>
+    <content language="es">No se han encontrado alimentos RSS de noticias</content>
+  </item>
+  <item>
+	<key>Invalid document type</key>
+	<explanation />
+	<content language="en">Invalid document type</content>
+  </item>
+</language>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+    <head>
+        <title>Alasdair subscriptions in Google Reader</title>
+    </head>
+    <body>
+		<feed>
+			<title>BBC News</title>
+			<url>http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/front_page/rss.xml</url>
+		</feed>
+		<feed>
+			<title>The Guardian</title>
+			<url>http://www.guardian.co.uk/rssfeed/0,15065,1,00.xml</url>
+		</feed>
+		<feed>
+			<title>The Telegraph</title>
+			<url>http://www.telegraph.co.uk/newsfeed/rss/news_main.xml</url>
+		</feed>
+		<feed>
+			<title>Daily Mail</title>
+			<url>http://www.dailymail.co.uk/pages/xml/index.html?in_page_id=1766</url>
+		</feed>
+		<feed>
+			<title>WebbIE News</title>
+			<url>http://www.webbie.org.uk/xml/webbie.rss</url>
+		</feed>
+		<feed>
+			  <title>The New York Times</title>
+			  <url>http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml</url>
+		</feed>
+		<feed>
+			  <title>The Independent</title>
+			  <url>http://news.independent.co.uk/index.jsp?service=rss</url>
+		</feed>
+		<feed>
+			<title>Washington Post</title>
+			<url>http://www.washingtonpost.com/wp-dyn/rss/linkset/2005/03/24/LI2005032400102.xml</url>
+		</feed>
+		<feed>
+			<title>Le Monde</title>
+			<url>http://www.lemonde.fr/rss/sequence/0,2-3208,1-0,0.xml</url>
+		</feed>
+	</body>
+</opml>

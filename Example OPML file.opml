@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+    <head>
+        <title>Alasdair subscriptions in Google Reader</title>
+    </head>
+    <body>
+	
+	<!--
+		text = descriptive name. I don't know how this differs from title.
+		title = descriptive name. I don't know how this differs from text.
+		type = "rss"
+		xmlUrl = URL of the RSS or Atom feed.
+			For RSS feeds this sometimes provided in some Atom namespace attributes, but not always.
+			For Atom feeds this is the href attribute value of the link element that has a rel attribute value of "self" and 
+				a type attribute value of application/atom+xml
+		htmlUrl = URL of the website for the RSS or Atom feed.
+			For RSS feeds (the two I've tested), this is the contents of rss > channel > link
+			For Atom feeds this is the href attribute value of the link element that has a rel attribute value of "alternate" and 
+				a type attribute value of text/html.
+	-->
+        <outline text="456 Berea Street" title="456 Berea Street"
+            type="rss"
+            xmlUrl="http://feeds.feedburner.com/456bereastreet" htmlUrl="http://www.456bereastreet.com/"/>
+        <outline text="A List Apart" title="A List Apart" type="rss"
+            xmlUrl="http://www.alistapart.com/rss.xml" htmlUrl="http://alistapart.com"/>
+        <outline text="Aaron Stebner's WebLog"
+            title="Aaron Stebner's WebLog" type="rss"
+            xmlUrl="http://blogs.msdn.com/b/astebner/atom.aspx" htmlUrl="http://blogs.msdn.com/b/astebner/"/>
+        <outline text="Accessibility Strategy and Architecture"
+            title="Accessibility Strategy and Architecture" type="rss"
+            xmlUrl="http://www-128.ibm.com/developerworks/blogs/rss/schwer?flavor=rssdw" htmlUrl="https://www.ibm.com/developerworks/community/blogs/schwer"/>
+        <outline text="Accessible Culture" title="Accessible Culture"
+            type="rss" xmlUrl="http://www.accessibleculture.org/feed/" htmlUrl="http://www.accessibleculture.org"/>
+        <outline text="Adobe Accessibility" title="Adobe Accessibility"
+            type="rss"
+            xmlUrl="http://blogs.adobe.com/accessibility/atom.xml" htmlUrl="http://blogs.adobe.com/accessibility"/>
+        <outline text="Adventures in .NET" title="Adventures in .NET"
+            type="rss"
+            xmlUrl="http://adventuresdotnet.blogspot.com/feeds/posts/default" htmlUrl="http://adventuresdotnet.blogspot.com/"/>
+        <outline text="Alan Stewart's Blog" title="Alan Stewart's Blog"
+            type="rss" xmlUrl="http://atss.wordpress.com/feed/" htmlUrl="http://atss.wordpress.com"/>
+        <outline text="Alex Shevchuk" title="Alex Shevchuk" type="rss"
+            xmlUrl="http://blogs.technet.com/alexshev/rss.xml" htmlUrl="http://blogs.technet.com/b/alexshev/"/>
+        <outline text="Amazon Appstore Developer Blog"
+            title="Amazon Appstore Developer Blog" type="rss"
+            xmlUrl="http://www.amazonappstoredev.com/atom.xml" htmlUrl="http://www.amazonappstoredev.com/"/>
+        <outline text="Anne’s Blog" title="Anne’s Blog" type="rss"
+            xmlUrl="http://annevankesteren.nl/feeds/weblog" htmlUrl="http://annevankesteren.nl/"/>
+        <outline text="Ask Doctor Math" title="Ask Doctor Math"
+            type="rss"
+            xmlUrl="http://doctormath.blogspot.com/feeds/posts/default?alt=rss" htmlUrl="http://doctormath.blogspot.com/"/>
+        <outline text="BishopBlog" title="BishopBlog" type="rss"
+            xmlUrl="http://deevybee.blogspot.com/feeds/posts/default" htmlUrl="http://deevybee.blogspot.com/"/>
+        <outline text="Blind Access Journal"
+            title="Blind Access Journal" type="rss"
+            xmlUrl="http://feeds.feedburner.com/blindaccessjournal" htmlUrl="http://blindaccessjournal.com"/>
+        <outline text="Blood and Milk" title="Blood and Milk" type="rss"
+            xmlUrl="http://feeds2.feedburner.com/BloodAndMilk" htmlUrl="http://bloodandmilk.org"/>
+        <outline text="Bruce Lawson's  personal site"
+            title="Bruce Lawson's  personal site" type="rss"
+            xmlUrl="http://www.brucelawson.co.uk/index.php/feed/atom/" htmlUrl="http://www.brucelawson.co.uk/"/>
+        <outline text="Building Windows 8" title="Building Windows 8"
+            type="rss" xmlUrl="http://blogs.msdn.com/b/b8/atom.aspx" htmlUrl="http://blogs.msdn.com/b/b8/"/>
+        <outline text="CALL Scotland Blog" title="CALL Scotland Blog"
+            type="rss"
+            xmlUrl="http://www.callscotland.org.uk/blog/rss.xml" htmlUrl="http://www.callscotland.org.uk/Blog/"/>
+        <outline text="Claro Software" title="Claro Software" type="rss"
+            xmlUrl="http://www.clarosoftware.com/blog/?feed=rss2" htmlUrl="http://www.clarosoftwaredownloads.com/blog"/>
+        <outline text="Coding Horror" title="Coding Horror" type="rss"
+            xmlUrl="http://feeds.feedburner.com/codinghorror/" htmlUrl="http://www.codinghorror.com/blog/"/>
+        <outline text="Dan's Ease of Access Blog"
+            title="Dan's Ease of Access Blog" type="rss"
+            xmlUrl="http://blogs.msdn.com/b/danhub/rss.aspx" htmlUrl="http://blogs.msdn.com/b/danhub/"/>
+        <outline text="Daring Fireball" title="Daring Fireball"
+            type="rss" xmlUrl="http://daringfireball.net/index.xml" htmlUrl="http://daringfireball.net/"/>
+        <outline
+            text="Development for Windows Accessibility and Automation Forum"
+            title="Development for Windows Accessibility and Automation Forum"
+            type="rss"
+            xmlUrl="http://social.msdn.microsoft.com/Forums/en/windowsaccessibilityandautomation/threads?outputAs=rss" htmlUrl="http://www.google.com/reader/view/feed%2Fhttp%3A%2F%2Fsocial.msdn.microsoft.com%2FForums%2Fen%2Fwindowsaccessibilityandautomation%2Fthreads%3FoutputAs%3Drss"/>
+        <outline text="DingoAccess" title="DingoAccess" type="rss"
+            xmlUrl="http://www.dingoaccess.com/feed/" htmlUrl="http://www.dingoaccess.com"/>
+        <outline text="dotjay.co.uk" title="dotjay.co.uk" type="rss"
+            xmlUrl="http://dotjay.co.uk/rss/" htmlUrl="http://dotjay.co.uk"/>
+        <outline text="Eyes-Free Android" title="Eyes-Free Android"
+            type="rss"
+            xmlUrl="http://eyes-free.blogspot.com/feeds/posts/default" htmlUrl="http://eyes-free.blogspot.com/"/>
+        <outline text="Farnam Street" title="Farnam Street" type="rss"
+            xmlUrl="http://feeds.feedburner.com/68131" htmlUrl="http://www.farnamstreetblog.com"/>
+        <outline text="Free exchange" title="Free exchange" type="rss"
+            xmlUrl="http://www.economist.com/blogs/freeexchange/index.xml" htmlUrl="http://www.economist.com/node/21003975/index.xml"/>
+        <outline text="Greg's Cool [Insert Clever Name] of the Day"
+            title="Greg's Cool [Insert Clever Name] of the Day"
+            type="rss"
+            xmlUrl="http://coolthingoftheday.blogspot.com/feeds/posts/default" htmlUrl="http://coolthingoftheday.blogspot.com/"/>
+        <outline text="GROGNARDIA" title="GROGNARDIA" type="rss"
+            xmlUrl="http://grognardia.blogspot.com/feeds/posts/default" htmlUrl="http://grognardia.blogspot.com/"/>
+        <outline text="Heath Stewart's Blog"
+            title="Heath Stewart's Blog" type="rss"
+            xmlUrl="http://blogs.msdn.com/b/heaths/atom.aspx" htmlUrl="http://blogs.msdn.com/b/heaths/"/>
+        <outline
+            text="Henny Swan - building accessible and mobile websites"
+            title="Henny Swan - building accessible and mobile websites"
+            type="rss" xmlUrl="http://www.iheni.com/feed/" htmlUrl="http://www.iheni.com"/>
+        <outline text="Hilery Williams" title="Hilery Williams"
+            type="rss" xmlUrl="http://hileryjane.wordpress.com/feed/" htmlUrl="http://hileryjane.wordpress.com"/>
+        <outline text="I Speak of Dreams" title="I Speak of Dreams"
+            type="rss"
+            xmlUrl="http://lizditz.typepad.com/i_speak_of_dreams/atom.xml" htmlUrl="http://lizditz.typepad.com/i_speak_of_dreams/"/>
+        <outline text="IEBlog" title="IEBlog" type="rss"
+            xmlUrl="http://blogs.msdn.com/b/ie/atom.aspx" htmlUrl="http://blogs.msdn.com/b/ie/"/>
+        <outline text="Jalapeños in the Oatmeal"
+            title="Jalapeños in the Oatmeal" type="rss"
+            xmlUrl="https://jalapenosintheoatmeal.wordpress.com/feed/" htmlUrl="http://jalapenosintheoatmeal.wordpress.com"/>
+        <outline text="Joe Dolson Accessible Web Design"
+            title="Joe Dolson Accessible Web Design" type="rss"
+            xmlUrl="http://feeds.feedburner.com/AccessibleDesign" htmlUrl="http://www.joedolson.com/articles"/>
+        <outline text="Joe Hewitt" title="Joe Hewitt" type="rss"
+            xmlUrl="http://joehewitt.com/index.xml" htmlUrl="http://joehewitt.com"/>
+        <outline text="Joy of Setup" title="Joy of Setup" type="rss"
+            xmlUrl="http://www.joyofsetup.com/feed/atom/" htmlUrl="http://www.joyofsetup.com/"/>
+        <outline text="Juicy Studio" title="Juicy Studio" type="rss"
+            xmlUrl="http://juicystudio.com/syndicate/juicyatom.xml" htmlUrl="http://juicystudio.com/"/>
+        <outline text="Kinect for Windows Blog"
+            title="Kinect for Windows Blog" type="rss"
+            xmlUrl="http://research.microsoft.com/en-us/um/redmond/projects/kinectsdk/kdkrss.xml" htmlUrl="http://blogs.msdn.com/b/kinectforwindows/"/>
+        <outline text="LD Resources" title="LD Resources" type="rss"
+            xmlUrl="http://www.ldresources.org/feed/" htmlUrl="http://www.ldresources.org"/>
+        <outline text="Learning by Shipping"
+            title="Learning by Shipping" type="rss"
+            xmlUrl="http://blog.learningbyshipping.com/feed/" htmlUrl="http://blog.learningbyshipping.com"/>
+        <outline text="Lexdis 2.0" title="Lexdis 2.0" type="rss"
+            xmlUrl="http://www.lexdis.org.uk/feed" htmlUrl="http://www.lexdis.org.uk"/>
+        <outline text="LONDON ROAD FIRE STATION"
+            title="LONDON ROAD FIRE STATION" type="rss"
+            xmlUrl="http://www.londonroadfire.org/feed/" htmlUrl="http://www.londonroadfire.org"/>
+        <outline text="Man with no Blog" title="Man with no Blog"
+            type="rss"
+            xmlUrl="http://feeds2.feedburner.com/manwithnoblog" htmlUrl="http://manwithnoblog.com"/>
+        <outline text="Many Fingers in Many Pies."
+            title="Many Fingers in Many Pies." type="rss"
+            xmlUrl="http://blog.willwa.de/rss" htmlUrl="http://blog.willwa.de/"/>
+        <outline text="Marco's accessibility blog"
+            title="Marco's accessibility blog" type="rss"
+            xmlUrl="http://www.marcozehe.de/feed/" htmlUrl="http://www.marcozehe.de"/>
+        <outline text="Max Design" title="Max Design" type="rss"
+            xmlUrl="http://www.maxdesign.com.au/feed/" htmlUrl="http://www.maxdesign.com.au"/>
+        <outline text="Maxwell's Musings" title="Maxwell's Musings"
+            type="rss"
+            xmlUrl="http://maxwellsmusings.blogspot.com/feeds/posts/default" htmlUrl="http://maxwellsmusings.blogspot.com/"/>
+        <outline text="Microsoft Accessibility"
+            title="Microsoft Accessibility" type="rss"
+            xmlUrl="http://blogs.msdn.com/b/accessibility/rss.aspx" htmlUrl="http://blogs.msdn.com/b/accessibility/"/>
+        <outline text="Microsoft Research Downloads"
+            title="Microsoft Research Downloads" type="rss"
+            xmlUrl="http://research.microsoft.com/rss/downloads.xml" htmlUrl="http://research.microsoft.com/apps/dp/dl/downloads.aspx"/>
+        <outline text="Microsoft Research News and Highlights"
+            title="Microsoft Research News and Highlights" type="rss"
+            xmlUrl="http://research.microsoft.com/rss/news.xml" htmlUrl="http://research.microsoft.com/apps/dp/ne/news.aspx"/>
+        <outline text="Microsoft Research Publications"
+            title="Microsoft Research Publications" type="rss"
+            xmlUrl="http://research.microsoft.com/rss/publications.xml" htmlUrl="http://research.microsoft.com/apps/dp/pu/publications.aspx"/>
+        <outline
+            text="Microsoft Translator (and Bing Translator) Official Team Blog"
+            title="Microsoft Translator (and Bing Translator) Official Team Blog"
+            type="rss"
+            xmlUrl="http://blogs.msdn.com/b/translation/rss.aspx" htmlUrl="http://blogs.msdn.com/b/translation/"/>
+        <outline text="Microsoft Windows SDK Blog"
+            title="Microsoft Windows SDK Blog" type="rss"
+            xmlUrl="https://blogs.msdn.com/b/windowssdk/rss.aspx" htmlUrl="http://blogs.msdn.com/b/windowssdk/"/>
+        <outline text="News" title="News" type="rss"
+            xmlUrl="http://acecentre.org.uk/Rss.aspx?ContentID=2586309" htmlUrl="http://acecentre.org.uk"/>
+        <outline text="News » Katharine Birbalsingh"
+            title="News » Katharine Birbalsingh" type="rss"
+            xmlUrl="http://blogs.telegraph.co.uk/news/author/katharinebirbalsingh/feed/" htmlUrl="http://blogs.telegraph.co.uk/news"/>
+        <outline text="OkTrends" title="OkTrends" type="rss"
+            xmlUrl="http://blog.okcupid.com/index.php/feed/" htmlUrl="http://blog.okcupid.com"/>
+        <outline text="OneSwitch.org.uk blog"
+            title="OneSwitch.org.uk blog" type="rss"
+            xmlUrl="http://feeds.feedburner.com/oneswitch" htmlUrl="http://switchgaming.blogspot.com/"/>
+        <outline text="O'Reilly News: Microsoft"
+            title="O'Reilly News: Microsoft" type="rss"
+            xmlUrl="http://www.oreillynet.com/pub/feed/4" htmlUrl="http://news.oreilly.com/"/>
+        <outline
+            text="PC Bloggs - a Twenty-first Century Police Officer"
+            title="PC Bloggs - a Twenty-first Century Police Officer"
+            type="rss"
+            xmlUrl="http://pcbloggs.blogspot.com/feeds/posts/default?alt=rss" htmlUrl="http://pcbloggs.blogspot.com/"/>
+        <outline text="Peter Marcu's Blog" title="Peter Marcu's Blog"
+            type="rss" xmlUrl="http://blogs.msdn.com/b/pmarcu/atom.aspx" htmlUrl="http://blogs.msdn.com/b/pmarcu/"/>
+        <outline text="Peter Marcu's Blog" title="Peter Marcu's Blog"
+            type="rss"
+            xmlUrl="http://petermarcu.blogspot.com/feeds/posts/default?alt=rss" htmlUrl="http://petermarcu.blogspot.com/"/>
+        <outline text="Planetizen Interchange"
+            title="Planetizen Interchange" type="rss"
+            xmlUrl="http://www.planetizen.com/blog/feed" htmlUrl="http://www.planetizen.com/tech"/>
+        <outline text="PWS web editorial services – articles"
+            title="PWS web editorial services – articles" type="rss"
+            xmlUrl="http://www.pws-ltd.com/feeds/rss.xml" htmlUrl="http://www.pws-ltd.com/index.html"/>
+        <outline text="RobMensching.com /Blog - Posts"
+            title="RobMensching.com /Blog - Posts" type="rss"
+            xmlUrl="http://robmensching.com/blog/Rss.aspx" htmlUrl="http://robmensching.com/blog/posts"/>
+        <outline text="Rob's Rhapsody" title="Rob's Rhapsody" type="rss"
+            xmlUrl="http://blogs.msdn.com/robch/atom.xml" htmlUrl="http://blogs.msdn.com/b/robch/"/>
+        <outline text="Smashing Magazine Feed"
+            title="Smashing Magazine Feed" type="rss"
+            xmlUrl="http://rss1.smashingmagazine.com/feed/" htmlUrl="http://www.smashingmagazine.com/"/>
+        <outline text="Sorting it all Out" title="Sorting it all Out"
+            type="rss" xmlUrl="http://blogs.msdn.com/b/michkap/rss.aspx" htmlUrl="http://blogs.msdn.com/b/michkap/"/>
+        <outline text="speech @ microsoft" title="speech @ microsoft"
+            type="rss" xmlUrl="http://blogs.msdn.com/b/speech/rss.aspx" htmlUrl="http://blogs.msdn.com/b/speech/"/>
+        <outline
+            text="splintered - random sparks of creative insight - news"
+            title="splintered - random sparks of creative insight - news"
+            type="rss"
+            xmlUrl="http://www.splintered.co.uk/feeds/news.xml" htmlUrl="http://www.splintered.co.uk/news/"/>
+        <outline text="TechNet Features" title="TechNet Features"
+            type="rss"
+            xmlUrl="http://sxp.microsoft.com/feeds/3.0/msdntn/technetfeatures" htmlUrl="http://sxp.microsoft.com/feeds/3.0/MSDNTN/TechNetFeatures"/>
+        <outline text="Techno Dys" title="Techno Dys" type="rss"
+            xmlUrl="http://technodys.blogspot.com/feeds/posts/default?alt=rss" htmlUrl="http://technodys.blogspot.com/"/>
+        <outline text="Terrill Thompson" title="Terrill Thompson"
+            type="rss"
+            xmlUrl="http://terrillthompson.blogspot.com/feeds/posts/default" htmlUrl="http://terrillthompson.blogspot.com/"/>
+        <outline text="The App Compat Guy" title="The App Compat Guy"
+            type="rss" xmlUrl="http://blogs.msdn.com/b/cjacks/rss.aspx" htmlUrl="http://blogs.msdn.com/b/cjacks/"/>
+        <outline text="The Blind Blogger" title="The Blind Blogger"
+            type="rss"
+            xmlUrl="http://theblindblogger.blogspot.com/feeds/posts/default" htmlUrl="http://theblindblogger.blogspot.com/"/>
+        <outline text="the DeafBlog" title="the DeafBlog" type="rss"
+            xmlUrl="http://www.thedeafblog.co.uk/atom.xml" htmlUrl="http://www.thedeafblog.co.uk/"/>
+        <outline
+            text="The DreamLand Express - Charles Oppermann's Software Blog"
+            title="The DreamLand Express - Charles Oppermann's Software Blog"
+            type="rss" xmlUrl="http://weblogs.asp.net/chuckop/atom.aspx" htmlUrl="http://weblogs.asp.net/chuckop/default.aspx"/>
+        <outline text="The Midnight Bell" title="The Midnight Bell"
+            type="rss"
+            xmlUrl="http://the-midnight-bell.blogspot.com/feeds/posts/default" htmlUrl="http://the-midnight-bell.blogspot.com/"/>
+        <outline text="The Old New Thing" title="The Old New Thing"
+            type="rss"
+            xmlUrl="http://blogs.msdn.com/b/oldnewthing/atom.aspx" htmlUrl="http://blogs.msdn.com/b/oldnewthing/"/>
+        <outline text="The Paciello Group Blog"
+            title="The Paciello Group Blog" type="rss"
+            xmlUrl="http://www.paciellogroup.com/blog/?feed=rss2" htmlUrl="http://blog.paciellogroup.com"/>
+        <outline text="The T &amp; T Consultancy Ltd Blog &amp; Podcast"
+            title="The T &amp; T Consultancy Ltd Blog &amp; Podcast"
+            type="rss"
+            xmlUrl="http://tandtconsultancy.wordpress.com/feed/" htmlUrl="http://tandtconsultancy.wordpress.com"/>
+        <outline text="The Thinking Policeman: A Police Officer's Blog"
+            title="The Thinking Policeman: A Police Officer's Blog"
+            type="rss"
+            xmlUrl="http://thethinkingpoliceman.blogspot.com/feeds/posts/default?alt=rss" htmlUrl="http://thethinkingpoliceman.blogspot.com/"/>
+        <outline text="The Tink Tank" title="The Tink Tank" type="rss"
+            xmlUrl="http://tink.co.uk/?feed=rss2" htmlUrl="http://tink.co.uk"/>
+        <outline text="The Web Standards Project"
+            title="The Web Standards Project" type="rss"
+            xmlUrl="http://www.webstandards.org/feed/atom/" htmlUrl="http://www.webstandards.org/"/>
+        <outline text="Tim Rylands" title="Tim Rylands" type="rss"
+            xmlUrl="http://www.timrylands.com/feed/rss/" htmlUrl="http://www.timrylands.com"/>
+        <outline text="Tim Sneath" title="Tim Sneath" type="rss"
+            xmlUrl="http://blogs.msdn.com/b/tims/rss.aspx" htmlUrl="http://blogs.msdn.com/b/tims/"/>
+        <outline text="Uncommon Sense" title="Uncommon Sense" type="rss"
+            xmlUrl="http://niederfamily.blogspot.com/feeds/posts/default" htmlUrl="http://niederfamily.blogspot.com/"/>
+        <outline text="Web Accessibility Initiative (WAI) Highlights"
+            title="Web Accessibility Initiative (WAI) Highlights"
+            type="rss"
+            xmlUrl="http://www.w3.org/WAI/highlights/rssfeed.rss" htmlUrl="http://www.w3.org/WAI/"/>
+        <outline text="Web Designer Wall - Design Trends and Tutorials"
+            title="Web Designer Wall - Design Trends and Tutorials"
+            type="rss" xmlUrl="http://www.webdesignerwall.com/feed/" htmlUrl="http://webdesignerwall.com"/>
+        <outline text="Windows Installer Team Blog"
+            title="Windows Installer Team Blog" type="rss"
+            xmlUrl="http://blogs.msdn.com/b/windows_installer_team/atom.aspx" htmlUrl="http://blogs.msdn.com/b/windows_installer_team/"/>
+        <outline text="Windows Store for developers"
+            title="Windows Store for developers" type="rss"
+            xmlUrl="https://blogs.msdn.com/b/windowsstore/atom.aspx" htmlUrl="http://blogs.msdn.com/b/windowsstore/"/>
+    </body>
+</opml>

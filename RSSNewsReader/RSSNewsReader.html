@@ -1,0 +1,3675 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RSSNewsReader</title>
+<body>
+<ul>
+<li><a href='#clsLibrary.cs'>clsLibrary.cs</a></li>
+<li><a href='#clsXML.cs'>clsXML.cs</a></li>
+<li><a href='#frmMain.cs'>frmMain.cs</a></li>
+<li><a href='#frmMain.designer.cs'>frmMain.designer.cs</a></li>
+<li><a href='#ListBoxSounds.cs'>ListBoxSounds.cs</a></li>
+<li><a href='#modI18N.cs'>modI18N.cs</a></li>
+<li><a href='#Program.cs'>Program.cs</a></li>
+<li><a href='#Properties\AssemblyInfo.cs'>Properties\AssemblyInfo.cs</a></li>
+<li><a href='#ReadDatabase.cs'>ReadDatabase.cs</a></li>
+<li><a href='#RSSFeed.cs'>RSSFeed.cs</a></li>
+<li><a href='#RSSItem.cs'>RSSItem.cs</a></li>
+<li><a href='#Properties\Resources.Designer.cs'>Properties\Resources.Designer.cs</a></li>
+<li><a href='#Properties\Settings.Designer.cs'>Properties\Settings.Designer.cs</a></li>
+</ul>
+<div class='csfile'>
+<h2 id='clsLibrary.cs'>clsLibrary.cs</h2>
+<pre>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.ComponentModel;
+
+namespace RSSNewsReader
+{
+    /// &lt;summary>
+    /// Indicates that a feed has a certain number of items read or unread,
+    /// and that the UI should update the list.
+    /// &lt;/summary>
+    /// &lt;param name="url">The url of the feed&lt;/param>
+    /// &lt;param name="count">The number of unread items.&lt;/param>
+    public delegate void ItemCountUpdatedHandler(string url, int count);
+
+    /// &lt;summary>
+    /// Indicates that the feed has progressed towards being loaded, and
+    /// the UI should update the status bar.
+    /// &lt;/summary>
+    /// &lt;param name="message">&lt;/param>
+    public delegate void LoadProgressHandler(string message);
+
+    /// &lt;summary>
+    /// Fires when an RSS feed is successfully loaded, and the
+    /// UI should display its contents
+    /// &lt;/summary>
+    public delegate void LoadCompletedHandler();
+
+    /// &lt;summary>
+    /// Fires when there is a problem loading a feed, and the UI should
+    /// tell the user.
+    /// &lt;/summary>
+    public delegate void LoadFailedHandler(string url, clsLibrary.ParseResult parseResult);
+
+    /// &lt;summary>
+    /// Manages the user's RSS and Atom feeds.
+    /// &lt;/summary>
+    public class clsLibrary
+    {
+        public enum ParseResult
+        {
+            /// &lt;summary>
+            /// The RSS or Atom feed was obtained and parsed correctly.
+            /// &lt;/summary>
+            OK,
+            /// &lt;summary>
+            /// The Microsoft XML library returned an "Invalid Url" error.
+            /// &lt;/summary>
+            InvalidURL,
+            /// &lt;summary>
+            /// This is not an RSS feed, nor an Atom feed. 
+            /// &lt;/summary>
+            InvalidDocumentType,
+            /// &lt;summary>
+            /// This is an HTML document, not an RSS or Atom feed.
+            /// &lt;/summary>
+            ThisIsHTMLNotRSSOrAtom,
+            /// &lt;summary>
+            /// We haven't downloaded this RSS feed to the cache and we can't now, but
+            /// it might just be that the network is down.
+            /// &lt;/summary>
+            CouldNotGetRightNowMaybeNetwork,
+            /// &lt;summary>
+            /// Some other parsing error, possibly from the Microsoft XML library
+            /// &lt;/summary>
+            UnknownError
+        }
+
+        /// &lt;summary>
+        /// The index of the feed last checked for its item count to update the UI.
+        /// &lt;/summary>
+        private int _FeedWithUpdatedItemCountIndex;
+
+        /// &lt;summary>
+        /// Additional information to do with the parse result.
+        /// &lt;/summary>
+        public string ParseResultMessage;
+
+        /// &lt;summary>
+        /// Update on progress in loading a feed.
+        /// &lt;/summary>
+        public event LoadProgressHandler LoadProgress;
+
+        /// &lt;summary>
+        /// This feed didn't load.
+        /// &lt;/summary>
+        public event LoadFailedHandler LoadFailed;
+
+        /// &lt;summary>
+        /// Feed loaded okay.
+        /// &lt;/summary>
+        public event LoadCompletedHandler LoadFinished;
+
+        private enum LibraryState
+        {
+            /// &lt;summary>
+            /// Caching things, working away, quite happy.
+            /// &lt;/summary>
+            Quiet,
+            /// &lt;summary>
+            /// Loading a feed from the Internet.
+            /// &lt;/summary>
+            LoadingFeed
+        }
+
+        /// &lt;summary>
+        /// Records which items are deleted/removed.
+        /// &lt;/summary>
+        private ReadDatabase _readDatabase;
+
+        /// &lt;summary>
+        /// The level of child nodes of the item nodes in an Atom document.
+        /// &lt;/summary>
+        private const int ATOM_ITEM_LEVEL = 2;
+
+        /// &lt;summary>
+        /// The level of child nodes of the item nodes in an RSS document.
+        /// &lt;/summary>
+        private const int RSS_ITEM_LEVEL = 3;
+
+        /// &lt;summary>
+        /// The level of child nodes of the document node in an Atom document.
+        /// &lt;/summary>
+        private const int ATOM_DOCUMENT_LEVEL = 1;
+
+        /// &lt;summary>
+        /// The level of child nodes of the document node in an RSS document.
+        /// &lt;/summary>
+        private const int RSS_DOCUMENT_LEVEL = 2;
+
+        /// &lt;summary>
+        /// FeedsOPML is an OPML file defining my subscribed feeds.
+        /// &lt;/summary>
+        private System.Xml.XmlDocument _FeedsOPML;
+
+        /// &lt;summary>
+        /// Used for saving feeds.
+        /// &lt;/summary>
+        private string _UserAppDataPath;
+
+        /// &lt;summary>
+        /// The file we're caching to at present.
+        /// &lt;/summary>
+        private string _CachingFile;
+
+        /// &lt;summary>
+        /// The currently-selected RSS feed.
+        /// &lt;/summary>
+        private RSSFeed _CurrentFeed;
+
+        /// &lt;summary>
+        /// The index of the current feed in the _FeedsOPML collection.
+        /// &lt;/summary>
+        private int _CurrentFeedIndex;
+
+        /// &lt;summary>
+        /// The number of unread items in each feed.
+        /// &lt;/summary>
+        private System.Collections.Hashtable _UnreadCount;
+
+        /// &lt;summary>
+        /// A feed has a new current number of items.
+        /// &lt;/summary>
+        public event ItemCountUpdatedHandler ItemCountUpdated;
+
+        /// &lt;summary>
+        /// The url of the feed the user is trying to load. 
+        /// &lt;/summary>
+        private string _UrlToGet;
+
+        /// &lt;summary>
+        /// The path of the cache file to save _UrlToGet to.
+        /// &lt;/summary>
+        private string _FileToGet;
+
+        /// &lt;summary>
+        /// Indicates that the cache update process is running, and shouldn't be started.
+        /// &lt;/summary>
+        private bool _UpdatingCache;
+
+        /// &lt;summary>
+        /// Initialise the library - loads all the subscribed RSS feeds.
+        /// &lt;/summary>
+        /// &lt;param name="programFolder">Path of the directory containing the program executable.&lt;/param>
+        /// &lt;param name="userAppDataPath">Path of the user's AppData directory.&lt;/param>
+        public clsLibrary(string programFolder, string userAppDataPath)
+        {
+            this._UnreadCount = new System.Collections.Hashtable();
+            this._FeedsOPML = new System.Xml.XmlDocument();
+            this._UserAppDataPath = userAppDataPath;
+            this._CurrentFeed = null;
+            this._UpdatingCache = false;
+            // Do we have an existing library?
+            if (System.IO.File.Exists(this.FeedOPMLFilePath))
+            {
+                // Yes, load that.
+                this._FeedsOPML.Load(this.FeedOPMLFilePath);
+            }
+            else
+            {
+                // No, first run. Load the defaults for the program.
+                try
+                {
+                    this.FeedsOPML.Load("http://www.webbie.org.uk/rssnewsreader/default.opml");
+                }
+                catch
+                {
+                    // Failed to load latest default feeds from server, use local copy.
+                    this.FeedsOPML.Load(programFolder + "\\default.opml");
+                }
+            }
+
+            // Load the "read items" file. 
+            this._readDatabase = new ReadDatabase((new System.IO.DirectoryInfo(userAppDataPath)).Parent.FullName);
+
+            // Start updating
+            UpdateFeeds();
+        }
+
+        public void UpdateFeeds()
+        {
+            if (this._UpdatingCache)
+            {
+                // Already running
+            }
+            else
+            {
+                // Start caching in the background.
+                this._FeedWithUpdatedItemCountIndex = 0;
+                this._UpdatingCache = true;
+                CacheFeeds();
+            }
+        }
+
+        void backgroundWebClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            // OK, got a feed. Now need to parse it to find items.
+            BackgroundWorker bw = new BackgroundWorker();
+            bw.DoWork += bwCaching_DoWork;
+            bw.RunWorkerAsync();
+        }
+
+        void bwCaching_DoWork(object sender, DoWorkEventArgs e)
+        {
+            RSSFeed feed;
+            if (ParseFeed(this._CachingFile, out feed, null, false))
+            {
+                // Loaded okay!
+                if (this._UnreadCount.ContainsKey(feed.url))
+                {
+                    this._UnreadCount[feed.url] = feed.UnreadItems.Count;
+                }
+                else
+                {
+                    this._UnreadCount.Add(feed.url, feed.UnreadItems.Count);
+                }
+                // Raise the event
+                if (ItemCountUpdated != null)
+                {
+                    ItemCountUpdated(feed.url, feed.UnreadItems.Count);
+                }
+            }
+
+            // Go on to the next one.
+            CacheFeeds(); 
+        }
+        
+        public System.Xml.XmlDocument FeedsOPML
+        {
+            get
+            {
+                return this._FeedsOPML;
+            }
+        }
+
+        private string FeedOPMLFilePath
+        {
+            get
+            {
+                return (new System.IO.DirectoryInfo(this._UserAppDataPath)).Parent.FullName + "\\feeds.opml";
+            }
+        }
+
+        public void ExportFeedOPML(string path)
+        {
+            this._FeedsOPML.Save(path);
+        }
+
+        public void Save()
+        {
+            ExportFeedOPML(this.FeedOPMLFilePath);
+            // Save any read/hidden items.
+            this._readDatabase.WriteItems(this._CurrentFeed);
+            // Save what's read
+            this._readDatabase.Save();
+        }
+
+        /// &lt;summary>
+        /// Creates an outline node in the feed document, populates it with
+        /// the values provided, adds it, sorts the document, and updates the
+        /// display of feeds. 
+        /// &lt;/summary>
+        /// &lt;param name="url">The actual Atom or RSS file.&lt;/param>
+        /// &lt;param name="title">The human-readable title/name&lt;/param>
+        /// &lt;param name="websiteUrl">The URL of the website that "owns" this feed.&lt;/param>
+        public void AddFeed(string xmlUrl, string title, string websiteUrl)
+        {
+            //if (title.Length == 0)
+            //{
+            //    throw new ArgumentException("Missing title attribute for new feed");
+            //}
+            System.Xml.XmlNode newOutline = this._FeedsOPML.CreateElement("outline");
+            System.Xml.XmlAttribute attr;
+            attr = this._FeedsOPML.CreateAttribute("title");
+            attr.Value = title;
+            newOutline.Attributes.SetNamedItem(attr);
+            attr = this._FeedsOPML.CreateAttribute("text");
+            attr.Value = title;
+            newOutline.Attributes.SetNamedItem(attr);
+            attr = this._FeedsOPML.CreateAttribute("type");
+            attr.Value = "rss";
+            newOutline.Attributes.SetNamedItem(attr);
+            attr = this._FeedsOPML.CreateAttribute("xmlUrl");
+            attr.Value = xmlUrl;
+            newOutline.Attributes.SetNamedItem(attr);
+            attr = this._FeedsOPML.CreateAttribute("htmlUrl");
+            attr.Value = websiteUrl;
+            newOutline.Attributes.SetNamedItem(attr);
+            this._FeedsOPML.DocumentElement.SelectSingleNode("body").AppendChild(newOutline);
+        }
+
+        private string GetCachePath(string url)
+        {
+            string cachedFilename = SanitizeUrlForFilename(url);
+            return new System.IO.DirectoryInfo(this._UserAppDataPath).Parent.FullName + "\\" + cachedFilename;
+        }
+
+        private string SanitizeUrlForFilename(string url)
+        {
+            return url.Replace(":", "_").Replace("?", "_").Replace("/", "_").Replace("\\", "_");
+        }
+
+        private void ParseLoadedFeed()
+        {
+            System.Diagnostics.Debug.Print("Starting parse");
+            BackgroundWorker bwCurrent = new BackgroundWorker();
+            bwCurrent.DoWork += bwCurrent_DoWork;
+            bwCurrent.RunWorkerAsync();
+        }
+
+        private void bwCurrent_DoWork(object sender, DoWorkEventArgs e)
+        {
+            RSSFeed feed;
+            System.Xml.XmlNode outlineNode = this._FeedsOPML.DocumentElement.SelectNodes("body/outline")[this._CurrentFeedIndex];
+            string url = outlineNode.Attributes.GetNamedItem("xmlUrl").InnerText;
+            if (ParseFeed(url, out feed, outlineNode, true))
+            {
+                this._CurrentFeed = feed;
+                ItemCountUpdated(url, feed.UnreadItems.Count);
+                LoadFinished();
+            }
+            // Finished.
+            System.Diagnostics.Debug.Print("FINISHED feed load.");
+        }
+
+        public void SelectFeed(int feedIndex)
+        {
+            System.Diagnostics.Debug.Print("Starting SelectFeed(" + feedIndex + ")");
+            // What is this feed? Is it a valid index?
+            if (feedIndex &lt; 0 || feedIndex > this._FeedsOPML.DocumentElement.SelectNodes("body/outline").Count - 1)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            this._CurrentFeedIndex = feedIndex;
+            LoadProgress("Opening feed...");
+
+            if (!(this._CurrentFeed == null))
+            {
+                // First save any read/hidden items.
+                _readDatabase.WriteItems(this._CurrentFeed);
+            }
+
+
+            // Get feed details.
+            System.Xml.XmlNode outlineNode = this._FeedsOPML.DocumentElement.SelectNodes("body/outline")[this._CurrentFeedIndex];
+            string url = outlineNode.Attributes.GetNamedItem("xmlUrl").InnerText;
+            string cachedPath = GetCachePath(url);
+            System.Diagnostics.Debug.Print("URL: " + Environment.NewLine + "\t" + url);
+
+
+            // The logic is:
+            // * if the feed is missing from the cache, download.
+            // * if the feed is present in the cache, and less than fifteen seconds old, serve that.
+            // * if the feed is present in the cache, and more than fifteen second old, download it. 
+            // * if the feed fails to load then serve the cache version.
+
+            bool needToDownload = false;
+            if (System.IO.File.Exists(cachedPath))
+            {
+                System.Diagnostics.Debug.Print("Feed found in cache: " + Environment.NewLine + "\t" + cachedPath);
+                // OK, is it &lt; 5 mins old?
+                System.IO.FileInfo fi = new System.IO.FileInfo(cachedPath);
+                bool olderThanTimeSpan = fi.LastWriteTime &lt; DateTime.Now - new TimeSpan(0, 1, 0);
+                if (olderThanTimeSpan)
+                {
+                    // Need to download afresh. 
+                    System.Diagnostics.Debug.Print("Feed old, re-download.");
+                    needToDownload = true;
+                }
+            }
+            else
+            {
+                System.Diagnostics.Debug.Print("Feed not found in cache.");
+                needToDownload = true;
+            }
+            if (!needToDownload)
+            {
+                // OK, easy, used the cached one.
+                LoadProgress("Parsing feed...");
+                ParseLoadedFeed();
+            }
+            else
+            {
+                LoadProgress("Checking feed address is valid...");
+                // We haven't got this file. Need to download the file to the cache.
+                System.Diagnostics.Debug.Print("Starting feed download process (start by checking URL)");
+
+                // OK, let's go. Start by checking the url.
+                BackgroundWorker bwGetFeed = new BackgroundWorker();
+                this._UrlToGet = url;
+                this._FileToGet = cachedPath;
+                bwGetFeed.DoWork += bwGetFeed_DoWork;
+                bwGetFeed.RunWorkerAsync();
+            }
+        }
+
+        void bwGetFeed_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (!UrlIsOk(this._UrlToGet))
+            {
+                System.Diagnostics.Debug.Print("URL failed");
+                //"Cannot get the RSS news feed. You might not be online, or the website may be down, or the feed is no longer there.");
+                //return ParseResult.CouldNotGetRightNowMaybeNetwork;
+                if (System.IO.File.Exists(this._FileToGet))
+                {
+                    // Serve the cached version of the file.
+                    LoadProgress("Parsing feed...");
+                    ParseLoadedFeed();
+                }
+                else
+                {
+                    LoadFailed(this._UrlToGet, ParseResult.InvalidURL);
+                }
+                return;
+            }
+            System.Diagnostics.Debug.Print("URL OK, can download.");
+
+            // OK, looks fine, go on.
+            LoadProgress("Getting feed from Internet...");
+            System.Net.WebClient wc = new System.Net.WebClient();
+            try
+            {
+                wc.DownloadFileCompleted += wc_DownloadFileCompleted;
+                System.Diagnostics.Debug.Print("Starting actual file download from:" + Environment.NewLine + "\t" + this._UrlToGet + Environment.NewLine + "\t" + this._FileToGet);
+                wc.DownloadFileAsync(new System.Uri(this._UrlToGet), this._FileToGet);
+            }
+            catch
+            {
+                //message = ex.Message;
+                //return ParseResult.CouldNotGetRightNowMaybeNetwork;
+                LoadFailed(this._UrlToGet, ParseResult.CouldNotGetRightNowMaybeNetwork);
+            }
+        }
+
+        /// &lt;summary>
+        /// Feed has been downloaded from the Internet to the local cache, and can now be cached.
+        /// &lt;/summary>
+        /// &lt;param name="sender">&lt;/param>
+        /// &lt;param name="e">&lt;/param>
+        void wc_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            System.Diagnostics.Debug.Print("Finished file downloading");
+            LoadProgress("Feed downloaded, now parsing...");
+            // So it's in the cache now, so I can go ahead and call SelectFeed()...
+            SelectFeed(this._CurrentFeedIndex);
+        }
+
+        /// &lt;summary>
+        /// Load the feed from the cache and attempt to parse it.
+        /// &lt;/summary>
+        /// &lt;param name="url">The URL of the feed online (not accessed, it uses the cache)&lt;/param>
+        /// &lt;param name="feed">Returns the RSSFeed result.&lt;/param>
+        /// &lt;param name="outlineNode">The OPML node in _FeedsOPML corresponding to this feed.&lt;/param>
+        /// &lt;param name="selectedFeed">Set to true if this is the feed the user is waiting for, false 
+        /// otherwise (i.e. false when just caching the feed)&lt;/param>
+        /// &lt;returns>&lt;/returns>
+        private bool ParseFeed(string url, out RSSFeed feed, System.Xml.XmlNode outlineNode, bool selectedFeed)
+        {
+            string cachedPath = GetCachePath(url);
+            feed = new RSSFeed(url);
+            
+            //The MSDN documentation says it's best to create an XmlTextReader through .Create
+            //rather than = new XmlTextReader. However, if you do it through new, you get an
+            //XmlTextReader that doesn't choke on malformed XML, and if you do it through
+            //.Create you choke on malformed XML. So clearly new is better!
+            System.Xml.XmlTextReader xtr;
+            try
+            {
+                //xtr = new System.Xml.XmlTextReader(this._CurrentFeed.url);
+                //xtr = new System.Xml.XmlTextReader("C:\\Users\\Alasdair\\SkyDrive\\Projects\\RSSParseTest\\RSSParseTest\\Example Atom Feed.xml");
+                xtr = new System.Xml.XmlTextReader(cachedPath);
+            }
+            catch (System.UriFormatException ufe)
+            {
+                if (selectedFeed)
+                {
+                    this.ParseResultMessage = "Invalid URL: " + ufe.Message;
+                    LoadFailed(url, ParseResult.InvalidURL);
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                // Unknown error - File Not Found, possibly - display and quit.
+                if (selectedFeed)
+                {
+                    this.ParseResultMessage = "Error: " + ex.Message;
+                    LoadFailed(url, ParseResult.UnknownError);
+                }
+                return false;
+            }
+
+            // Fix entities. Hmmm, I think the problem is actually malformed input. For example:
+            // &lt;title>&lt;![CDATA[The World&#8217;s Simplest HTML5 WYSISYG Inline Editor]]>&lt;/title>
+            // So leave it for now.
+
+            //xtr.EntityHandling = System.Xml.EntityHandling.ExpandEntities;
+            // Now to parse the XML stream into the rendered feed. This is complicated by the
+            // fact that many feeds are invalid XML, so we must use an XmlTextReader rather than
+            // traversing the DOM.
+
+            // If we run into a problem reading, stop.
+            bool readOK = true;
+
+            // States
+            string rootNodeName = ""; // The root node: indicates RSS or Atom
+            string title = "";
+            bool nextTextNodeIsTitle = false;
+            string link = "";
+            string pubDate = "";
+            string contents = "";
+            bool nextTextNodeIsLink = false;
+            bool nextTextNodeIsUrl = false;
+            bool nextTextNodeIsContents = false;
+            bool nextTextNodeIsPubDate = false;
+            bool isRss = false;
+            bool isAtom = false;
+            while (!xtr.EOF && readOK)
+            {
+                try
+                {
+                    readOK = xtr.Read();
+                    if (xtr.NodeType == System.Xml.XmlNodeType.Element)
+                    {
+                        string elementName = xtr.Name.ToLowerInvariant();
+                        // If this is the first node then it is the root node. 
+                        // Remember the name so that we know what type of document
+                        // the user has given us - Atom, RSS, or a web page to
+                        // search.
+                        if (rootNodeName.Length == 0)
+                        {
+                            rootNodeName = elementName;
+                            if (rootNodeName == "rss")
+                            {
+                                isRss = true;
+                            }
+                            else if (rootNodeName == "feed")
+                            {
+                                isAtom = true;
+                            }
+                            else if (rootNodeName == "html")
+                            {
+                                // This is an HTML document.
+                                // Can't load HTML files as RSS! (TODO well, we could...)
+                                xtr.Close();
+                                if (selectedFeed)
+                                {
+                                    this.ParseResultMessage = "Feed is an HTML file, not RSS or Atom.";
+                                    LoadFailed(url, ParseResult.ThisIsHTMLNotRSSOrAtom);
+                                }
+                                return false;
+                            }
+                            else
+                            {
+                                // Alert user not RSS or Atom 
+                                //message = rootNodeName;
+                                xtr.Close();
+                                if (selectedFeed)
+                                {
+                                    this.ParseResultMessage = System.String.Format("Not RSS or Atom (root node is '{0}')", rootNodeName);
+                                    LoadFailed(url, ParseResult.InvalidDocumentType);
+                                }
+                                return false;
+                                //return ParseResult.InvalidDocumentType; // TODO provide appropriate message
+                            }
+                        }
+                        else if (isRss || isAtom)
+                        {
+                            // This is an RSS document.
+                            // RSS ("rss") or Atom ("feed")
+
+                            // OK, do we do anything with this node?
+                            if (elementName == "item")
+                            {
+                                // It's a new item, so if we have already got valid information add the item now.
+                                if (title.Length > 0 && link.Length > 0)
+                                {
+                                    RSSItem rssItem = new RSSItem(title, link, feed.url, pubDate, contents);
+                                    feed.AddItem(rssItem);
+                                }
+                                title = "";
+                                link = "";
+                                pubDate = "";
+                                contents = "";
+                            }
+                            else if (elementName == "title")
+                            {
+                                if ((xtr.Depth == RSS_ITEM_LEVEL && isRss) || (xtr.Depth == ATOM_ITEM_LEVEL && isAtom))
+                                {
+                                    // &lt;title> element of an &lt;item> (rss) or &lt;entry> (Atom), not of the document. 
+
+                                    if (nextTextNodeIsLink)
+                                    {
+                                        throw new Exception("State machine error parsing RSS!");
+                                    }
+
+                                    nextTextNodeIsTitle = true;
+                                }
+                            }
+                            else if (elementName == "link")
+                            {
+                                if ((xtr.Depth == RSS_DOCUMENT_LEVEL && isRss) || (xtr.Depth == ATOM_DOCUMENT_LEVEL && isAtom))
+                                {
+                                    // Check for rel="self", which is the feed itself in Atom. The attribute
+                                    // will be missing in RSS, so the test catches that too.
+                                    if (xtr.GetAttribute("rel") != "self")
+                                    {
+                                        // &lt;link> element for the document (not for the &lt;item> or &lt;entry> in the feed)
+                                        // Populate/update (missing) webpage url in my OPML file if required.
+                                        if (xtr.GetAttribute("href") == "" || xtr.GetAttribute("href") == null)
+                                        {
+                                            // RSS
+                                            nextTextNodeIsUrl = true;
+                                        }
+                                        else
+                                        {
+                                            // Atom
+                                            if (outlineNode != null)
+                                            {
+                                                outlineNode.Attributes.GetNamedItem("htmlUrl").Value = xtr.GetAttribute("href");
+                                            }
+                                        }
+                                    }
+                                }
+                                else if ((xtr.Depth == RSS_ITEM_LEVEL && isRss) || (xtr.Depth == ATOM_ITEM_LEVEL && isAtom))
+                                {
+                                    // &lt;link> element for an &lt;item> or &lt;entry> (not for the feed as a whole)
+                                    if (xtr.GetAttribute("href") == "" || xtr.GetAttribute("href") == null)
+                                    {
+                                        if (nextTextNodeIsTitle)
+                                        {
+                                            //TODO throw new Exception("State machine error parsing RSS!");
+                                        }
+
+                                        // RSS2
+                                        nextTextNodeIsLink = true;
+                                    }
+                                    else
+                                    {
+                                        // Atom
+                                        if (xtr.GetAttribute("rel") == "alternate")
+                                        {
+                                            link = xtr.GetAttribute("href");
+                                        }
+                                    }
+                                }
+                            }
+                            else if (elementName == "dc:date" || elementName == "published" || elementName == "pubDate" || elementName == "pubdate")
+                            {
+                                // Next node contents is date of publication
+                                nextTextNodeIsPubDate = true;
+                            }
+                            else if (elementName == "content" || elementName == "description")
+                            {
+                                nextTextNodeIsContents = true;
+                            }
+                            else
+                            {
+                                // Element we don't use.
+                                //System.Diagnostics.Debug.Print("Element:" + elementName);
+                            }
+                        }
+                    }
+                    else if ((xtr.NodeType == System.Xml.XmlNodeType.Text) || (xtr.NodeType == System.Xml.XmlNodeType.CDATA))
+                    {
+                        if (nextTextNodeIsTitle)
+                        {
+                            title = xtr.Value;
+                            nextTextNodeIsTitle = false;
+                        }
+                        if (nextTextNodeIsLink)
+                        {
+                            link = xtr.Value;
+                            nextTextNodeIsLink = false;
+                        }
+                        if (nextTextNodeIsUrl)
+                        {
+                            if (outlineNode != null)
+                            {
+                                outlineNode.Attributes.GetNamedItem("htmlUrl").Value = xtr.Value;
+                            }
+                            nextTextNodeIsUrl = false;
+                        }
+                        if (nextTextNodeIsContents)
+                        {
+                            contents = xtr.Value;
+                            nextTextNodeIsContents = false;
+                        }
+                        if (nextTextNodeIsPubDate)
+                        {
+                            pubDate = xtr.Value;
+                            nextTextNodeIsPubDate = false;
+                        }
+                    }
+                }
+                catch (System.Net.WebException wexc)
+                {
+                    if (selectedFeed)
+                    {
+                        this.ParseResultMessage = wexc.Message;
+                        LoadFailed(url, ParseResult.CouldNotGetRightNowMaybeNetwork); //"Network error: " + wexc.Message); 
+                    }
+                    // Get out.
+                    readOK = false;
+                    return false;
+                }
+                catch
+                {
+                    //Parsing error from the web page or XML = very common, carry on going
+                    //until we find something useful.
+                }
+            }
+            xtr.Close();
+            if (selectedFeed)
+            {
+                LoadProgress("Loaded feed...");
+            }
+
+            // Do pubdate and contents for the last node.
+            if (title.Length > 0 && link.Length > 0)
+            {
+                RSSItem rssItem = new RSSItem(title, link, feed.url, pubDate, contents);
+                feed.AddItem(rssItem);
+                title = "";
+                link = "";
+            }
+
+            // Work out which items are read or not.
+            feed.IdentifyReadItems(this._readDatabase);
+            return true;
+        }
+
+
+        public RSSFeed currentFeed
+        {
+            get {
+                return this._CurrentFeed;
+            }
+        }
+
+        /// &lt;summary>
+        /// Download any feeds to the cache. 
+        /// &lt;/summary>
+        private void CacheFeeds()
+        {
+            System.Xml.XmlNodeList nl = this.FeedsOPML.DocumentElement.SelectNodes("body/outline");
+            bool fileDownloadRequired = false;
+            string url = "";
+
+            // First look a file that's completely missing OR _FeedWithUpdatedItemCountIndex indicates
+            // that we haven't updated it this time through yet.
+            string cacheFile = "";
+            for (int i = 0; i &lt; nl.Count; i++)
+            {
+                url = nl[i].Attributes.GetNamedItem("xmlUrl").Value;
+
+                cacheFile = GetCachePath(url);
+                if (System.IO.File.Exists(cacheFile))
+                {
+                    // Exists! Do we still need to download a new one, because we're doing a run through
+                    // updating everything?
+                    if  (i >= this._FeedWithUpdatedItemCountIndex)
+                    {
+                        // Yes, we do. Do in background:
+                        this._FeedWithUpdatedItemCountIndex = i + 1;
+                        fileDownloadRequired = true;
+                        this._CachingFile = url;
+                        break;
+                    }
+                }
+                else
+                {
+                    //TODO ptf.AddText("Need to get missing feed");
+                    fileDownloadRequired = true;
+                    this._CachingFile = url;
+                    break;
+                }
+            }
+            if (!fileDownloadRequired)
+            {
+                // Nope, all got. Look for a file we haven't checked for more than five minutes.
+                System.DateTime fiveMinutesAgo = System.DateTime.UtcNow;
+                fiveMinutesAgo = fiveMinutesAgo - new System.TimeSpan(0, 5, 0);
+                for (int i = 0; i &lt; nl.Count; i++)
+                {
+                    url = nl[i].Attributes.GetNamedItem("xmlUrl").Value;
+                    cacheFile = GetCachePath(url);
+                    System.IO.FileInfo fi = new System.IO.FileInfo(cacheFile);
+                    if (fi.LastWriteTimeUtc &lt; fiveMinutesAgo)
+                    {
+                        fileDownloadRequired = true;
+                        this._CachingFile = url;
+                        break;
+                    }
+                }
+            }
+            if (fileDownloadRequired)
+            {
+                // Found a feed that's completely missing, or old. So download it.
+                this._CachingFile = url;
+                System.Net.WebClient backgroundWebClient = new System.Net.WebClient();
+                backgroundWebClient.DownloadFileCompleted += backgroundWebClient_DownloadFileCompleted;
+                backgroundWebClient.DownloadFileAsync(new System.Uri(url), cacheFile);
+            }
+            else
+            {
+                // Every feed has been downloaded and parsed in the last five minutes. 
+                this._UpdatingCache = false;
+            }
+        }
+
+        public void RemoveAllFeeds()
+        {
+            this._FeedsOPML.DocumentElement.SelectSingleNode("body").RemoveAll();
+            this._readDatabase.ClearAll();
+            this._CurrentFeed = null;
+        }
+
+        public void RemoveFeed(int index)
+        {
+            System.Xml.XmlNode outlineNode = this._FeedsOPML.DocumentElement.SelectNodes("body/outline")[index];
+            this._readDatabase.RemoveFeed(outlineNode.Attributes.GetNamedItem("xmlUrl").InnerText);
+            this._FeedsOPML.DocumentElement.SelectSingleNode("body").RemoveChild(outlineNode);
+        }
+
+        private bool UrlIsOk(string url)
+        {
+            System.Net.HttpWebRequest myHttpWebRequest = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(url);
+            myHttpWebRequest.Method = "GET";
+            // Assign the response object of 'HttpWebRequest' to a 'HttpWebResponse' variable.
+            System.Net.HttpWebResponse myHttpWebResponse;
+            try
+            {
+                myHttpWebResponse = (System.Net.HttpWebResponse)myHttpWebRequest.GetResponse();
+            }
+            catch // (System.Net.WebException we)
+            {
+                // Probably not online!
+                return false;
+            }
+            System.Net.HttpStatusCode statusCode = myHttpWebResponse.StatusCode;
+            myHttpWebResponse.Close();
+            switch (statusCode)
+            {
+                case System.Net.HttpStatusCode.Accepted:
+                    return true;
+                case System.Net.HttpStatusCode.Ambiguous:
+                    return true;
+                case System.Net.HttpStatusCode.Continue:
+                    return true;
+                case System.Net.HttpStatusCode.Created:
+                    return true;
+                case System.Net.HttpStatusCode.Found:
+                    return true;
+                case System.Net.HttpStatusCode.Moved:
+                    return true;
+                //case System.Net.HttpStatusCode.MovedPermanently:  Same as Moved
+                //    return true;
+                //case System.Net.HttpStatusCode.MultipleChoices:   Same as Ambiguous
+                //    return true;
+                case System.Net.HttpStatusCode.NoContent:
+                    return true;
+                case System.Net.HttpStatusCode.NonAuthoritativeInformation:
+                    return true;
+                case System.Net.HttpStatusCode.NotModified:
+                    return true;
+                case System.Net.HttpStatusCode.OK:
+                    return true;
+                case System.Net.HttpStatusCode.PartialContent:
+                    return true;
+                //case System.Net.HttpStatusCode.Redirect:    Same as Found
+                //    return true;
+                case System.Net.HttpStatusCode.RedirectKeepVerb:
+                    return true;
+                case System.Net.HttpStatusCode.RedirectMethod:
+                    return true;
+                case System.Net.HttpStatusCode.ResetContent:
+                    return true;
+                //case System.Net.HttpStatusCode.SeeOther:    Same as RedirectMethod
+                //    return true;
+                case System.Net.HttpStatusCode.SwitchingProtocols:
+                    return true;
+                //case System.Net.HttpStatusCode.TemporaryRedirect: Same as RedirectKeepVerb
+                //    return true;
+                case System.Net.HttpStatusCode.Unused:
+                    return true;
+                case System.Net.HttpStatusCode.UseProxy:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        public static string CleanUpXml(string xml)
+        {
+            return xml.Replace("&#8217;", '\''.ToString()).Replace("&#8211;", "-").Replace("&#8216", '\x8216'.ToString()).Replace("&#8220", '\x8220'.ToString()).Replace("&#8221", '\x8221'.ToString()).Replace("&amp;", "&").Replace("&rsquo;", '\x8217'.ToString()).Replace("&lsquo;", '\x8216'.ToString()).Replace("%lt;", "&lt;").Replace("&gt;", ">").Replace("&quot;", "\"").Replace("&apos;", "'").Replace("&nbsp;", " ").Replace("&#160;", " ");
+        }
+
+    }
+}
+</pre>
+</div>
+<div class='csfile'>
+<h2 id='clsXML.cs'>clsXML.cs</h2>
+<pre>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace RSSNewsReader
+{
+    class clsXML
+    {
+        
+    }
+}
+</pre>
+</div>
+<div class='csfile'>
+<h2 id='frmMain.cs'>frmMain.cs</h2>
+<pre>
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+// RSS News Reader
+//  Simple RSS news reading application for screenreader users.
+//  3.0.0   Feb     First beta.
+//  3.0.1   27 Feb  Fixed news items not opening web page.
+//  3.0.2   6 Mar   Loads defaults first time from http://www.webbie.org.uk/rssnewsreader/default.opml
+//  3.0.3   2 Apr   Fixed adding RSS feeds, delete item menu item, command line.
+//  3.0.4   10 Jun  Made loading feeds fault-tolerant and not hang application. Can now pull feeds from previous versions.
+//  3.0.5   13 Jun  Made settings update correctly.
+//  3.0.6   25 Jun  2013    Added "Delete All Items" option. Fixed item display. Made showing deleted items work.
+//  3.1.0   12 Mar 2014     Made most network and parsing activity asynchronous, so the program no longer hangs the UI
+//                          thread.
+//                          Item counts now update correctly, and update every five minutes.
+//                          Added activation and update mechanisms as DLLs.
+//                          New menu option, Delete All - deletes all items.
+//
+//  Note:
+//      Microsoft.VisualBasic.Logging.Log.WriteException(ex, System.Diagnostics.TraceEventType.Error, "Exception in Main(): " + ex.Message);   
+//  Future:
+//      Add descriptions to titles in list of RSS news stories for more information for users.
+//      Use WebbIE to get whole stories.
+//      Make a "create newspaper" function. 
+
+
+namespace RSSNewsReader
+{
+    /// &lt;summary>
+    /// RSS News Reader
+    /// &lt;/summary>
+    public partial class frmMain : Form
+    {
+
+        /// &lt;summary>
+        /// The RSS feeds to which we have subscribed.
+        /// &lt;/summary>
+        private clsLibrary _Library;
+
+        /// &lt;summary>
+        /// For internationalisation.
+        /// &lt;/summary>
+        private I18N _I18N;
+
+        delegate void UpdateFeedStatusDelegate(string url, string message);
+        delegate void DisplayStatusMessageDelegate(string message);
+        delegate void DisplayItemsDelegate();
+        delegate void UpdateItemCountDelegate(string url, int count);
+
+        private DateTime _LastChecked;
+
+        public frmMain()
+        {
+            InitializeComponent();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void CheckForUpdates()
+        {
+            // Have we checked already today?
+            if (Properties.Settings.Default.UpdateCheck != System.DateTime.Now.ToShortDateString())
+            {
+                // No! Let's do so.
+                // First note that we have now checked today.
+                Properties.Settings.Default.UpdateCheck = System.DateTime.Now.ToShortDateString();
+                Properties.Settings.Default.Save();
+                WebbIE.Updater.CheckForUpdates("http://www.webbie.org.uk/rssnewsreader/updates.xml");
+            }
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            // Check for updates
+            CheckForUpdates();
+
+            // Activate
+            WebbIE.Activation.Activate("RSSNewsReader3");
+
+            // Normal WebbIE I18N code.
+            this._I18N = new I18N();
+            this._I18N.DoForm(this);
+
+            // Load the user-subscribed list of feeds.
+            this._Library = new clsLibrary(Environment.CurrentDirectory, Application.UserAppDataPath);
+            this._Library.ItemCountUpdated += _Library_itemCountUpdated;
+            this._Library.LoadProgress += _Library_LoadProgress;
+            this._Library.LoadFailed += _Library_LoadFailed;
+            this._Library.LoadFinished += _Library_LoadFinished;
+
+            // Updating previous versions. Check for feeds.xml. This will be located in:
+            string existingFeedFile = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\WebbIE\\AccessibleRSS\\1\\feeds.xml";
+            if (System.IO.File.Exists(existingFeedFile))
+            {
+                // We have an existing feed file. Do we need to import it? Have we already?
+                System.IO.FileInfo fi = new System.IO.FileInfo(existingFeedFile);
+                if (fi.LastWriteTimeUtc > RSSNewsReader.Properties.Settings.Default.ImportedPreviousVersionFeeds)
+                {
+                    // Need to import.
+                    System.Xml.XmlDocument doc = new System.Xml.XmlDocument();
+                    doc.Load(existingFeedFile);
+                    foreach (System.Xml.XmlNode node in doc.DocumentElement.SelectNodes("feed"))
+                    {
+                        // I do not get the webpage url, but I've added code so when it is loaded the htmlUrl
+                        // is obtained from the feed XML document.
+                        this._Library.AddFeed(node.SelectSingleNode("url").InnerText, node.SelectSingleNode("title").InnerText, "");
+                    }
+                }
+                // Ideally I'd now do the Read section, but I've changed how the settings are saved (why? bad move)
+                // so it's hard so I'm not going to do it.
+            }
+            RSSNewsReader.Properties.Settings.Default.ImportedPreviousVersionFeeds = System.DateTime.UtcNow;
+            
+            // Open any OPML file that's provided and add it to the existing list.
+            if (Environment.GetCommandLineArgs().Length > 1)
+            {
+                // Been passed an OPML file, presumably.
+                string opmlFile = Environment.GetCommandLineArgs()[1];
+                string url = "";
+                for (int i = 1; i &lt; Environment.GetCommandLineArgs().Length; i++)
+                {
+                    url += Environment.GetCommandLineArgs()[i] + " ";
+                }
+                ImportOPML(url);
+            }
+
+            this.deletedItemsToolStripMenuItem.Checked = Properties.Settings.Default.ViewDeletedItems;
+            
+            // Display the current feeds.
+            DisplayFeeds();
+            if (lstFeeds.Items.Count > 0 && RSSNewsReader.Properties.Settings.Default.SelectedFeedIndex &lt; lstFeeds.Items.Count - 1)
+            {
+                lstFeeds.SelectedIndex = RSSNewsReader.Properties.Settings.Default.SelectedFeedIndex;
+            }
+            if (lstFeeds.SelectedIndex == -1 && lstFeeds.Items.Count > 0)
+            {
+                lstFeeds.SelectedIndex = 0;
+            }
+
+            // Add sounds to list boxes.
+            ListBoxSounds.AddSounds(this);
+
+            // Set window state
+            this.WindowState = RSSNewsReader.Properties.Settings.Default.WindowState;
+
+            // Start the library refreshing the list of read/unread items.
+            this._Library.UpdateFeeds();
+            // Remember that we've done this.
+            this._LastChecked = DateTime.Now;
+        }
+
+        void _Library_LoadFinished()
+        {
+            // Loaded okay!
+            string newText = "Loaded feed OK";
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new DisplayStatusMessageDelegate(DisplayStatusMessage), newText);
+                this.BeginInvoke(new DisplayItemsDelegate(DisplayItems));
+            }
+            else
+            {
+                DisplayStatusMessage(newText);
+                DisplayItems();
+            }
+        }
+
+        void UpdateFeedStatus(string url, string message)
+        {
+            int counter = 0;
+            foreach (System.Xml.XmlNode outlineNode in this._Library.FeedsOPML.DocumentElement.SelectNodes("body/outline"))
+            {
+                string href = outlineNode.Attributes.GetNamedItem("xmlUrl").Value;
+                if (href == url)
+                {
+                    // Found it.
+                    string listItem = (string)lstFeeds.Items[counter];
+                    if (listItem.EndsWith(")") && listItem.Contains("("))
+                    {
+                        listItem = listItem.Substring(0, listItem.LastIndexOf("(")).Trim();
+                    }
+                    lstFeeds.Items[counter] = listItem + " (" + _I18N.GetText("Error") + ")";
+                    if (counter == lstFeeds.SelectedIndex)
+                    {
+                        this.lblStatus.Text = message; 
+                    }
+                    break;
+                }
+                counter++;
+            }
+        }
+
+        void _Library_LoadFailed(string url, clsLibrary.ParseResult result)
+        {
+            string newText = _Library.ParseResultMessage;
+            if (this.InvokeRequired)
+            {
+                object[] prms = { url, _Library.ParseResultMessage };
+                this.BeginInvoke(new UpdateFeedStatusDelegate(UpdateFeedStatus), prms);
+            }
+            else
+            {
+                UpdateFeedStatus(url, _Library.ParseResultMessage);
+            }
+        }
+
+        
+
+        void DisplayStatusMessage(string message)
+        {
+            this.lblStatus.Text = message;
+         
+        }
+
+        void _Library_LoadProgress(string message)
+        {
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new DisplayStatusMessageDelegate(DisplayStatusMessage), message);
+            }
+            else
+            {
+                DisplayStatusMessage(message);
+            }
+        }
+
+        /// &lt;summary>
+        /// We have identified a number of unread items on an item.
+        /// &lt;/summary>
+        /// &lt;param name="url">&lt;/param>
+        /// &lt;param name="count">&lt;/param>
+        void _Library_itemCountUpdated(string url, int count)
+        {
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new UpdateItemCountDelegate(UpdateItemCount), url, count);
+            }
+            else
+            {
+                UpdateItemCount(url, count);
+            }
+        }
+
+        void UpdateItemCount(string url, int count)
+        {
+            int counter = 0;
+            foreach (System.Xml.XmlNode outlineNode in this._Library.FeedsOPML.DocumentElement.SelectNodes("body/outline"))
+            {
+                string href = outlineNode.Attributes.GetNamedItem("xmlUrl").Value;
+                if (href == url)
+                {
+                    // Found it.
+                    string listItem = (string)lstFeeds.Items[counter];
+                    if (listItem.EndsWith(")") && listItem.Contains("("))
+                    {
+                        listItem = listItem.Substring(0, listItem.LastIndexOf("(")).Trim();
+                    }
+                    lstFeeds.Items[counter] = listItem + " (" + count + ")";
+                }
+                counter++;
+            }
+        }
+
+
+
+        void _webClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            // Done downloading a feed, now open it. I can just call FeedSeleted, and now the
+            // required feed will be in the cached folder!
+            FeedSelected();
+            //CacheFeeds(); Next version!
+        }
+
+        /// &lt;summary>
+        /// Iterate through the feeds and display them. 
+        /// &lt;/summary>
+        private void DisplayFeeds()
+        {
+            this.lstFeeds.Items.Clear();
+            foreach (System.Xml.XmlNode outline in this._Library.FeedsOPML.DocumentElement.SelectNodes("body/outline"))
+            {
+                // It's tempting to be clever and add the outline elements directly to the list 
+                // control, then implement my own DrawItem to render the content. But that's 
+                // more complicated, so I won't. Oh, I can just override .ToString()!
+                lstFeeds.Items.Add(outline.Attributes.GetNamedItem("text").Value.ToString());
+            }
+        }
+
+        private void lstFeeds_Click(object sender, EventArgs e)
+        {
+            FeedSelected();
+        }
+
+        /// &lt;summary>
+        /// A feed has been selected from the lstFeeds list. Show the news items.
+        /// &lt;/summary>
+        private void FeedSelected()
+        {
+            if (lstFeeds.SelectedIndex &lt; 0 || lstFeeds.Items.Count == 0)
+            {
+                return;
+            }
+            
+            lblStatus.Text = _I18N.GetText("Getting news...");
+            lstItems.Items.Clear();
+            
+            //// Now get the new feed XML file. We need to do this with a System.Xml.XmlTextReader to handle 
+            //// broken feeds.
+            //System.Xml.XmlNode outlineNode = this._Library.FeedsOPML.DocumentElement.SelectNodes("body/outline")[lstFeeds.SelectedIndex]; 
+            //this._CurrentFeed = new RSSFeed(outlineNode.Attributes.GetNamedItem("xmlUrl").Value);
+            //System.Windows.Forms.Application.DoEvents();
+            //System.Windows.Forms.Application.DoEvents();
+            //System.Windows.Forms.Application.DoEvents();
+            //System.Windows.Forms.Application.DoEvents();
+            //System.Windows.Forms.Application.DoEvents();
+
+            //// Later, we're going to populate the htmlUrl attribute with the latest information. Make sure it's there.
+            //if (outlineNode.Attributes.GetNamedItem("htmlUrl") == null)
+            //{
+            //    outlineNode.Attributes.SetNamedItem(this._Library.FeedsOPML.CreateAttribute("htmlUrl"));
+            //}
+
+            // Uncomment this to save the new feed XML file to the desktop - handy for debugging.
+            //System.Xml.XmlDocument docSave = new System.Xml.XmlDocument();
+            //docSave.Load(this._CurrentFeed.url);
+            //int feedIndex = 0;
+            //while (System.IO.File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\Feed" + feedIndex + ".xml"))
+            //{
+            //    feedIndex++;
+            //}
+            //docSave.Save(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\Feed" + feedIndex + ".xml");
+
+            this._Library.SelectFeed(lstFeeds.SelectedIndex);
+        }
+
+       
+        private void DisplayItems()
+        {
+            this.lstItems.Items.Clear();
+            System.Collections.ArrayList items;
+            if (Properties.Settings.Default.ViewDeletedItems)
+            {
+                items = this._Library.currentFeed.Items;
+            }
+            else
+            {
+                items = this._Library.currentFeed.UnreadItems;
+            }
+            // Now add each item to the list 
+            foreach (RSSItem item in items)
+            {
+                lstItems.Items.Add(item);
+            }
+            if (lstItems.Items.Count == 0)
+            {
+                lstItems.Items.Add(_I18N.GetText("No news items"));
+                lblStatus.Text = _I18N.GetText("No news items");
+            }
+            else
+            {
+                lblStatus.Text = lstItems.Items.Count + " " + _I18N.GetText("items") + " - " + lstFeeds.Text;
+            }
+            lstItems.SelectedIndex = 0;
+            lstItems.Focus();
+        }
+
+        private void lstItems_Click(object sender, EventArgs e)
+        {
+            OpenItem();
+        }
+
+        /// &lt;summary>
+        /// Open the item indicated by lstItems.SelectedIndex
+        /// &lt;/summary>
+        private void OpenItem()
+        {
+            if (lstItems.SelectedIndex &lt; 0)
+                return;
+
+            if (this.lstItems.Items[0].GetType().ToString() == "System.String")
+            {
+                // We have the "No news items!" message. Get out.
+                return;
+            }
+
+            RSSItem rssItem = (RSSItem)this.lstItems.Items[lstItems.SelectedIndex];
+            // We could display the contents from the RSS feed, but lots of sites don't have good contents. 
+            // So leave it at linking for now, like the previous version.
+            //if (rssItem.contents.Length > 0)
+            //{
+            //    frmContent content = new frmContent();
+            //    content.ParseContent(rssItem.contents);
+            //    content.ShowDialog(this);
+            //}
+            //else
+            //{
+            string url = rssItem.Url;
+            if (url == "")
+            {
+                lblStatus.Text = _I18N.GetText("Failed to open story!");
+            }
+            else
+            {
+                System.Diagnostics.Process proc = new System.Diagnostics.Process();
+                System.Diagnostics.ProcessStartInfo startInfo = proc.StartInfo;
+                startInfo.UseShellExecute = true;
+                startInfo.FileName = url;
+                proc.Start();
+            }
+            //}
+        }
+
+        private void mnuFileImport_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
+            ofd.CheckFileExists = true;
+            ofd.DefaultExt = "opml";
+            ofd.Filter = "OPML files|*.opml";
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                ImportOPML(ofd.FileName);
+                DisplayFeeds();
+            }
+        }
+
+        /// &lt;summary>
+        /// Imports an OPML file, adding any feeds not already in the list.
+        /// &lt;/summary>
+        /// &lt;param name="filename">&lt;/param>
+        private void ImportOPML(string filename)
+        {
+            System.Xml.XmlDocument newFeedDoc = new System.Xml.XmlDocument();
+            try
+            {
+                newFeedDoc.Load(filename);
+            }
+            catch (System.Xml.XmlException xmlEx)
+            {
+                MessageBox.Show(this, xmlEx.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            catch (System.IO.FileNotFoundException fnfEx)
+            {
+                MessageBox.Show(this, fnfEx.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            int added = 0;
+            foreach (System.Xml.XmlNode outlineNode in newFeedDoc.DocumentElement.SelectNodes("body/outline"))
+            {
+                string href = outlineNode.Attributes.GetNamedItem("xmlUrl").Value;
+                if (this._Library.FeedsOPML.DocumentElement.SelectNodes("body/outline[@xmlUrl=\"" + href + "\"]").Count == 0)
+                {
+                    // This feed doesn't exist, add it. 
+                    System.Xml.XmlNode importedFeedNode = this._Library.FeedsOPML.ImportNode(outlineNode, true);
+                    this._Library.FeedsOPML.DocumentElement.SelectSingleNode("body").AppendChild(importedFeedNode);
+                    added++;
+                }
+            }
+            if (added > 0)
+            {
+                // Need to sort!
+                SortFeeds();
+            }
+            this.lblStatus.Text = _I18N.GetText("Imported") + " " + added + " " + _I18N.GetText("new feeds.");
+            DisplayFeeds();
+        }
+
+        /// &lt;summary>
+        /// Sort the feed list (which is an OPML file) by title.
+        /// &lt;/summary>
+        private void SortFeeds()
+        {
+            if (this._Library.FeedsOPML.DocumentElement.SelectNodes("body/outline").Count &lt; 2)
+                return;
+
+            bool swapped = true;
+            while (swapped)
+            {
+                swapped = false;
+                for (int i = 0; i &lt; this._Library.FeedsOPML.DocumentElement.SelectNodes("body/outline").Count - 1; i++)
+                {
+                    System.Xml.XmlNode firstNode = this._Library.FeedsOPML.DocumentElement.SelectNodes("body/outline")[i];
+                    System.Xml.XmlNode secondNode = this._Library.FeedsOPML.DocumentElement.SelectNodes("body/outline")[i + 1];
+                    string firstTitle = firstNode.Attributes.GetNamedItem("title").InnerText;
+                    string secondTitle = secondNode.Attributes.GetNamedItem("title").InnerText;
+                    if (string.Compare(firstTitle, secondTitle, true, System.Globalization.CultureInfo.CurrentCulture) > 0)
+                    {
+                        // Need to swap.
+                        swapped = true;
+                        System.Xml.XmlNode tempNode = this._Library.FeedsOPML.DocumentElement.SelectSingleNode("body").RemoveChild(secondNode);
+                        this._Library.FeedsOPML.DocumentElement.SelectSingleNode("body").InsertBefore(tempNode, firstNode);
+                    }
+                }
+            }
+        }
+
+        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Save the feeds we're using.
+            this._Library.Save();
+            // Save the current feed
+            RSSNewsReader.Properties.Settings.Default.SelectedFeedIndex = lstFeeds.SelectedIndex;
+            // Save the window state
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                RSSNewsReader.Properties.Settings.Default.WindowState = FormWindowState.Normal;
+            }
+            else if (this.WindowState == FormWindowState.Maximized)
+            {
+                RSSNewsReader.Properties.Settings.Default.WindowState = FormWindowState.Maximized;
+            }
+            // Save our settings
+            RSSNewsReader.Properties.Settings.Default.Save();
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FeedSelected();
+        }
+
+        private void nextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lstFeeds.SelectedIndex &lt; lstFeeds.Items.Count - 1)
+            {
+                lstFeeds.SelectedIndex++;
+                FeedSelected();
+            }
+            else
+            {
+                Microsoft.VisualBasic.Interaction.Beep();
+            }
+        }
+
+        private void previousToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lstFeeds.SelectedIndex > 0)
+            {
+                lstFeeds.SelectedIndex--;
+                FeedSelected();
+            }
+            else
+            {
+                Microsoft.VisualBasic.Interaction.Beep();
+            }
+        }
+
+
+        /// &lt;summary>
+        /// Delete the currently-selected feed, if there is one.
+        /// &lt;/summary>
+        private void DeleteSelectedFeed()
+        {
+            if (lstFeeds.SelectedIndex != -1)
+            {
+                this._Library.RemoveFeed(lstFeeds.SelectedIndex);
+                if (this._Library.FeedsOPML.DocumentElement.SelectNodes("body/outline").Count == 0)
+                {
+                    lstFeeds.Items.Clear();
+                }
+                else
+                {
+                    if (lstFeeds.SelectedIndex == lstFeeds.Items.Count - 1)
+                    {
+                        lstFeeds.SelectedIndex = lstFeeds.Items.Count - 2;
+                    }
+                    int selected = lstFeeds.SelectedIndex;
+                    DisplayFeeds();
+                    lstFeeds.SelectedIndex = selected;
+                    FeedSelected();
+                }
+            }
+            else
+            {
+                Microsoft.VisualBasic.Interaction.Beep();
+            }
+        }
+
+        private void deleteFeedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteSelectedFeed();
+        }
+
+        private void lstFeeds_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.deleteFeedToolStripMenuItem.Enabled = (lstFeeds.SelectedIndex != -1);
+            this.renameFeedToolStripMenuItem.Enabled = this.deletedItemsToolStripMenuItem.Enabled;
+        }
+
+        private void addFeedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string newUrl = Microsoft.VisualBasic.Interaction.InputBox(_I18N.GetText("Enter URL:"), Application.ProductName);
+            if (newUrl.Length == 0)
+                return;
+            this.staMain.Text = "";
+            if (!newUrl.ToLowerInvariant().StartsWith("http"))
+            {
+                newUrl = "http://" + newUrl;
+            }
+            //The MSDN documentation says it's best to create an XmlTextReader through .Create
+            //rather than = new XmlTextReader. However, if you do it through new, you get an
+            //XmlTextReader that doesn't choke on malformed XML, and if you do it through
+            //.Create you choke on malformed XML. So clearly new is better!
+            System.Xml.XmlTextReader xtr;
+            try
+            {
+                xtr = new System.Xml.XmlTextReader(newUrl);
+            }
+            catch (System.UriFormatException ufe)
+            {
+                // Not a valid URL. Skip trying to analyse.
+                MessageBox.Show(_I18N.GetText("Invalid URL:") + " " + ufe.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            catch (Exception ex)
+            {
+                // Unknown error - File Not Found, possibly - display and quit.
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string newFeedUrl = "";
+            string rootNodeName = "";
+            bool finishedSearching = false;
+            bool readOK = true;
+            while (!xtr.EOF && !finishedSearching && readOK)
+            {
+                try
+                {
+                    readOK = xtr.Read();
+                    if (xtr.NodeType == System.Xml.XmlNodeType.Element)
+                    {
+                        string elementName = xtr.Name.ToLowerInvariant();
+                        // If this is the first node then it is the root node. 
+                        // Remember the name so that we know what type of document
+                        // the user has given us - Atom, RSS, or a web page to
+                        // search.
+                        System.Diagnostics.Debug.Print("Node:" + elementName);
+                        if (rootNodeName.Length == 0)
+                        {
+                            rootNodeName = elementName;
+                        }
+                        if (rootNodeName == "html")
+                        {
+                            // This is an HTML file, scan it for RSS feeds.
+                            if (elementName == "link")
+                            {
+                                // Got a link: is it valid?
+                                if (xtr.HasAttributes)
+                                {
+                                    string href = xtr.GetAttribute("href");
+                                    string rel = xtr.GetAttribute("rel");
+                                    if (rel.ToLowerInvariant() == "alternate" && href != "")
+                                    {
+                                        // Got it!
+                                        newFeedUrl = href;
+                                        finishedSearching = true;
+                                    }
+                                }
+                            }
+                        }
+                        else if (rootNodeName == "feed" || rootNodeName == "rss")
+                        {
+                            // It's an RSS/Atom feed, go ahead and add it 
+                            // without further checking, and stop reading
+                            // this document.
+                            newFeedUrl = newUrl;
+                            finishedSearching = true;
+                        }
+                    }
+                }
+                catch
+                {
+                    //Parsing error from the web page or XML = very common, carry on going
+                    //until we find something useful.
+                }
+                System.Windows.Forms.Application.DoEvents();
+            }
+            xtr.Close();
+
+            // OK, so we've examined the url the user gave us. Found anything?
+            if (newFeedUrl == "")
+            {
+                // Failed to find anything!
+                MessageBox.Show(_I18N.GetText("No RSS news feeds found"), Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // OK, try getting it. 
+                System.Xml.XmlTextReader newFeed = new System.Xml.XmlTextReader(newFeedUrl);
+                string newTitle = "";
+                string newWebsiteUrl = "";
+                bool foundTitleAndUrl = false;
+                bool nextNodeIsTitle = false;
+                bool nextNodeIsWebsiteUrl = false;
+                readOK = true;
+                while (!newFeed.EOF && !foundTitleAndUrl && readOK)
+                {
+                    try
+                    {
+                        readOK = newFeed.Read();
+                        if (newFeed.NodeType == System.Xml.XmlNodeType.Element)
+                        {
+                            System.Diagnostics.Debug.Print("Node:" + newFeed.Name.ToLowerInvariant());
+                            if (newFeed.Name.ToLowerInvariant() == "title")
+                            {
+                                if (newTitle == "")
+                                {
+                                    nextNodeIsTitle = true;
+                                }
+                            }
+                            else if (newFeed.Name.ToLowerInvariant() == "link")
+                            {
+                                if (newWebsiteUrl == "")
+                                {
+                                    nextNodeIsWebsiteUrl = true;
+                                }
+                            }
+                        }
+                        else if (newFeed.NodeType == System.Xml.XmlNodeType.Text)
+                        {
+                            if (nextNodeIsTitle)
+                            {
+                                newTitle = newFeed.Value;
+                                nextNodeIsTitle = false;
+                            }
+                            if (nextNodeIsWebsiteUrl)
+                            {
+                                newWebsiteUrl = newFeed.Value;
+                                nextNodeIsWebsiteUrl = false;
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        // Error in XML, very common, carry on.
+                    }
+                    if (newTitle.Length > 0 && newWebsiteUrl.Length > 0)
+                    {
+                        foundTitleAndUrl = true;
+                    }
+                    System.Windows.Forms.Application.DoEvents();
+                }
+                newFeed.Close();
+                // OK, add to lists!
+                if (foundTitleAndUrl)
+                {
+                    // Assume this is good.
+                    this._Library.AddFeed(newFeedUrl, newTitle, newWebsiteUrl);
+                    SortFeeds();
+                    DisplayFeeds();
+                    lblStatus.Text = _I18N.GetText("Added:") + " " + newTitle;
+                    lstFeeds.SelectedIndex = lstFeeds.Items.Count - 1;
+                    try
+                    {
+                        // Submission of RSS feed to database.
+                        newTitle = System.Net.WebUtility.HtmlEncode(newTitle);
+                        newUrl = System.Net.WebUtility.HtmlEncode(newUrl);
+                        System.Net.HttpWebRequest wr = (System.Net.HttpWebRequest)System.Net.WebRequest.Create("http://data.webbie.org.uk/newRSSFeed.php?title=" + newTitle + "&url=" + newFeedUrl + "&language=" + this._I18N.GetLanguage());
+                        wr.KeepAlive = false;
+                        wr.Method = System.Net.WebRequestMethods.Http.Get;
+                        wr.ContentType = "text/html";
+                        wr.AllowAutoRedirect = true;
+                        wr.GetResponse();
+                    }
+                    catch
+                    {
+                        // Failed to connect and write feed information: record why to error log.
+                        System.Diagnostics.EventLog.WriteEntry(Application.ProductName + " " + Application.ProductVersion, "Failed to submit new feed registration to WebbIE (" + newUrl + ")");
+                    }
+                }
+                else
+                {
+                    // Not found a feed.
+                    staMain.Text = this._I18N.GetText("0 feeds found.");
+                }
+            }
+        }
+
+        private void mnuFileExport_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.SaveFileDialog sfd = new System.Windows.Forms.SaveFileDialog();
+            sfd.CheckPathExists = true;
+            sfd.AddExtension = true;
+            sfd.DefaultExt = "opml";
+            sfd.Filter = "OPML Files|*.opml";
+            sfd.FileName = "RSS News Feeds.opml";
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                try
+                {
+                    this._Library.ExportFeedOPML(sfd.FileName);
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.EventLog.WriteEntry(Application.ProductName + " " + Application.ProductVersion, "Failed to export OPML file: " + ex.Message);
+                }
+            }
+        }
+
+        private void openFeedWebsiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Xml.XmlNode currentFeed = this._Library.FeedsOPML.DocumentElement.SelectNodes("body/outline")[lstFeeds.SelectedIndex];
+            if (currentFeed.Attributes.GetNamedItem("htmlUrl") == null)
+            {
+                // Missing http value. We'll populate it from the feed next time we load it (so in theory we should
+                // never get here!)
+                Microsoft.VisualBasic.Interaction.Beep();
+            }
+            else
+            {
+                System.Diagnostics.Process.Start(currentFeed.Attributes.GetNamedItem("htmlUrl").InnerText);
+            }
+        }
+
+        private void lstItems_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete && lstItems.SelectedIndex > -1 && lstItems.Text != _I18N.GetText("No news items"))
+            {
+                MarkCurrentItemAsRead();
+            }
+        }
+
+        /// &lt;summary>
+        /// Mark the currently-selected item as read - that is, remove it from
+        /// display.
+        /// &lt;/summary>
+        private void MarkCurrentItemAsRead()
+        {
+            if (this.lstItems.SelectedIndex == -1)
+                return;
+
+            MarkItemAsRead(this.lstItems.SelectedIndex);
+            UpdateItemCount(_Library.currentFeed.url, _Library.currentFeed.UnreadItems.Count);
+            int index = lstItems.SelectedIndex;
+            DisplayItems();
+            if (index &lt; lstItems.Items.Count && lstItems.Items.Count > 0)
+            {
+                lstItems.SelectedIndex = index;
+            }
+        }
+
+        /// &lt;summary>
+        /// Set the item indicated by index (to the list of items) to "read"
+        /// &lt;/summary>
+        /// &lt;param name="index">&lt;/param>
+        private void MarkItemAsRead(int index)
+        {
+            RSSItem rssItem = (RSSItem)lstItems.Items[index];
+            this._Library.currentFeed.MarkAsRead(rssItem);
+        }
+        
+        private void lstItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstFeeds_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                FeedSelected();
+            }
+            else if (e.KeyCode == Keys.Delete)
+            {
+                DeleteSelectedFeed();
+            }
+        }
+
+        private void deletedItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RSSNewsReader.Properties.Settings.Default.ViewDeletedItems = !RSSNewsReader.Properties.Settings.Default.ViewDeletedItems;
+            this.deletedItemsToolStripMenuItem.Checked = RSSNewsReader.Properties.Settings.Default.ViewDeletedItems;
+            FeedSelected();
+        }
+
+        private void mnuWebsiteDeleteallwebsitefeeds_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(_I18N.GetText("Do you really want to delete every RSS news feed?"), Application.ProductName, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // Remove every feed.
+                this._Library.RemoveAllFeeds();
+                this.lstFeeds.Items.Clear();
+                this.lstItems.Items.Clear();
+            }
+        }
+
+        private void mnuHelpManual_Click(object sender, EventArgs e)
+        {
+            _I18N.ShowHelp();
+        }
+
+        private void mnuHelpAbout_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this, Application.ProductName + "\t" + Application.ProductVersion, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void lstItems_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                OpenItem();
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                // Go to feeds list.
+                lstFeeds.Focus();
+            }
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MarkCurrentItemAsRead();
+        }
+
+        private void renameFeedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RenameSelectedFeed();
+        }
+
+        private void RenameSelectedFeed()
+        {
+            if (lstFeeds.SelectedIndex &lt; 0)
+                return;
+
+            string newName = Microsoft.VisualBasic.Interaction.InputBox("Enter a new name for the feed:", Application.ProductName, lstFeeds.Text);
+            if (newName.Length > 0)
+            {
+                System.Xml.XmlNode outlineNode = this._Library.FeedsOPML.DocumentElement.SelectNodes("body/outline")[lstFeeds.SelectedIndex];
+                outlineNode.Attributes.GetNamedItem("text").Value = newName;
+                outlineNode.Attributes.GetNamedItem("title").Value = newName;
+                string url = outlineNode.Attributes.GetNamedItem("xmlUrl").Value;
+                SortFeeds();
+                DisplayFeeds();
+
+                // Set focus back to this newly-renamed feed
+                System.Xml.XmlNodeList feedList = this._Library.FeedsOPML.DocumentElement.SelectNodes("body/outline");
+                for (int i = 0; i &lt; feedList.Count; i++)
+                {
+                    if (feedList.Item(i).Attributes.GetNamedItem("xmlUrl").Value == url)
+                    {
+                        // This is the one!
+                        lstFeeds.SelectedIndex = i;
+                        break;
+                    }
+
+                }
+            }
+            
+        }
+
+        private void lstFeeds_DoubleClick(object sender, EventArgs e)
+        {
+            FeedSelected();
+        }
+
+        private void downloadFeedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lstFeeds.SelectedIndex != -1)
+            {
+                System.Xml.XmlNode outlineNode = this._Library.FeedsOPML.DocumentElement.SelectNodes("body/outline")[lstFeeds.SelectedIndex];
+                string url = outlineNode.Attributes.GetNamedItem("xmlUrl").Value;
+            
+                System.Net.WebClient wc = new System.Net.WebClient();
+                int index = 1;
+                while (System.IO.File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\feed" + index + ".xml"))
+                {
+                    index++;
+                }
+                wc.DownloadFile(url, Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\feed" + index + ".xml");
+            }
+        }
+
+        private void deleteallToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lstItems.Text == _I18N.GetText("No news items"))
+                return;
+
+            for (int i = 0; i &lt; lstItems.Items.Count; i++)
+            {
+                MarkItemAsRead(i);
+            }
+            DisplayItems();
+            lstItems.SelectedIndex = 0;
+        }
+
+        private void tmrCheckForNewItems_Tick(object sender, EventArgs e)
+        {
+            if (this._LastChecked + new TimeSpan(0,5,0) &lt; DateTime.Now)
+            {
+                // Need to check now!
+                this._LastChecked = DateTime.Now;
+                this._Library.UpdateFeeds();
+            }
+        }
+
+        private void openFeedURlToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.lstFeeds.SelectedIndex == 0)
+            {
+                return;
+            }
+            System.Xml.XmlNode outlineNode = this._Library.FeedsOPML.DocumentElement.SelectNodes("body/outline")[this.lstFeeds.SelectedIndex];
+            string xmlUrl = outlineNode.Attributes.GetNamedItem("xmlUrl").Value;
+            System.Diagnostics.Process proc = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = proc.StartInfo;
+            startInfo.UseShellExecute = true;
+            startInfo.FileName = "iexplore";
+            startInfo.Arguments = xmlUrl;
+            proc.Start();
+        }
+
+        private void deleteAllToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            MarkAllItemsAsRead();
+        }
+
+        private void MarkAllItemsAsRead()
+        {
+            this._Library.currentFeed.MarkAllAsRead();
+            DisplayItems();
+            UpdateItemCount(this._Library.currentFeed.url, 0);
+        }
+
+     
+    }
+
+}
+</pre>
+</div>
+<div class='csfile'>
+<h2 id='frmMain.designer.cs'>frmMain.designer.cs</h2>
+<pre>
+namespace RSSNewsReader
+{
+    partial class frmMain
+    {
+        /// &lt;summary>
+        /// Required designer variable.
+        /// &lt;/summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// &lt;summary>
+        /// Clean up any resources being used.
+        /// &lt;/summary>
+        /// &lt;param name="disposing">true if managed resources should be disposed; otherwise, false.&lt;/param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// &lt;summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// &lt;/summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deletedItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFeeds = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFeedsNext = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFeedsPrevious = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuWebsiteAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.renameFeedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteFeedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFeedWebsiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuFeedsDeleteallwebsitefeeds = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelpManual = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFeedURlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.staMain = new System.Windows.Forms.StatusStrip();
+            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lstFeeds = new System.Windows.Forms.ListBox();
+            this.lstItems = new System.Windows.Forms.ListBox();
+            this.tmrCheckForNewItems = new System.Windows.Forms.Timer(this.components);
+            this.deleteAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
+            this.staMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuFile,
+            this.viewToolStripMenuItem,
+            this.mnuFeeds,
+            this.itemsToolStripMenuItem,
+            this.mnuHelp});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(568, 38);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // mnuFile
+            // 
+            this.mnuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuFileImport,
+            this.mnuFileExport,
+            this.mnuFileExit});
+            this.mnuFile.Name = "mnuFile";
+            this.mnuFile.Size = new System.Drawing.Size(56, 34);
+            this.mnuFile.Text = "&File";
+            // 
+            // mnuFileImport
+            // 
+            this.mnuFileImport.Name = "mnuFileImport";
+            this.mnuFileImport.Size = new System.Drawing.Size(148, 34);
+            this.mnuFileImport.Text = "&Import";
+            this.mnuFileImport.Click += new System.EventHandler(this.mnuFileImport_Click);
+            // 
+            // mnuFileExport
+            // 
+            this.mnuFileExport.Name = "mnuFileExport";
+            this.mnuFileExport.Size = new System.Drawing.Size(148, 34);
+            this.mnuFileExport.Text = "&Export";
+            this.mnuFileExport.Click += new System.EventHandler(this.mnuFileExport_Click);
+            // 
+            // mnuFileExit
+            // 
+            this.mnuFileExit.Name = "mnuFileExit";
+            this.mnuFileExit.Size = new System.Drawing.Size(148, 34);
+            this.mnuFileExit.Text = "E&xit";
+            this.mnuFileExit.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deletedItemsToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(69, 34);
+            this.viewToolStripMenuItem.Text = "&View";
+            // 
+            // deletedItemsToolStripMenuItem
+            // 
+            this.deletedItemsToolStripMenuItem.Name = "deletedItemsToolStripMenuItem";
+            this.deletedItemsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.deletedItemsToolStripMenuItem.Size = new System.Drawing.Size(288, 34);
+            this.deletedItemsToolStripMenuItem.Text = "&Deleted items";
+            this.deletedItemsToolStripMenuItem.Click += new System.EventHandler(this.deletedItemsToolStripMenuItem_Click);
+            // 
+            // mnuFeeds
+            // 
+            this.mnuFeeds.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem,
+            this.mnuFeedsNext,
+            this.mnuFeedsPrevious,
+            this.toolStripMenuItem1,
+            this.mnuWebsiteAdd,
+            this.renameFeedToolStripMenuItem,
+            this.deleteFeedToolStripMenuItem,
+            this.openFeedWebsiteToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.mnuFeedsDeleteallwebsitefeeds});
+            this.mnuFeeds.Name = "mnuFeeds";
+            this.mnuFeeds.Size = new System.Drawing.Size(78, 34);
+            this.mnuFeeds.Text = "F&eeds";
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(260, 34);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            // 
+            // mnuFeedsNext
+            // 
+            this.mnuFeedsNext.Name = "mnuFeedsNext";
+            this.mnuFeedsNext.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Down)));
+            this.mnuFeedsNext.Size = new System.Drawing.Size(260, 34);
+            this.mnuFeedsNext.Text = "Next";
+            this.mnuFeedsNext.Click += new System.EventHandler(this.nextToolStripMenuItem_Click);
+            // 
+            // mnuFeedsPrevious
+            // 
+            this.mnuFeedsPrevious.Name = "mnuFeedsPrevious";
+            this.mnuFeedsPrevious.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Up)));
+            this.mnuFeedsPrevious.Size = new System.Drawing.Size(260, 34);
+            this.mnuFeedsPrevious.Text = "Previous";
+            this.mnuFeedsPrevious.Click += new System.EventHandler(this.previousToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(257, 6);
+            // 
+            // mnuWebsiteAdd
+            // 
+            this.mnuWebsiteAdd.Name = "mnuWebsiteAdd";
+            this.mnuWebsiteAdd.Size = new System.Drawing.Size(260, 34);
+            this.mnuWebsiteAdd.Text = "Add feed";
+            this.mnuWebsiteAdd.Click += new System.EventHandler(this.addFeedToolStripMenuItem_Click);
+            // 
+            // renameFeedToolStripMenuItem
+            // 
+            this.renameFeedToolStripMenuItem.Enabled = false;
+            this.renameFeedToolStripMenuItem.Name = "renameFeedToolStripMenuItem";
+            this.renameFeedToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.renameFeedToolStripMenuItem.Size = new System.Drawing.Size(260, 34);
+            this.renameFeedToolStripMenuItem.Text = "&Rename feed";
+            this.renameFeedToolStripMenuItem.Click += new System.EventHandler(this.renameFeedToolStripMenuItem_Click);
+            // 
+            // deleteFeedToolStripMenuItem
+            // 
+            this.deleteFeedToolStripMenuItem.Enabled = false;
+            this.deleteFeedToolStripMenuItem.Name = "deleteFeedToolStripMenuItem";
+            this.deleteFeedToolStripMenuItem.Size = new System.Drawing.Size(260, 34);
+            this.deleteFeedToolStripMenuItem.Text = "Delete feed";
+            this.deleteFeedToolStripMenuItem.Click += new System.EventHandler(this.deleteFeedToolStripMenuItem_Click);
+            // 
+            // openFeedWebsiteToolStripMenuItem
+            // 
+            this.openFeedWebsiteToolStripMenuItem.Name = "openFeedWebsiteToolStripMenuItem";
+            this.openFeedWebsiteToolStripMenuItem.Size = new System.Drawing.Size(260, 34);
+            this.openFeedWebsiteToolStripMenuItem.Text = "Open feed website";
+            this.openFeedWebsiteToolStripMenuItem.Click += new System.EventHandler(this.openFeedWebsiteToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(257, 6);
+            // 
+            // mnuFeedsDeleteallwebsitefeeds
+            // 
+            this.mnuFeedsDeleteallwebsitefeeds.Name = "mnuFeedsDeleteallwebsitefeeds";
+            this.mnuFeedsDeleteallwebsitefeeds.Size = new System.Drawing.Size(260, 34);
+            this.mnuFeedsDeleteallwebsitefeeds.Text = "Delete all feeds";
+            this.mnuFeedsDeleteallwebsitefeeds.Click += new System.EventHandler(this.mnuWebsiteDeleteallwebsitefeeds_Click);
+            // 
+            // itemsToolStripMenuItem
+            // 
+            this.itemsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem,
+            this.deleteAllToolStripMenuItem});
+            this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
+            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(76, 34);
+            this.itemsToolStripMenuItem.Text = "&Items";
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(176, 34);
+            this.deleteToolStripMenuItem.Text = "&Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // mnuHelp
+            // 
+            this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuHelpManual,
+            this.openFeedURlToolStripMenuItem,
+            this.mnuHelpAbout});
+            this.mnuHelp.Name = "mnuHelp";
+            this.mnuHelp.Size = new System.Drawing.Size(68, 34);
+            this.mnuHelp.Text = "&Help";
+            // 
+            // mnuHelpManual
+            // 
+            this.mnuHelpManual.Name = "mnuHelpManual";
+            this.mnuHelpManual.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.mnuHelpManual.Size = new System.Drawing.Size(227, 34);
+            this.mnuHelpManual.Text = "&Manual";
+            this.mnuHelpManual.Click += new System.EventHandler(this.mnuHelpManual_Click);
+            // 
+            // openFeedURlToolStripMenuItem
+            // 
+            this.openFeedURlToolStripMenuItem.Name = "openFeedURlToolStripMenuItem";
+            this.openFeedURlToolStripMenuItem.Size = new System.Drawing.Size(227, 34);
+            this.openFeedURlToolStripMenuItem.Text = "Open feed URL";
+            this.openFeedURlToolStripMenuItem.Click += new System.EventHandler(this.openFeedURlToolStripMenuItem_Click);
+            // 
+            // mnuHelpAbout
+            // 
+            this.mnuHelpAbout.Name = "mnuHelpAbout";
+            this.mnuHelpAbout.Size = new System.Drawing.Size(227, 34);
+            this.mnuHelpAbout.Text = "&About";
+            this.mnuHelpAbout.Click += new System.EventHandler(this.mnuHelpAbout_Click);
+            // 
+            // staMain
+            // 
+            this.staMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStatus});
+            this.staMain.Location = new System.Drawing.Point(0, 580);
+            this.staMain.Name = "staMain";
+            this.staMain.Size = new System.Drawing.Size(568, 22);
+            this.staMain.TabIndex = 1;
+            this.staMain.Text = "statusStrip1";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
+            this.lblStatus.Size = new System.Drawing.Size(553, 17);
+            this.lblStatus.Spring = true;
+            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 38);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.lstFeeds);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.lstItems);
+            this.splitContainer1.Size = new System.Drawing.Size(568, 542);
+            this.splitContainer1.SplitterDistance = 189;
+            this.splitContainer1.TabIndex = 2;
+            // 
+            // lstFeeds
+            // 
+            this.lstFeeds.AccessibleName = "Feed &list";
+            this.lstFeeds.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstFeeds.FormattingEnabled = true;
+            this.lstFeeds.IntegralHeight = false;
+            this.lstFeeds.ItemHeight = 30;
+            this.lstFeeds.Location = new System.Drawing.Point(0, 0);
+            this.lstFeeds.Name = "lstFeeds";
+            this.lstFeeds.Size = new System.Drawing.Size(189, 542);
+            this.lstFeeds.TabIndex = 0;
+            this.lstFeeds.Click += new System.EventHandler(this.lstFeeds_Click);
+            this.lstFeeds.SelectedIndexChanged += new System.EventHandler(this.lstFeeds_SelectedIndexChanged);
+            this.lstFeeds.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstFeeds_KeyDown);
+            // 
+            // lstItems
+            // 
+            this.lstItems.AccessibleName = "&Results";
+            this.lstItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstItems.FormattingEnabled = true;
+            this.lstItems.IntegralHeight = false;
+            this.lstItems.ItemHeight = 30;
+            this.lstItems.Location = new System.Drawing.Point(0, 0);
+            this.lstItems.Name = "lstItems";
+            this.lstItems.Size = new System.Drawing.Size(375, 542);
+            this.lstItems.TabIndex = 0;
+            this.lstItems.Click += new System.EventHandler(this.lstItems_Click);
+            this.lstItems.SelectedIndexChanged += new System.EventHandler(this.lstItems_SelectedIndexChanged);
+            this.lstItems.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lstItems_KeyDown);
+            this.lstItems.KeyUp += new System.Windows.Forms.KeyEventHandler(this.lstItems_KeyUp);
+            // 
+            // tmrCheckForNewItems
+            // 
+            this.tmrCheckForNewItems.Enabled = true;
+            this.tmrCheckForNewItems.Interval = 10000;
+            this.tmrCheckForNewItems.Tick += new System.EventHandler(this.tmrCheckForNewItems_Tick);
+            // 
+            // deleteAllToolStripMenuItem
+            // 
+            this.deleteAllToolStripMenuItem.Name = "deleteAllToolStripMenuItem";
+            this.deleteAllToolStripMenuItem.Size = new System.Drawing.Size(176, 34);
+            this.deleteAllToolStripMenuItem.Text = "Delete All";
+            this.deleteAllToolStripMenuItem.Click += new System.EventHandler(this.deleteAllToolStripMenuItem_Click_1);
+            // 
+            // frmMain
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(568, 602);
+            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.staMain);
+            this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.Name = "frmMain";
+            this.Text = "RSS News Reader";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
+            this.Load += new System.EventHandler(this.frmMain_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.staMain.ResumeLayout(false);
+            this.staMain.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem mnuFile;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileExit;
+        private System.Windows.Forms.ToolStripMenuItem mnuHelp;
+        private System.Windows.Forms.ToolStripMenuItem mnuHelpManual;
+        private System.Windows.Forms.ToolStripMenuItem mnuHelpAbout;
+        private System.Windows.Forms.StatusStrip staMain;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatus;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ListBox lstFeeds;
+        private System.Windows.Forms.ListBox lstItems;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileImport;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileExport;
+        private System.Windows.Forms.ToolStripMenuItem mnuFeeds;
+        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuFeedsNext;
+        private System.Windows.Forms.ToolStripMenuItem mnuFeedsPrevious;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem mnuWebsiteAdd;
+        private System.Windows.Forms.ToolStripMenuItem deleteFeedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openFeedWebsiteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itemsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deletedItemsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem mnuFeedsDeleteallwebsitefeeds;
+        private System.Windows.Forms.ToolStripMenuItem renameFeedToolStripMenuItem;
+        private System.Windows.Forms.Timer tmrCheckForNewItems;
+        private System.Windows.Forms.ToolStripMenuItem openFeedURlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteAllToolStripMenuItem;
+    }
+}
+
+</pre>
+</div>
+<div class='csfile'>
+<h2 id='ListBoxSounds.cs'>ListBoxSounds.cs</h2>
+<pre>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace RSSNewsReader
+{
+    /// &lt;summary>
+    /// Provides ways to add accessible sounds to listboxes.
+    /// Requires Microsoft.VisualBasic references.
+    /// &lt;/summary>
+    class ListBoxSounds
+    {
+        public static void AddSounds(System.Windows.Forms.Form f)
+        {
+            foreach (System.Windows.Forms.Control c in f.Controls)
+            {
+                if (c.GetType().ToString() == "ListBox")
+                {
+                    c.KeyUp += new System.Windows.Forms.KeyEventHandler(c_KeyUp);
+                }
+            }
+        }
+
+        static void c_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == System.Windows.Forms.Keys.Up)
+            {
+                if (((System.Windows.Forms.ListBox)sender).SelectedIndex == 0)
+                {
+                    Microsoft.VisualBasic.Interaction.Beep();
+                }
+            }
+            else if (e.KeyCode == System.Windows.Forms.Keys.Down)
+            {
+                System.Windows.Forms.ListBox lb = (System.Windows.Forms.ListBox)sender;
+                if (lb.SelectedIndex == lb.Items.Count - 1 || lb.Items.Count == 0)
+                {
+                    Microsoft.VisualBasic.Interaction.Beep();
+                }
+            }
+        }
+    }
+}
+</pre>
+</div>
+<div class='csfile'>
+<h2 id='modI18N.cs'>modI18N.cs</h2>
+<pre>
+/// &lt;summary>
+/// Contains I18Nisation code. C# equivalent of modI18N.vb in WebbIE4
+/// Updated 27 Jan 2013
+/// Updated 4 Feb 2013 to remove "contents" node from XML file.
+/// &lt;/summary>
+class I18N
+{
+    private System.Xml.XmlDocument _applicationXML;
+    private string _languageCode;
+    private bool _initialised;
+    private bool _applicationXMLFound = false;
+    private System.Xml.XmlDocument _commonXML;
+    private bool _commonXMLFound = false;
+
+    private bool _debug = false;
+    
+    //So for general string use we need a simple "GetText()" function that returns either (1) the translation or
+    //(2) the original, which should be English so the code is readable.
+    //   Is it in Application translations?
+    //   If not, is it in Common translations?
+    //   If not found, return original string.
+    //For translating forms we need to do each control. 
+    //FIRST for the .Text property:
+    //   1 Is it one of the controls where we don't translate the .Text property? If yes, stop.
+    //   2 Does it have a .Text property? Yes:
+    //       3 If it has a tag, try tag.Text in the Application translations
+    //       4 If this is not found, or there is no tag, try formName.controlName.Text in the Application translations
+    //       5 If this is not found, then try controlName.Text in Common translations
+    //       6 If this is not found, then leave the control unchanged (should stay in English)
+    //SECOND for the .AccessibleName property:
+    //   1 Does it have an .AccessibleName property? If no, stop.
+    //   2 Is the .AccessibleName property ""? If yes, stop.
+    //   3 Try formName.controlName.AccessibleName in the Application translations
+    //   4 If this is not found, then leave the control unchanged. 
+
+    //Use cases
+    //   A simple string.
+    //   A string containing quotation marks (get converted to single quotation marks)
+    //   A string containing an ampersand.
+    //   A control that has a .Text property but is not converted (ComboBox)
+    //   A control that is set to not convert (WebBrowser) 
+    //   A control that has an AccessibleName in addition to a .Text property and not being converted.
+    //   A control that has a tag.
+    //   A control that is not in the application language file but the common language file.
+
+
+    public void SetDebug()
+    {
+        _initialised = false;
+        Initialise();
+        _languageCode = "xx";
+        _debug = true;
+    }
+
+    private void WriteDebug(string s)
+    {
+        System.IO.StreamWriter sw = new System.IO.StreamWriter(System.Environment.GetFolderPath(System.Environment.SpecialFolder.DesktopDirectory) + "\\I18N Log.log", true, System.Text.Encoding.UTF8);
+        sw.WriteLine(s);
+        sw.Close();
+        System.Windows.Forms.Application.DoEvents();
+    }
+
+    private void Initialise()
+    {
+        if (_initialised)
+        {
+            //Already loaded.
+        }
+        else
+        {
+            //Load language-specific file.
+            _applicationXML = new System.Xml.XmlDocument();
+            string applicationLanguagePath = System.Windows.Forms.Application.ExecutablePath;
+            applicationLanguagePath = System.IO.Path.GetDirectoryName(applicationLanguagePath) + "\\" + System.IO.Path.GetFileNameWithoutExtension(applicationLanguagePath);
+            applicationLanguagePath = applicationLanguagePath + ".Language.xml";
+            if (System.IO.File.Exists(applicationLanguagePath))
+            {
+                try
+                {
+                    _applicationXML.Load(applicationLanguagePath);
+                    _applicationXMLFound = true;
+                }
+                catch (System.Exception e)
+                {
+                    throw new System.Exception("Error loading the application language XML file, which was determined to be \"" + applicationLanguagePath + "\" The error returned was \"" + e.Message + "\"");
+                }
+            }
+            else
+            {
+                //No language file!
+                _applicationXMLFound = false;
+                
+            }
+
+            //Load common file.
+            _commonXML = new System.Xml.XmlDocument();
+            string commonLanguagePath = System.Windows.Forms.Application.StartupPath + "\\Common.Language.xml";
+            if (System.IO.File.Exists(commonLanguagePath))
+            {
+                try
+                {
+                    _commonXML.Load(commonLanguagePath);
+                    _commonXMLFound = true;
+                }
+                catch (System.Exception e)
+                {
+                    throw new System.Exception("Error loading the application language XML file, which was determined to be \"" + applicationLanguagePath + "\" The error returned was \"" + e.Message + "\"");
+                }
+            }
+            else
+            {
+                //No common language file!
+                _commonXMLFound = false;
+            }
+
+            //Load the locale information.
+            try
+            {
+                System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo(System.Globalization.CultureInfo.CurrentUICulture.LCID);
+                // Thread.CurrentThread.CurrentCulture.LCID);
+                _languageCode = ci.TwoLetterISOLanguageName.ToLowerInvariant();
+                //en or pt or fr or whatever.
+            }
+            catch
+            {
+                _languageCode = "en";
+            }
+            _initialised = true;
+        }
+    }
+
+    public string GetLanguage()
+    {
+        Initialise();
+        return _languageCode;
+    }
+
+    public void ShowHelp()
+    {
+        string pathBase = System.Windows.Forms.Application.ExecutablePath;
+        pathBase = System.IO.Path.GetDirectoryName(pathBase) + "\\" + System.IO.Path.GetFileNameWithoutExtension(pathBase);
+        string path = pathBase + ".Help-" + _languageCode + ".rtf";
+        if (!System.IO.File.Exists(path))
+        {
+            if (_debug)
+                WriteDebug("Did not find help file: " + path);
+            path = pathBase + ".Help-en.rtf";
+        }
+        if (System.IO.File.Exists(path))
+        {
+            Microsoft.VisualBasic.Interaction.Shell("write \"" + path + "\"", Microsoft.VisualBasic.AppWinStyle.NormalFocus);
+        }
+    }
+
+    public void DoForm(System.Windows.Forms.Form f)
+    {
+        Initialise();
+        string name = f.Name;
+        f.Text = GetText(name + ".Text");
+        foreach (System.Windows.Forms.Control c in f.Controls)
+        {
+            DoControl(c, f.Name);
+        }
+    }
+
+    /// &lt;summary>
+    /// DoControl translates a control AND its children - usually the .Text value,
+    /// but the .AccessibleName if there is one.
+    /// &lt;/summary>
+    /// &lt;param name="c">&lt;/param>
+    /// &lt;param name="formName">&lt;/param>
+    /// &lt;remarks>&lt;/remarks>
+    private void DoControl(System.Windows.Forms.Control c, string formName)
+    {
+        //Handle .Text property
+        DoControlText(c, formName);
+
+        //Handle .AccessibleName property
+        DoControlAccessibleName(c, formName);
+
+        // Handle ToolStrip control - includes menus like the File menu. 
+        if ((c) is System.Windows.Forms.ToolStrip)
+        {
+            //Tool strip. Need to process items.
+            foreach (System.Windows.Forms.ToolStripItem ti in ((System.Windows.Forms.ToolStrip)c).Items)
+            {
+                DoControlItem(ti, formName);
+            }
+        }
+
+        //This child iteration handles things like Panel controls hosting TextBox 
+        //controls. It doesn't handle things like ToolstripMenuItem controls in MenuStrips. See the 
+        //code above for that.
+        if (c.HasChildren)
+        {
+            foreach (System.Windows.Forms.Control cChild in c.Controls)
+            {
+                DoControl(cChild, formName);
+            }
+        }
+    }
+
+    private void DoControlText(System.Windows.Forms.Control c, string formName)
+    {
+        bool doText = false;
+        //Some controls we do not look up: notably TextBox
+        if ((c) is System.Windows.Forms.TextBox)
+        {
+            doText = false;
+        }
+        else if ((c) is System.Windows.Forms.RichTextBox)
+        {
+            doText = false;
+        }
+        else if ((c) is System.Windows.Forms.ComboBox)
+        {
+            doText = false;
+        }
+        else if ((c) is System.Windows.Forms.ListBox)
+        {
+            doText = false;
+        }
+        else if ((c) is System.Windows.Forms.MenuStrip)
+        {
+            doText = false;
+        }
+        else if ((c) is System.Windows.Forms.WebBrowser)
+        {
+            doText = false;
+        }
+        else if ((c) is System.Windows.Forms.ToolStrip)
+        {
+            doText = false;
+        }
+        else if ((c) is System.Windows.Forms.Panel)
+        {
+            doText = false;
+        }
+        else if ((c) is System.Windows.Forms.PictureBox)
+        {
+            doText = false;
+        }
+        else if ((c) is System.Windows.Forms.StatusBar)
+        {
+            doText = false;
+        }
+        else if ((c.Text == null))
+        {
+            doText = false;
+        }
+        else
+        {
+            doText = true;
+        }
+        if (doText)
+        {
+            bool useTag = false;
+            if (c.Tag == null)
+            {
+                useTag = false;
+            }
+            else if (string.IsNullOrEmpty(c.Tag.ToString()))
+            {
+                useTag = false;
+            }
+            else
+            {
+                useTag = true;
+            }
+            string key = null;
+            if (useTag)
+            {
+                key = c.Tag.ToString();
+            }
+            else
+            {
+                key = formName + "." + c.Name;
+            }
+
+            string textKey = key + ".Text";
+            string text = GetText(textKey);
+            if (text != textKey)
+            {
+                //Found an entry.
+                c.Text = text;
+            }
+            else
+            {
+                //Failed to find anything when using the tag or the full formName.controlName
+                //Try falling back now to our Common file, which should save me having to 
+                //duplicate lots and lots of entries.
+                textKey = c.Name + ".Text";
+                text = GetText(textKey);
+                if (text != textKey)
+                {
+                    c.Text = text;
+                }
+            }
+        }
+    }
+
+    private void DoControlAccessibleName(System.Windows.Forms.Control c, string formName)
+    {
+        if (c.AccessibleName == null)
+        {
+        }
+        else if (c.AccessibleName.Length == 0)
+        {
+        }
+        else
+        {
+            string key = formName + "." + c.Name;
+            string accKey = key + ".AccessibleName";
+            string accName = GetText(accKey);
+            if (accName != accKey)
+            {
+                c.AccessibleName = accName;
+            }
+        }
+    }
+
+    private void DoControlItem(System.Windows.Forms.ToolStripItem mi, string formName)
+    {
+        //Notice no .tag support. That's because in WebbIE there are lots of bookmark menu items
+        //that have url tags. Don't want to I18N them. So skip tags for menus for now.
+        string key = null;
+        bool doText = true;
+        if (mi.Name.Length == 0)
+        {
+            //No name: like, a menu element that is a divider, or empty - like the favorites in 
+            //the WebbIE favorites menu.
+            key = "";
+            doText = false;
+        }
+        else
+        {
+            key = formName + "." + mi.Name;
+        }
+        if (doText)
+        {
+            string textKey = key + ".Text";
+            string text = GetText(textKey);
+            if (text != textKey)
+            {
+                mi.Text = text;
+            }
+            else
+            {
+                //Failed to find anything when using the tag or the full formName.controlName
+                //Try falling back now to our Common file, which should save me having to 
+                //duplicate lots and lots of entries.
+                textKey = mi.Name + ".Text";
+                text = GetText(textKey);
+                if (text != textKey)
+                {
+                    mi.Text = text;
+                }
+            }
+        }
+        //Now do drop-down items.
+        if ((mi) is System.Windows.Forms.ToolStripMenuItem & !((mi) is System.Windows.Forms.ToolStripSeparator))
+        {
+            foreach (object miChild in ((System.Windows.Forms.ToolStripMenuItem)mi).DropDownItems)
+            {
+                if ((miChild) is System.Windows.Forms.ToolStripSeparator)
+                {
+                }
+                else
+                {
+                    DoControlItem((System.Windows.Forms.ToolStripMenuItem)miChild, formName);
+                }
+            }
+        }
+    }
+
+    /// &lt;summary>
+    /// Returns the internationalised version of the string provided according to the current
+    /// language (and the availability of the translation.)
+    /// &lt;/summary>
+    /// &lt;param name="text">&lt;/param>
+    /// &lt;returns>&lt;/returns>
+    /// &lt;remarks>
+    /// If there is no "item" node in AssemblyName.Language.xml that has a "key" node
+    /// containing the argument text then the argument text is returned. This means that
+    /// if the code calls GetText("Hello world") and no translation is provided then then
+    /// function will return "Hello world". On the assumption that calling code is English
+    /// there is therefore an implicit English default.
+    /// If the "item" node that matches the argument text has a "leaveBlank" child then
+    /// the empty string is returned.
+    /// &lt;/remarks>
+    public string GetText(string text)
+    {
+        Initialise();
+        string key = null;
+        key = text.Replace("\"", "'");
+        System.Xml.XmlNode n = null;
+        if (_applicationXMLFound)
+        {
+            n = _applicationXML.DocumentElement.SelectSingleNode("item[key=\"" + key + "\"]");
+        }
+        if (n == null)
+        {
+            //Nothing found in the application translation file: try our common language file.
+            if (_commonXMLFound)
+            {
+                n = _commonXML.DocumentElement.SelectSingleNode("item[key=\"" + key + "\"]");
+            }
+            if (n == null)
+            {
+                if (_debug)
+                {
+                    WriteDebug("&lt;item>&lt;key>" + key + "&lt;/key>&lt;content language=\"en\">" + text + "&lt;/content>&lt;content language=\"xx\">Xxxxx&lt;/content>&lt;/item>");
+                }
+                return text;
+            }
+            else
+            {
+                System.Xml.XmlNode item = n.SelectSingleNode("content[@language=\"" + _languageCode + "\"]");
+                if (item == null)
+                {
+                    return text;
+                }
+                else
+                {
+                    return item.InnerText;
+                }
+            }
+        }
+        else
+        {
+            if (n.SelectSingleNode("leaveBlank") == null)
+            {
+                System.Xml.XmlNode item = n.SelectSingleNode("content[@language=\"" + _languageCode + "\"]");
+                if (item == null)
+                {
+                    return text;
+                }
+                else
+                {
+                    return item.InnerText;
+                }
+            }
+            else
+            {
+                return "";
+            }
+        }
+    }
+
+} // end of class
+</pre>
+</div>
+<div class='csfile'>
+<h2 id='Program.cs'>Program.cs</h2>
+<pre>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace RSSNewsReader
+{
+    static class Program
+    {
+        /// &lt;summary>
+        /// The main entry point for the application.
+        /// &lt;/summary>
+        [STAThread]
+        [System.Security.Permissions.SecurityPermission(System.Security.Permissions.SecurityAction.Demand, Flags = System.Security.Permissions.SecurityPermissionFlag.ControlAppDomain)]
+        static void Main()
+        {
+            // Add the event handler for handling UI thread exceptions to the event.
+            Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(UIThreadException);
+            // Set the unhandled exception mode to force all Windows Forms errors to go through
+            // our handler.
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+
+            // Upgrade settings from previous installed versions.
+            UpgradeSettings();
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new frmMain());
+        }
+
+        private static void UIThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+        {
+            try
+            {
+                if (!System.Diagnostics.EventLog.SourceExists(Application.ProductName))
+                {
+                    System.Diagnostics.EventLog.CreateEventSource(Application.ProductName, Application.ProductName);
+                }
+
+                System.Diagnostics.EventLog.WriteEntry(Application.ProductName, e.Exception.Message + "\r\n" + e.Exception.Source, System.Diagnostics.EventLogEntryType.Error, 1000);
+            }
+            catch
+            {
+            }
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, System.UnhandledExceptionEventArgs e)
+        {
+            // Doesn't matter what you do, the application will terminate.
+        }
+
+        /// &lt;summary>
+        /// UpgradeSettings. This function migrates your application's settings from the previous
+        /// version, if any, to this one. This is because Properties.Settings are saved to a 
+        /// different user folder with every version, so unless you explicitly call this function
+        /// then user settings will be lost with every upgrade.
+        /// You must create a String setting called "LastVersionRun"
+        /// Alasdair 11 June 2013
+        /// &lt;/summary>
+        public static void UpgradeSettings()
+        {
+            try
+            {
+                if (Properties.Settings.Default.LastVersionRun != Application.ProductVersion)
+                {
+                    Properties.Settings.Default.Upgrade();
+                    Properties.Settings.Default.Reload();
+                    Properties.Settings.Default.LastVersionRun = Application.ProductVersion;
+                    Properties.Settings.Default.Save();
+                }
+            }
+            catch
+            {
+                //MessageBox.Show("Error in UpgradeSettings. Have you created a property called \"LastVersionRun\"?");
+            }
+        }
+        // End of UpgradeSettings()
+
+    }
+}
+</pre>
+</div>
+<div class='csfile'>
+<h2 id='Properties\AssemblyInfo.cs'>Properties\AssemblyInfo.cs</h2>
+<pre>
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+[assembly: AssemblyTitle("RSS News Reader")]
+[assembly: AssemblyDescription("An RSS news reader that works with any screenreader")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("Alasdair King")]
+[assembly: AssemblyProduct("RSS News Reader")]
+[assembly: AssemblyCopyright("Copyright © Alasdair King 2013")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+
+// Setting ComVisible to false makes the types in this assembly not visible 
+// to COM components.  If you need to access a type in this assembly from 
+// COM, set the ComVisible attribute to true on that type.
+[assembly: ComVisible(false)]
+
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+[assembly: Guid("f888b9aa-a6a3-4764-9aa4-90b9fce5ff0f")]
+
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Build and Revision Numbers 
+// by using the '*' as shown below:
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("3.1.1.1")]
+[assembly: AssemblyFileVersion("3.1.1.1")]
+</pre>
+</div>
+<div class='csfile'>
+<h2 id='ReadDatabase.cs'>ReadDatabase.cs</h2>
+<pre>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace RSSNewsReader
+{
+    public class ReadDatabase
+    {
+        System.Collections.ArrayList _read;
+        string _AppPath;
+
+        public ReadDatabase(string userDataPath)
+        {
+            _AppPath = userDataPath;
+            _read = new System.Collections.ArrayList();
+            if (System.IO.File.Exists(_AppPath + "\\read.txt"))
+            {
+                System.IO.StreamReader sr = new System.IO.StreamReader(_AppPath + "\\read.txt", Encoding.UTF8);
+                while (!sr.EndOfStream)
+                {
+                    string readEntry = sr.ReadLine().Trim();
+                    if (readEntry.Length > 0)
+                    {
+                        _read.Add(readEntry);
+                    }
+                }
+                sr.Close();
+            }
+        }
+
+
+        /// &lt;summary>
+        /// Call this before terminating the class to save the database to disk.
+        /// &lt;/summary>
+        public void Save()
+        {
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(_AppPath + "\\read.txt", false, Encoding.UTF8);
+            for (int i = 0; i &lt; _read.Count; i++)
+            {
+                sw.WriteLine(_read[i]);
+            }
+            sw.Close();
+        }
+
+        public bool IsRead(RSSItem itemNode)
+        {
+            //System.Diagnostics.Debug.Print("CHECKING IF READ:" + itemNode.Url);
+            string id = itemNode.feedUrl + "*" + itemNode.Url;
+            for (int i = 0; i &lt; _read.Count; i++)
+            {
+                if ((string)this._read[i] == id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void ClearAll()
+        {
+            _read = new System.Collections.ArrayList();
+        }
+
+        /// &lt;summary>
+        /// Call this when you are deleting a feed from your collection: it will
+        /// remove the read/unread information for the feed. 
+        /// &lt;/summary>
+        /// &lt;param name="feed">&lt;/param>
+        public void RemoveFeed(string url)
+        {
+            for (int i = _read.Count - 1; i >= 0; i--)
+            {
+                if (_read[i].ToString().StartsWith(url))
+                {
+                    _read.RemoveAt(i);
+                }
+            }
+        }
+
+        /// &lt;summary>
+        /// Call this before you clear the list or exit the program to save read.
+        /// &lt;/summary>
+        /// &lt;param name="items">&lt;/param>
+        /// &lt;param name="feedUrl">&lt;/param>
+        public void WriteItems(RSSFeed feed)
+        {
+            if (feed == null)
+                return;
+            else if (feed.Items.Count == 0)
+                return;
+            System.Collections.ArrayList itemIds = new System.Collections.ArrayList();
+            foreach (RSSItem item in feed.Items)
+            {
+                string id = feed.url + "*" + item.Url;
+                itemIds.Add(id);
+                if (item.IsRead)
+                {
+                    // Add to _read array.
+                    bool found = false;
+                    for (int i = 0; i &lt; _read.Count; i++)
+                    {
+                        if ((string)_read[i] == id)
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found)
+                    {
+                        _read.Add(id);
+                        System.Diagnostics.Debug.Print("READ:" + id);
+                    }
+                }
+            }
+            // Now clean up the _read array, removing items that are no longer items
+            // in the feed.
+            for (int i = _read.Count - 1; i > -1; i--)
+            {
+                string savedId = _read[i].ToString();
+                if (savedId.StartsWith(feed.url))
+                {
+                    // Item from this feed. Is it still an item?
+                    bool stillItem = false;
+                    for (int j = 0; j &lt; itemIds.Count; j++)
+                    {
+                        System.Diagnostics.Debug.Print("CHECK:" + (string)itemIds[j]);
+                        if (savedId == (string)itemIds[j])
+                        {
+                            // Yes.
+                            stillItem = true;
+                            break;
+                        }
+                    }
+                    if (!stillItem)
+                    {
+                        System.Diagnostics.Debug.Print("DELETING:" + savedId);
+                        _read.RemoveAt(i);
+                    }
+                }
+            }
+        }
+    }
+}
+</pre>
+</div>
+<div class='csfile'>
+<h2 id='RSSFeed.cs'>RSSFeed.cs</h2>
+<pre>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace RSSNewsReader
+{
+    /// &lt;summary>
+    /// One loaded RSS Feed
+    /// &lt;/summary>
+    public class RSSFeed
+    {
+        string _url;
+        System.Collections.ArrayList _items;
+
+        public RSSFeed(string url)
+        {
+            _url = url;
+            _items = new System.Collections.ArrayList();
+        }
+
+        public void AddItem(RSSItem item)
+        {
+            _items.Add(item);
+        }
+
+        public System.Collections.ArrayList Items
+        {
+            get
+            {
+                return this._items;
+            }
+        }
+
+        public System.Collections.ArrayList UnreadItems
+        {
+            get
+            {
+                System.Collections.ArrayList al = new System.Collections.ArrayList();
+                foreach (RSSItem item in this._items)
+                {
+                    if (!item.IsRead)
+                    {
+                        al.Add(item);
+                    }
+                }
+                return al;
+            }
+        }
+
+        public string url
+        {
+            get
+            {
+                return _url;
+            }
+        }
+
+        /// &lt;summary>
+        /// Marks the identified Item as read.
+        /// &lt;/summary>
+        /// &lt;param name="readItem">&lt;/param>
+        public void MarkAsRead(RSSItem readItem)
+        {
+            foreach (RSSItem item in _items)
+            {
+                if (item.Url == readItem.Url)
+                {
+                    item.IsRead = true;
+                    break;
+                }
+            }
+        }
+
+        /// &lt;summary>
+        /// Mark all the items in this feed as read.
+        /// &lt;/summary>
+        public void MarkAllAsRead()
+        {
+            foreach (RSSItem item in _items)
+            {
+                item.IsRead = true;
+            }
+        }
+        
+        /// &lt;summary>
+        /// When loading an RSS Feed, call this after loading the items
+        /// so each one is correctly marked read or not.
+        /// &lt;/summary>
+        /// &lt;param name="rd">&lt;/param>
+        public void IdentifyReadItems(ReadDatabase rd)
+        {
+            foreach (RSSItem item in _items)
+            {
+                item.IsRead = rd.IsRead(item);
+            }
+        }
+    }
+
+}
+</pre>
+</div>
+<div class='csfile'>
+<h2 id='RSSItem.cs'>RSSItem.cs</h2>
+<pre>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace RSSNewsReader
+{
+    /// &lt;summary>
+    /// One item in an RSS feed
+    /// &lt;/summary>
+    public class RSSItem
+    {
+        private string _title;
+        private string _feedUrl;
+        private string _itemUrl;
+        private bool _isRead;
+        private string _pubDate;
+        private string _contents;
+
+        /// &lt;summary>
+        /// Whether RSS or Atom
+        /// &lt;/summary>
+        public enum RSSType
+        {
+            /// &lt;summary>
+            /// This is an Atom feed
+            /// &lt;/summary>
+            Atom,
+            /// &lt;summary>
+            /// This is an RSS feed
+            /// &lt;/summary>
+            RSS
+        }
+
+        public RSSItem(string title, string itemUrl, string feedUrl, string pubDate, string contents)
+        {
+            _title = title;
+            // Do character substitutions to catch character escape sequences that have ended up in the data
+            // probably because of an error on the website. I'm sure this list could be extended, but 
+            // quotation marks and dashes are the main offenders.
+            _title = clsLibrary.CleanUpXml(_title);
+            _feedUrl = feedUrl;
+            _itemUrl = itemUrl;
+            DateTime dt;
+            if (DateTime.TryParse(pubDate, out dt))
+            {
+                _pubDate = dt.ToLongDateString();
+                if (_pubDate.StartsWith("0"))
+                {
+                    // Leading zeros look sucky.
+                    _pubDate = _pubDate.Substring(1, _pubDate.Length - 1);
+                }
+            }
+            else
+            {
+                _pubDate = "";
+            }
+            _contents = TrivialParse(contents);
+        }
+
+        /// &lt;summary>
+        /// Parse the HTML into text very stupidly.
+        /// &lt;/summary>
+        /// &lt;param name="html">&lt;/param>
+        /// &lt;returns>&lt;/returns>
+        private string TrivialParse(string html)
+        {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            Char[] htmlChars = html.ToCharArray();
+            int parseState = 0; // 0 = output, 1 = don't output, 2 = don't output this character but output next.
+            for (int i = 0; i &lt; htmlChars.Length; i++)
+            {
+                if (htmlChars[i] == '&lt;')
+                {
+                    parseState = 1;
+                }
+                else if (htmlChars[i] == '>')
+                {
+                    parseState = 2;
+                }
+                else if (parseState == 0)
+                {
+                    sb.Append(htmlChars[i]);
+                }
+                if (parseState == 2)
+                {
+                    sb.Append(" ");
+                    parseState = 0;
+                }
+            }
+            string output = sb.ToString();
+            while (output.Contains("  "))
+            {
+                output = output.Replace("  ", " ");
+            }
+            return clsLibrary.CleanUpXml(output.Trim());
+        }
+
+        public string contents
+        {
+            get
+            {
+                return _contents;
+            }
+        }
+
+        public string feedUrl
+        {
+            get
+            {
+                return _feedUrl;
+            }
+        }
+
+        public override string ToString()
+        {
+            string name;
+            if (_pubDate.Length == 0)
+            {
+                name = _title;
+            }
+            else
+            {
+                name = _title + " (" + _pubDate + ")";
+            }
+            if (_contents.Length == 0)
+            {
+                return name;
+            }
+            else if (_contents.Length > 640)
+            {
+                return name + " \"" + _contents.Substring(0, 640).Replace("\n", " ") + "...\"";
+            }
+            else
+            {
+                return name + " \"" + _contents.Replace("\n", " ") + "\"";
+            }
+        }
+
+
+        public string Url
+        {
+            get
+            {
+                return _itemUrl;
+            }
+        }
+
+        public bool IsRead
+        {
+            get
+            {
+                return _isRead;
+            }
+            set
+            {
+                _isRead = value;
+            }
+        }
+    }
+}
+</pre>
+</div>
+<div class='csfile'>
+<h2 id='Properties\Resources.Designer.cs'>Properties\Resources.Designer.cs</h2>
+<pre>
+//------------------------------------------------------------------------------
+// &lt;auto-generated>
+//     This code was generated by a tool.
+//     Runtime Version:4.0.30319.18010
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// &lt;/auto-generated>
+//------------------------------------------------------------------------------
+
+namespace RSSNewsReader.Properties
+{
+
+
+    /// &lt;summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// &lt;/summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    internal class Resources
+    {
+
+        private static global::System.Resources.ResourceManager resourceMan;
+
+        private static global::System.Globalization.CultureInfo resourceCulture;
+
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources()
+        {
+        }
+
+        /// &lt;summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// &lt;/summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager
+        {
+            get
+            {
+                if ((resourceMan == null))
+                {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RSSNewsReader.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+
+        /// &lt;summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// &lt;/summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture
+        {
+            get
+            {
+                return resourceCulture;
+            }
+            set
+            {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+</pre>
+</div>
+<div class='csfile'>
+<h2 id='Properties\Settings.Designer.cs'>Properties\Settings.Designer.cs</h2>
+<pre>
+//------------------------------------------------------------------------------
+// &lt;auto-generated>
+//     This code was generated by a tool.
+//     Runtime Version:4.0.30319.18046
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// &lt;/auto-generated>
+//------------------------------------------------------------------------------
+
+namespace RSSNewsReader.Properties {
+    
+    
+    [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int SelectedFeedIndex {
+            get {
+                return ((int)(this["SelectedFeedIndex"]));
+            }
+            set {
+                this["SelectedFeedIndex"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ViewDeletedItems {
+            get {
+                return ((bool)(this["ViewDeletedItems"]));
+            }
+            set {
+                this["ViewDeletedItems"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2000-01-01")]
+        public global::System.DateTime ImportedPreviousVersionFeeds {
+            get {
+                return ((global::System.DateTime)(this["ImportedPreviousVersionFeeds"]));
+            }
+            set {
+                this["ImportedPreviousVersionFeeds"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LastVersionRun {
+            get {
+                return ((string)(this["LastVersionRun"]));
+            }
+            set {
+                this["LastVersionRun"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string UpdateCheck {
+            get {
+                return ((string)(this["UpdateCheck"]));
+            }
+            set {
+                this["UpdateCheck"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Maximized")]
+        public global::System.Windows.Forms.FormWindowState WindowState {
+            get {
+                return ((global::System.Windows.Forms.FormWindowState)(this["WindowState"]));
+            }
+            set {
+                this["WindowState"] = value;
+            }
+        }
+    }
+}
+</pre>
+</div>
+</body>
+</html>

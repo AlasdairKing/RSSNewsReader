@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+  <head>
+    <title>Alasdair subscriptions in Google Reader</title>
+  </head>
+  <body>
+    <outline title="Alasdair King's WebbIE Blog" text="Alasdair King's WebbIE Blog" type="rss" xmlUrl="http://www.webbie.org.uk/blog/feed/" htmlUrl="http://www.webbie.org.uk/blog" />
+    <outline title="BBC News" text="BBC News" type="rss" xmlUrl="http://feeds.bbci.co.uk/news/rss.xml" htmlUrl="http://www.bbc.com/news/" />
+    <outline title="Daily Mail" text="Daily Mail" type="rss" xmlUrl="http://www.dailymail.co.uk/home/index.rss" htmlUrl="http://www.dailymail.co.uk/home/index.html?ITO=1490&amp;ns_mchannel=rss&amp;ns_campaign=1490" />
+    <outline title="Daily Mirror" text="Daily Mirror" type="rss" xmlUrl="http://www.mirror.co.uk/rss.xml" htmlUrl="http://www.mirror.co.uk/" />
+    <outline title="Daily Telegraph" text="Daily Telegraph" type="rss" xmlUrl="http://www.telegraph.co.uk/rss" htmlUrl="http://www.telegraph.co.uk/" />
+    <outline text="Economist" title="Economist" type="rss" xmlUrl="http://www.economist.com/blogs/freeexchange/index.xml" htmlUrl="http://www.economist.com/node/21003975/index.xml" />
+    <outline title="Evening Standard" text="Evening Standard" type="rss" xmlUrl="http://www.standard.co.uk/news/rss" htmlUrl="http://www.standard.co.uk/news/rss/" />
+    <outline title="Le Monde" text="Le Monde" type="rss" xmlUrl="http://www.lemonde.fr/rss/une.xml" htmlUrl="http://www.lemonde.fr" />
+    <outline title="Los Angeles Times" text="Los Angeles Times" type="rss" xmlUrl="http://www.latimes.com/rss2.0.xml" htmlUrl="http://www.latimes.com/news/?track=rss" />
+    <outline title="New York Times" text="New York Times" type="rss" xmlUrl="http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml" htmlUrl="http://www.nytimes.com/pages/index.html?partner=rss&amp;emc=rss" />
+    <outline title="The Guardian World News" text="The Guardian World News" type="rss" xmlUrl="https://www.theguardian.com/world/rss" htmlUrl="http://www.guardian.co.uk" />
+    <outline title="The Independent" text="The Independent" type="rss" xmlUrl="http://www.independent.co.uk/news/uk/rss" htmlUrl="http://www.independent.co.uk/news/uk/?service=Rss" />
+  </body>
+</opml>

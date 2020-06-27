@@ -1,0 +1,540 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://blogs.msdn.com/utility/FeedStylesheets/atom.xsl" media="screen"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
+  <title type="html">IEBlog</title>
+  <subtitle type="html">Windows Internet Explorer Engineering Team Blog</subtitle>
+  <id>http://blogs.msdn.com/b/ie/atom.aspx</id>
+  <link rel="alternate" type="text/html" href="http://blogs.msdn.com/b/ie/" />
+  <link rel="self" type="application/atom+xml" href="http://blogs.msdn.com/b/ie/atom.aspx" />
+  <generator uri="http://telligent.com" version="5.6.50428.7875">Telligent Evolution Platform Developer Build (Build: 5.6.50428.7875)</generator>
+  <updated>2013-03-22T11:11:30Z</updated>
+  <entry>
+    <title>Web Performance APIs Rapidly Become W3C Recommendations</title>
+    <link rel="alternate" type="text/html" href="http://blogs.msdn.com/b/ie/archive/2013/05/21/web-performance-apis-rapidly-become-w3c-recommendations.aspx" />
+    <id>http://blogs.msdn.com/b/ie/archive/2013/05/21/web-performance-apis-rapidly-become-w3c-recommendations.aspx</id>
+    <published>2013-05-22T02:12:12Z</published>
+    <updated>2013-05-22T02:12:12Z</updated>
+    <content type="html">&lt;p&gt;The W3C Web &lt;a href="http://www.w3.org/2010/webperf/"&gt;Performance&lt;/a&gt; Working Group recently published three specifications as W3C Recommendations with full implementations from all major browser vendors, advancing developers’ ability to accurately measure the performance of Web applications and make the Web faster.  Over the last three years, companies including Microsoft, Google, Mozilla, Intel, Facebook, and others have been working towards standardizing the &lt;a href="http://www.w3.org/TR/2012/REC-navigation-timing-20121217/"&gt;Navigation Timing&lt;/a&gt;, &lt;a href="http://www.w3.org/TR/2012/REC-hr-time-20121217/"&gt;High Resolution Time&lt;/a&gt;, and &lt;a href="http://www.w3.org/TR/2013/REC-page-visibility-20130514/"&gt;Page Visibility&lt;/a&gt; interfaces in the Working Group. Rapid adoption of these recommendations demonstrates what’s possible when the industry and community come together through the W3C.&lt;/p&gt;
+&lt;p&gt;To make the Web faster, developers need the ability to accurately measure the performance characteristics of Web applications and the ability to effectively use the underlying hardware to improve the performance of their applications. To solve these problems, the Web Performance Working Group worked on 15 different specifications that address those issues. The table below shows the maturity level of all the specifications currently edited by the Working Group.&lt;/p&gt;
+&lt;div style="text-align: center;"&gt;&lt;div style="display: inline-block; text-align: left; margin: 0 auto; width: 95%; box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.25);"&gt;
+&lt;table border="1" cellpadding="4" cellspacing="0" style="border-collapse: collapse; width: 100%;"&gt;
+&lt;tr&gt;&lt;th style="text-align: center; font-weight: 600; width: 23%;"&gt;Specification&lt;/th&gt;
+&lt;th style="text-align: center; font-weight: 600; width: 11%;"&gt;Editor’s Draft&lt;/th&gt;
+&lt;th style="text-align: center; font-weight: 600; width: 11%;"&gt;First Public Working Draft&lt;/th&gt;
+&lt;th style="text-align: center; font-weight: 600; width: 11%;"&gt;Last Call&lt;/th&gt;
+&lt;th style="text-align: center; font-weight: 600; width: 11%;"&gt;Candidate Rec&lt;/th&gt;
+&lt;th style="text-align: center; font-weight: 600; width: 11%;"&gt;Proposed Rec&lt;/th&gt;
+&lt;th style="text-align: center; font-weight: 600; width: 11%;"&gt;Rec&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="font-weight: 600;"&gt;Navigation Timing&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Sept 2010&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Oct 2010&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Jan 2011&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Mar 2011&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;July 2012&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Dec 2012&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="font-weight: 600;"&gt;Resource Timing&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Sept 2010&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;May 2011&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Aug 2011&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;May 2012&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="font-weight: 600;"&gt;User Timing&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Oct 2010&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Aug 2011&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Sept 2011&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;July 2012&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="font-weight: 600;"&gt;Performance Timeline&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;July 2011&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Aug 2011&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Sept 2011&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;July 2012&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="font-weight: 600;"&gt;High Resolution Time&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Feb 2012&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Mar 2012&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Mar 2012&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;May 2012&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Oct 2012&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Dec 2012&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="font-weight: 600;"&gt;Page Visibility&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Apr 2011&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;June 2011&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;July 2011&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;July 2012&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Feb 2013&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;May 2013&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="font-weight: 600;"&gt;Display Paint Notifications&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;May 2011&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;June 2011&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Feb 2012&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="font-weight: 600;"&gt;Navigation Timing L2 &lt;i&gt;(NEW)&lt;/i&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Jan 2013&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Jan 2013&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="font-weight: 600;"&gt;Efficient Script Yielding&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;June 2011&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="font-weight: 600;"&gt;High Resolution Time L2 &lt;i&gt;(NEW)&lt;/i&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Apr 2013&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="font-weight: 600;"&gt;Beacon &lt;i&gt;(NEW)&lt;/i&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Mar 2013&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="font-weight: 600;"&gt;Resource Priorities &lt;i&gt;(NEW)&lt;/i&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Apr 2013&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="font-weight: 600;"&gt;Navigation Error Logging &lt;i&gt;(NEW)&lt;/i&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Apr 2013&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="font-weight: 600;"&gt;Resource Error Logging &lt;i&gt;(NEW)&lt;/i&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: rgb(153,255,153);"&gt;Apr 2013&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="font-weight: 600;"&gt;Prerender &lt;i&gt;(NEW)&lt;/i&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;td style="text-align: center; background-color: white;"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The &lt;a href="http://www.w3.org/TR/2012/REC-navigation-timing-20121217/"&gt;Navigation Timing&lt;/a&gt;, &lt;a href="http://www.w3.org/TR/2012/CR-resource-timing-20120522/"&gt;Resource Timing&lt;/a&gt;, &lt;a href="http://www.w3.org/TR/2012/CR-user-timing-20120726/"&gt;User Timing&lt;/a&gt;, and &lt;a href="http://www.w3.org/TR/2012/CR-performance-timeline-20120726/"&gt;Performance Timeline&lt;/a&gt; specifications help developers accurately measure the timing of the navigation of the document, fetching of resources on the page, and developer script execution. Prior to these APIs, this data wasn’t easily obtainable. Navigation Timing was published as a W3C Recommendation, and all major browser vendors support it.  The other three interfaces are currently at the Candidate Recommendation stage awaiting two full implementations from browser vendors. IE10 is currently the only browser that implements all of these interfaces, however, other vendors are working on implementations. &lt;/p&gt;
+&lt;p&gt;To ensure these performance metrics are measured in the most accurate way possible, the &lt;a href="http://www.w3.org/TR/2012/WD-hr-time-20120313/"&gt;High Resolution Time&lt;/a&gt; specification allows developers to measure operations with sub-millisecond accuracy.  This interface not only benefits accurate measurements of performance metrics, but also allows better frame rate calculations and synchronization of animations or audio cues. This interface has been published as a W3C Recommendation, with all major browser vendors implementing the performance.now() method defined in the specification. &lt;/p&gt;
+&lt;p&gt;The &lt;a href="http://www.w3.org/TR/page-visibility/"&gt;Page Visibility&lt;/a&gt; API allows for programmatically determining the current visibility state of the page. Developers can use this data to make better CPU- and power-efficiency decisions, e.g., throttling down activity when the page is in the background tab. This specification has also been published as a W3C Recommendation, with all major browser vendors implementing it.&lt;/p&gt;
+&lt;p&gt;The &lt;a href="http://www.w3.org/TR/animation-timing/"&gt;Timing Control for Script-Based Animations&lt;/a&gt;, and &lt;a href="http://dvcs.w3.org/hg/webperf/raw-file/tip/specs/setImmediate/Overview.html"&gt;Efficient Script Yielding&lt;/a&gt; specifications help developers write more CPU- and power-efficient Web applications. The requestAnimationFrame API, from the Timing Control for Script-Based Animations specification, allows for creating more efficient JavaScript animations. All browser vendors fully support this interface, with the Working Group actively working on publishing this specification as a Candidate Recommendation. The setImmediate API, from the Efficient Script Yielding specification, allows developers to efficiently yield control flow to the user agent and receive an immediate callback, efficiently leveraging the CPU. IE10 is the first browser to implement this interface.&lt;/p&gt;
+&lt;p&gt;This year the Working Group also started to look at new ideas, with editor’s drafts of those ideas currently being discussed in the Working Group. The &lt;a href="https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/Beacon/Overview.html"&gt;Beacon&lt;/a&gt; API is intended to help scripts asynchronously transfer data to a Web server without blocking the unload event, which can negatively impact the perceived performance of the next navigation. The &lt;a href="https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/ResourcePriorities/Overview.html"&gt;Resource Priorities&lt;/a&gt; API defines a means for Web developers to give the browser hints on the download priority of resources to help improve the page load time. As a corollary to the Timing specs, the &lt;a href="https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationErrorLogging/Overview.html"&gt;Navigation Error Logging&lt;/a&gt; and &lt;a href="https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/ResourceErrorLogging/Overview.html"&gt;Resource Error Logging&lt;/a&gt; specifications help developers understand the errors and availability of their applications. The &lt;a href="https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/NavigationTiming2/Overview.html"&gt;Navigation Timing Level L2&lt;/a&gt; specification adds High Resolution Time and Performance Timeline support to Navigation Timing, and &lt;a href="https://dvcs.w3.org/hg/webperf/raw-file/tip/specs/HighResolutionTime2/Overview.html"&gt;High Resolution Time L2&lt;/a&gt; specification adds Web Worker support. These are just some of the drafts the Working Group is currently defining, with more specification drafts on Prerender and other diagnostics areas forthcoming.&lt;/p&gt;
+&lt;p&gt;The W3C Web Performance Working Group is a great example of how quickly new ideas can become interoperable standards that developers can depend on in modern HTML5-enabled browsers. Together with industry and community leaders who participate in the Working Group, we hope to continue to make rapid progress on interoperable standards that will help developers make the Web faster.  &lt;/p&gt;
+&lt;p&gt;Thanks,&lt;br/&gt;Jatinder Mann&lt;br/&gt;Internet Explorer Program Manager&lt;/p&gt;
+&lt;div style="clear:both;"&gt;&lt;/div&gt;&lt;img src="http://blogs.msdn.com/aggbug.aspx?PostID=10420475" width="1" height="1"&gt;</content>
+    <author>
+      <name>ieblog</name>
+      <uri>http://blogs.msdn.com/ieblog/ProfileUrlRedirect.ashx</uri>
+    </author>
+    <category term="Developers" scheme="http://blogs.msdn.com/b/ie/archive/tags/Developers/" />
+    <category term="W3C" scheme="http://blogs.msdn.com/b/ie/archive/tags/W3C/" />
+    <category term="Performance" scheme="http://blogs.msdn.com/b/ie/archive/tags/Performance/" />
+  </entry>
+  <entry>
+    <title>IE Dev Center: Finding the resources you need, quickly</title>
+    <link rel="alternate" type="text/html" href="http://blogs.msdn.com/b/ie/archive/2013/05/20/ie-dev-center-finding-the-resources-you-need-quickly.aspx" />
+    <id>http://blogs.msdn.com/b/ie/archive/2013/05/20/ie-dev-center-finding-the-resources-you-need-quickly.aspx</id>
+    <published>2013-05-20T16:55:44Z</published>
+    <updated>2013-05-20T16:55:44Z</updated>
+    <content type="html">&lt;p style="margin-bottom:0;"&gt;Last week we launched a remodeled Internet Explorer Developer Center (&lt;a href="http://msdn.microsoft.com/ie"&gt;msdn.com/ie&lt;/a&gt;) to make it easier for developers to find the comprehensive documentation quickly. Based on your feedback, we’ve adjusted our site structure as part of a larger &lt;a href="http://go.microsoft.com/fwlink/p/?LinkID=301857"&gt;Windows Dev Center redesign&lt;/a&gt; in order to:&lt;/p&gt;
+&lt;ul style="margin-top:0;"&gt;
+&lt;li&gt;Make it easier to find developer topics across versions of IE&lt;/li&gt;
+&lt;li&gt;Find more comprehensive API documentation faster&lt;/li&gt;
+&lt;li&gt;Learn best practices from developer guides, tutorials, and sample code&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We organized the new IE Dev Center into three main areas:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://msdn.microsoft.com/ie/bg125381"&gt;&lt;b&gt;Get Started&lt;/b&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here, you can download IE, learn more about F12 developer tools, and access our &lt;a href="http://msdn.microsoft.com/library/ie/bg125382"&gt;Developer Guides&lt;/a&gt; and &lt;a href="http://msdn.microsoft.com/library/ie/hh771831"&gt;Compatibility Cookbooks&lt;/a&gt; to learn about what’s new and changed in the latest versions of IE.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://msdn.microsoft.com/ie/bg125384"&gt;&lt;b&gt;Plan&lt;/b&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Find &lt;a href="http://msdn.microsoft.com/ie/bg125385"&gt;inspiring ideas&lt;/a&gt;, tips on updating to Web standards, details on the &lt;a href="http://msdn.microsoft.com/library/ie/hh771832"&gt;browsing experiences of IE10 on Windows 8&lt;/a&gt;, useful info about going plug-in free, building adaptive and touch-ready sites, and &lt;a href="http://msdn.microsoft.com/library/ie/bg125387"&gt;integrating your site with Windows&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;&lt;a href="http://msdn.microsoft.com/ie/aa740473"&gt;&lt;b&gt;Develop&lt;/b&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Access portal pages for &lt;a href="http://msdn.microsoft.com/library/ie/bg125388"&gt;Web platform features&lt;/a&gt;, our API reference, samples gallery, and community forums.&lt;/p&gt;
+&lt;p&gt;The Develop section represents the heart of the IE library content. To help you find the content you need quickly, we reorganized our most highly-trafficked pages to bring together all the relevant resources on the same topic. &lt;/p&gt;
+&lt;p style="text-align: center; font-size: 8.25pt; font-style: italic;"&gt;&lt;img style="max-width: 95%; box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.25);" alt="IE Dev Guide: Overview" src="http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-38-71-metablogapi/1881.idcftrynq_2D00_image1_2D00_1_5F00_623x373.png" /&gt;&lt;/p&gt;
+&lt;p&gt;With the new organization of the IE Developer Center, you don’t have to know which version of IE introduced or changed a feature in order to find all of our information about it.  Instead, you can conveniently find our &lt;a href="http://msdn.microsoft.com/library/ie/bg125382"&gt;Dev Guide&lt;/a&gt; topics through &lt;a href="http://msdn.microsoft.com/library/ie/bg125388"&gt;an alphabetical list&lt;/a&gt; of the modern Web platform features supported by IE, or you can browse them &lt;a href="http://msdn.microsoft.com/ie/aa740473"&gt;thematically by area&lt;/a&gt;.  Of course, we will continue to publish these same topics within the particular IE Dev Guide versions in which they were introduced.  &lt;/p&gt;
+&lt;p style="text-align: center; font-size: 8.25pt; font-style: italic;"&gt;&lt;img style="max-width: 95%; box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.25);" alt="IE Features: A to Z" src="http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-38-71-metablogapi/2867.idcftrynq_2D00_image2_2D00_1_5F00_760x576.png" /&gt;&lt;/p&gt;
+&lt;p&gt;There are more improvements underway, but hopefully you’ll find the new &lt;a href="http://msdn.microsoft.com/ie"&gt;IE Developer Center&lt;/a&gt; immediately more useful and usable. We’ll continue to listen to your feedback and look for ways to make our content easier to access and more relevant to the work you do. We welcome your feedback here in the blog or on the &lt;a href="http://msdn.microsoft.com/ie#footerSock"&gt;site&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;Erika Navara, Content Developer&lt;/p&gt;
+&lt;div style="clear:both;"&gt;&lt;/div&gt;&lt;img src="http://blogs.msdn.com/aggbug.aspx?PostID=10420081" width="1" height="1"&gt;</content>
+    <author>
+      <name>ieblog</name>
+      <uri>http://blogs.msdn.com/ieblog/ProfileUrlRedirect.ashx</uri>
+    </author>
+    <category term="General IE Information" scheme="http://blogs.msdn.com/b/ie/archive/tags/General+IE+Information/" />
+    <category term="Developers" scheme="http://blogs.msdn.com/b/ie/archive/tags/Developers/" />
+    <category term="Feedback" scheme="http://blogs.msdn.com/b/ie/archive/tags/Feedback/" />
+  </entry>
+  <entry>
+    <title>May 2013 Internet Explorer Updates</title>
+    <link rel="alternate" type="text/html" href="http://blogs.msdn.com/b/ie/archive/2013/05/14/may-2013-internet-explorer-updates.aspx" />
+    <id>http://blogs.msdn.com/b/ie/archive/2013/05/14/may-2013-internet-explorer-updates.aspx</id>
+    <published>2013-05-14T19:38:57Z</published>
+    <updated>2013-05-14T19:38:57Z</updated>
+    <content type="html">&lt;p&gt;&lt;b&gt;Microsoft Security Bulletin MS13-037 - Critical&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;This security update resolves eleven privately reported vulnerabilities in Internet Explorer. The most severe vulnerabilities could allow remote code execution if a user views a specially crafted Web page using Internet Explorer. An attacker who successfully exploited the most severe of these vulnerabilities could gain the same user rights as the current user. Users whose accounts are configured to have fewer user rights on the system could be less impacted than users who operate with administrative user rights.&lt;/p&gt;
+&lt;p&gt;This security update is rated Critical for Internet Explorer 6, Internet Explorer 7, Internet Explorer 8, Internet Explorer 9, and Internet Explorer 10 on Windows clients and Moderate for Internet Explorer 6, Internet Explorer 7, Internet Explorer 8, Internet Explorer 9, and Internet Explorer 10 on Windows servers. For more information, see the &lt;a href="http://technet.microsoft.com/en-us/security/bulletin/ms13-037"&gt;full bulletin&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Recommendation.&lt;/b&gt; Most customers have automatic updating enabled and will not need to take any action because this security update will be downloaded and installed automatically. Customers who have not enabled automatic updating need to check for updates and install this update manually. For information about specific configuration options in automatic updating, see &lt;a href="http://support.microsoft.com/kb/294871"&gt;Microsoft Knowledge Base Article 294871&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For administrators and enterprise installations, or end users who want to install this security update manually, Microsoft recommends that customers apply the update immediately using update management software, or by checking for updates using the &lt;a href="http://go.microsoft.com/fwlink/?LinkID=40747"&gt;Microsoft Update&lt;/a&gt; service.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Microsoft Security Bulletin MS13-038 – Critical&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;This security update resolves one publicly disclosed vulnerability in Internet Explorer. The vulnerability could allow remote code execution if a user views a specially crafted Web page using Internet Explorer. An attacker who successfully exploited this vulnerability could gain the same user rights as the current user. Users whose accounts are configured to have fewer user rights on the system could be less impacted than users who operate with administrative user rights.&lt;/p&gt;
+&lt;p&gt;This security update is rated Critical for Internet Explorer 8 on Windows clients and Moderate for Internet Explorer 8 on Windows servers. This security update has no severity rating for Internet Explorer 9. For more information, see the &lt;a href="http://technet.microsoft.com/en-us/security/bulletin/ms13-038"&gt;full bulletin&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This security update also addresses the vulnerability first described in &lt;a href="http://technet.microsoft.com/security/advisory/2847140"&gt;Microsoft Security Advisory 2847140&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;Recommendation. Most customers have automatic updating enabled and will not need to take any action because this security update will be downloaded and installed automatically. Customers who have not enabled automatic updating need to check for updates and install this update manually. For information about specific configuration options in automatic updating, see &lt;a href="http://support.microsoft.com/kb/294871"&gt;Microsoft Knowledge Base Article 294871&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For administrators and enterprise installations, or end users who want to install this security update manually, Microsoft recommends that customers apply the update immediately using update management software, or by checking for updates using the &lt;a href="http://go.microsoft.com/fwlink/?LinkID=40747"&gt;Microsoft Update&lt;/a&gt; service.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Microsoft Security Advisory (2755801)&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;Today, we also announced the availability of an update for Adobe Flash Player in Internet Explorer 10 on all supported editions of Windows 8 and Windows Server 2012. The details of the vulnerabilities are documented in Adobe security bulletin&lt;i&gt; &lt;/i&gt;&lt;a href="http://www.adobe.com/support/security/bulletins/apsb13-14.html"&gt;APSB13-14&lt;/a&gt;   &lt;/p&gt;
+&lt;p&gt;The update addresses vulnerabilities in Adobe Flash Player by updating the affected Adobe Flash libraries contained within Internet Explorer 10.  For more information, see the &lt;a href="http://technet.microsoft.com/en-us/security/advisory/2755801"&gt;advisory&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Most customers have automatic updating enabled and will not need to take any action because this update will be downloaded and installed automatically. Customers who have not enabled automatic updating need to check for updates and install this update manually. For information about specific configuration options in automatic updating, see &lt;a href="http://support.microsoft.com/kb/294871"&gt;Microsoft Knowledge Base Article 294871&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;— Ceri Gallacher, Program Manager, Internet Explorer&lt;/p&gt;
+&lt;div style="clear:both;"&gt;&lt;/div&gt;&lt;img src="http://blogs.msdn.com/aggbug.aspx?PostID=10418584" width="1" height="1"&gt;</content>
+    <author>
+      <name>ieblog</name>
+      <uri>http://blogs.msdn.com/ieblog/ProfileUrlRedirect.ashx</uri>
+    </author>
+    <category term="Security" scheme="http://blogs.msdn.com/b/ie/archive/tags/Security/" />
+  </entry>
+  <entry>
+    <title>W3C Transitions Pointer Events to Candidate Recommendation</title>
+    <link rel="alternate" type="text/html" href="http://blogs.msdn.com/b/ie/archive/2013/05/09/w3c-transitions-pointer-events-to-candidate-recommendation.aspx" />
+    <id>http://blogs.msdn.com/b/ie/archive/2013/05/09/w3c-transitions-pointer-events-to-candidate-recommendation.aspx</id>
+    <published>2013-05-09T22:35:02Z</published>
+    <updated>2013-05-09T22:35:02Z</updated>
+    <content type="html">&lt;p&gt;Today, the W3C published &lt;a href="http://www.w3.org/TR/pointerevents/"&gt;Pointer Events&lt;/a&gt; as a Candidate Recommendation, an important step towards a standard and interoperable way to handle input from touch, pen, mouse, and more. This fast 5-month progression from First Public Working Draft to Candidate Recommendation is a mark of the effective collaboration between Microsoft, Google, Mozilla, Opera, Nokia, jQuery, and others to help sites take advantage of new interactive hardware on the Web.&lt;/p&gt;
+&lt;p&gt;Candidate Recommendation indicates the W3C considers the specification widely reviewed and satisfying the Working Group’s technical requirements. It signals a call for additional implementations to inform the group. The Pointer Events Working Group is also now actively producing tests to validate implementations of the specification. The recent &lt;a href="http://blogs.msdn.com/b/ie/archive/2013/04/26/test-the-web-forward-seattle-2013.aspx"&gt;Test the Web Forward event&lt;/a&gt;, sponsored by Microsoft, helped fuel this effort with nearly &lt;a href="https://github.com/dmethvin/pointerevents-test"&gt;two dozen new test cases&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Increasingly, consumers browse the web with a broad range of devices; with touch, mouse and keyboard. By using pointer events, developers can write to a unified model that allows sites to be responsive to many types of input. Web developers can take advantage of pointer events in IE10 today, and in other browsers using polyfills like &lt;a href="http://aka.ms/handjs"&gt;Hand.JS&lt;/a&gt;. We’ve also created a &lt;a href="http://docs.webplatform.org/wiki/PointerEvents"&gt;new portal&lt;/a&gt; on WebPlatform.org to help you learn more and try pointer events out. Pointer Events is one of many ways &lt;a href="http://blogs.windows.com/ie/b/ie/archive/2013/05/09/building-internet-explorer-10-a-browser-that-is-perfect-for-touch.aspx"&gt;we’ve made touch fast and fluid&lt;/a&gt; on the Web.&lt;/p&gt;
+&lt;p&gt;Jacob Rossi&lt;/p&gt;
+&lt;p&gt;Program Manager&lt;/p&gt;
+&lt;div style="clear:both;"&gt;&lt;/div&gt;&lt;img src="http://blogs.msdn.com/aggbug.aspx?PostID=10417471" width="1" height="1"&gt;</content>
+    <author>
+      <name>ieblog</name>
+      <uri>http://blogs.msdn.com/ieblog/ProfileUrlRedirect.ashx</uri>
+    </author>
+    <category term="Developers" scheme="http://blogs.msdn.com/b/ie/archive/tags/Developers/" />
+    <category term="W3C" scheme="http://blogs.msdn.com/b/ie/archive/tags/W3C/" />
+    <category term="Testing" scheme="http://blogs.msdn.com/b/ie/archive/tags/Testing/" />
+  </entry>
+  <entry>
+    <title>Test the Web Forward – Seattle 2013</title>
+    <link rel="alternate" type="text/html" href="http://blogs.msdn.com/b/ie/archive/2013/04/26/test-the-web-forward-seattle-2013.aspx" />
+    <id>http://blogs.msdn.com/b/ie/archive/2013/04/26/test-the-web-forward-seattle-2013.aspx</id>
+    <published>2013-04-26T16:39:16Z</published>
+    <updated>2013-04-26T16:39:16Z</updated>
+    <content type="html">&lt;p&gt;On April 12-13, Microsoft hosted a record-setting &lt;a href="http://testthewebforward.org/events/seattle-2013.html"&gt;Test the Web Forward event&lt;/a&gt; to advance the Web by creating interoperability tests.  Dozens of volunteers from Adobe, AT&amp;amp;T, Blackberry, Mozilla, and many other local companies joined us at our Seattle offices to learn about Web standards testing, how to write CSS and HTML tests, as well as the tools available for test suite management. Attendees from around the country - and even Canada – contributed to create a record-breaking 514 overall new tests.&lt;/p&gt;
+&lt;img alt="Test the Web Forward - Better tests for a better web!" src="http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-38-71-metablogapi/3858.ttwfs_2D00_image1.jpeg" /&gt;
+&lt;h1&gt;Why Tests?&lt;/h1&gt;
+&lt;p&gt;The quality and correctness of different browsers’ HTML and CSS standards compliance continues to vary widely. The W3C requires independent tests of all normative requirements in a specification in order to move a W3C Web specification from a &lt;a href="http://www.w3.org/2005/10/Process-20051014/tr.html#rec-advance"&gt;candidate recommendation to an official recommendation&lt;/a&gt;. These tests are used to ensure that at least two browsers fully support each &lt;a href="http://www.ietf.org/iesg/statement/normative-informative.html"&gt;normative statement&lt;/a&gt;. As you might imagine, creating all of these tests is daunting; HTML5 is expected to need well over 100,000 tests, to say nothing of CSS3 modules, WebApps, Media Extensions, etc. We have submitted thousands of test cases for HTML, CSS, and SVG that can be viewed at the W3C and the &lt;a href="http://samples.msdn.microsoft.com/ietestcenter/"&gt;Internet Explorer Test Center&lt;/a&gt;, however more tests are still needed. These tests benefit all browsers – and ultimately the entire Web developer community – by ensuring a consistent, predictable behavior. As different browsers improve their same-markup support, we can all realize the promise of HTML5 and CSS3. &lt;/p&gt;
+&lt;p&gt;A few years ago, several members of the standards community turned to crowd-sourcing to help create new tests, this resulted in &lt;a href="http://testthewebforward.org/"&gt;Test the Web Forward&lt;/a&gt; events.&lt;/p&gt;
+&lt;p&gt;With the sponsorship of major players like Microsoft, Adobe, Google, and Mozilla, the Web community has come together, running local test-writing sprints around the world—&lt;a href="http://testthewebforward.org/paris-2012.html"&gt;France&lt;/a&gt;, &lt;a href="http://testthewebforward.org/beijing-2012.html"&gt;China&lt;/a&gt;, &lt;a href="http://testthewebforward.org/sydney-2013.html"&gt;Australia&lt;/a&gt;, and the &lt;a href="http://testthewebforward.org/sanfrancisco-2012.html"&gt;US&lt;/a&gt;. Each sprint not only generates hundreds of tests, but also engages with and educates Web developers about the specifications that make up the Web platform.&lt;/p&gt;
+&lt;h1&gt;Inside the Seattle Event&lt;/h1&gt;
+&lt;p&gt;Our friends at Adobe were instrumental in setting up a successful event, building upon their experience in running previous events. In Seattle we kicked off the hack-a-thon on Friday night, with inspirational and informative presentations from Mozilla's &lt;a href="https://twitter.com/fantasai"&gt;fantasai&lt;/a&gt; (Elika Etemad), Adobe's &lt;a href="https://twitter.com/RebeccaHauck"&gt;Rebecca Hauck&lt;/a&gt;, and Microsoft's Kris Krueger, explaining why we need tests, what type of tests are available, and how to create them. Here’s a quick outline:&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Stand-alone tests&lt;/b&gt; typically rely on visual verification: &lt;a href="http://test.csswg.org/suites/css2.1/20110323/html4/at-import-001.htm"&gt;if a failure condition occurs, red content will show&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Reference tests&lt;/b&gt; compare &lt;a href="http://test.csswg.org/suites/css3-multicol/nightly-unstable/html4/multicol-columns-invalid-001.htm"&gt;a test&lt;/a&gt; against &lt;a href="http://test.csswg.org/suites/css3-multicol/nightly-unstable/html4/reference/multicol-columns-toolong-ref.htm"&gt;a visual reference&lt;/a&gt; that has no dependency on the feature being tested. Note that the test includes a link to the reference test against which is should be compared. For example, if you wanted to test that DIVs render background colors correctly, you might make a ref test using TABLEs.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Object Model tests&lt;/b&gt; depend on a JavaScript test harness; they verify that the object model reflects what static style sheets specify. For instance, this &lt;a href="http://www.w3.org/Style/CSS/Test/MediaQueries/20120229/test_media_queries.html"&gt;CSS media query test&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;These presentations were followed by 2-minute pitches from Saturday's session test leaders on why participants might want to pick a particular focus (&lt;a href="http://www.w3.org/TR/css3-flexbox/"&gt;CSS Flexbox&lt;/a&gt;, &lt;a href="http://www.w3.org/TR/pointerevents/"&gt;Pointer Events&lt;/a&gt;, &lt;a href="http://www.w3.org/TR/css3-transforms/"&gt;CSS Transforms&lt;/a&gt;, &lt;a href="http://dev.w3.org/csswg/cssom/"&gt;CSS OM&lt;/a&gt;, &lt;a href="http://www.w3.org/TR/css3-background/"&gt;Backgrounds &amp;amp; Borders&lt;/a&gt;, &lt;a href="http://www.w3.org/TR/css3-exclusions/"&gt;Exclusions&lt;/a&gt;, or &lt;a href="http://www.w3.org/html/wg/drafts/html/master/Overview.html"&gt;HTML5&lt;/a&gt;), though session participants were free to write tests against any API or spec they felt passionate about.&lt;/p&gt;
+&lt;p style="text-align: center; font-size: 8.25pt; font-style: italic;"&gt;&lt;img style="max-width: 95%; border: 1px solid #999; box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.25);" alt="Test the Web Forward - Picture of attendees" src="http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-38-71-metablogapi/5432.ttwfs_2D00_image2.jpeg" /&gt;&lt;/p&gt;
+&lt;p&gt;Following breakfast the next morning, participants broke up into three rooms with session leaders helping out in each. Each area was staffed by experts (in addition to the speakers from the previous evening): &lt;a href="https://twitter.com/MrCSS"&gt;Arron Eicholz&lt;/a&gt; (Microsoft, CSS); &lt;a href="https://twitter.com/jacobrossi"&gt;Jacob Rossi&lt;/a&gt; (Microsoft, Pointer Events); &lt;a href="https://twitter.com/sgalineau"&gt;Sylvain Galineau&lt;/a&gt; (Adobe [formerly Microsoft], CSS); &lt;a href="https://twitter.com/alanstearns"&gt;Alan Stearns&lt;/a&gt; (Adobe, CSS); &lt;a href="https://twitter.com/davemethvin"&gt;Dave Methvin&lt;/a&gt; (President of jQuery, HTML).&lt;/p&gt;
+&lt;p&gt;The leaders instructed everyone on how to determine where tests were needed and how to create code that tested the specific assertion that we wanted to capture. Volunteers could either work on their own, work in small groups, or get 1:1 help with the experts.&lt;/p&gt;
+&lt;p&gt;When all was said and done, the sprint generated 514 submitted tests, just edging out the record set by the Paris test sprint and setting a new bar for upcoming sprints to beat. After a few celebratory drinks, the end of the night saw the raffling off of a Surface Pro which was won by a student volunteer who joined us from the University of Washington.&lt;/p&gt;
+&lt;h1&gt;You Can Help Too!&lt;/h1&gt;
+&lt;p&gt;In IE10, we have added support for &lt;a href="http://msdn.microsoft.com/en-us/library/ie/hh673549(v=vs.85).aspx"&gt;a long list of new standard features across CSS, HTML, SVG and the DOM&lt;/a&gt;. We have published some of our test cases for these new features on &lt;a href="http://samples.msdn.microsoft.com/ietestcenter/"&gt;our IE Test Center&lt;/a&gt;. We will be submitting more, but we still need help from the community to get the right tests written and move these specs forward.&lt;/p&gt;
+&lt;p&gt;We are excited to be part of the community working towards a more innovative and interoperable Web. We support several initiatives in this direction, like &lt;a href="http://blog.webplatform.org/2013/04/new-msdn-js-docs/"&gt;the recent donation of JavaScript documentation to Webplatform.org&lt;/a&gt;, or our continued efforts to simplify cross-browser testing with &lt;a href="http://modern.ie/"&gt;modern.ie&lt;/a&gt;. If you want to help move the Web forward, too, come and join us at one of the next Test the Web Forward events! In the meanwhile, you can learn &lt;a href="http://wiki.csswg.org/test/css2.1/contribute"&gt;how to contribute tests&lt;/a&gt;, or &lt;a href="http://wiki.csswg.org/test/review"&gt;review existing tests&lt;/a&gt; online. To hear about upcoming events and to stay in touch with the rest of the Test the Web Forward community, please subscribe to our W3C mailing list: &lt;a href="http://lists.w3.org/Archives/Public/public-testtwf/"&gt;public-testtwf&lt;/a&gt;. If test writing sounds too intense, but you are still knowledgeable and passionate about the Web, you can get involved with the &lt;a href="http://webplatform.org"&gt;WebPlatform Docs&lt;/a&gt; project and help document the Web.&lt;/p&gt;
+&lt;p&gt;For more info and updates, follow our Internet Explorer developer relations handle on Twitter &lt;a href="https://twitter.com/IEDevChat/"&gt;@IEDevChat&lt;/a&gt;, this initiative’s handle &lt;a href="https://twitter.com/testthewebfwd"&gt;@testthewebfwd&lt;/a&gt; and in particular #testtwf.&lt;/p&gt;
+&lt;p&gt;We will keep you posted on upcoming events and we are looking forward to meeting you soon!&lt;/p&gt;
+&lt;p&gt;—John Jansen, Kris Krueger, Arron Eicholz, and Jacob Rossi – Internet Explorer&lt;/p&gt;
+&lt;div style="clear:both;"&gt;&lt;/div&gt;&lt;img src="http://blogs.msdn.com/aggbug.aspx?PostID=10414290" width="1" height="1"&gt;</content>
+    <author>
+      <name>ieblog</name>
+      <uri>http://blogs.msdn.com/ieblog/ProfileUrlRedirect.ashx</uri>
+    </author>
+    <category term="Developers" scheme="http://blogs.msdn.com/b/ie/archive/tags/Developers/" />
+    <category term="W3C" scheme="http://blogs.msdn.com/b/ie/archive/tags/W3C/" />
+    <category term="Testing" scheme="http://blogs.msdn.com/b/ie/archive/tags/Testing/" />
+  </entry>
+  <entry>
+    <title>Enabling Professional-Quality Online Video:  New Specifications for Interoperable Captioning</title>
+    <link rel="alternate" type="text/html" href="http://blogs.msdn.com/b/ie/archive/2013/04/25/enabling-professional-quality-online-video-new-specifications-for-interoperable-captioning.aspx" />
+    <id>http://blogs.msdn.com/b/ie/archive/2013/04/25/enabling-professional-quality-online-video-new-specifications-for-interoperable-captioning.aspx</id>
+    <published>2013-04-25T15:58:34Z</published>
+    <updated>2013-04-25T15:58:34Z</updated>
+    <content type="html">&lt;p&gt;Video captioning on the Web is about to get significantly better, putting in place another critical building block for enabling professional-quality online video delivery and playback.  To achieve the experience of broadcast television, the Web needs to provide captioning capabilities including word highlighting, tight synchronization between captions and spoken word, flexible caption positioning, caption styling, and caption animations – all of which are part of a recently published profile &lt;a href="http://www.w3.org/TR/ttml10-sdp-us/"&gt;specification&lt;/a&gt; from the &lt;a href="http://www.w3.org/"&gt;W3C&lt;/a&gt; &lt;a href="http://www.w3.org/AudioVideo/TT/"&gt;Timed Text Working Group&lt;/a&gt; (TTWG). Microsoft has joined with content owners, video distributors, and device providers in developing the specifications to ensure interoperability and streamline closed caption authoring and delivery. For content and tool providers, the specification enables authoring of interoperable caption files for delivery to a wide variety of software and devices, while meeting evolving industry requirements.&lt;/p&gt;
+&lt;p&gt;Captioning is an intrinsic part of any professional-quality video experience—and the impact goes far beyond enabling the hearing impaired to gain full access to the video content.  Captions are turned on in loud environments, such as at the gym.  Captioning is used to help us all understand foreign language films.  Of course, I’m surely not the only person who turns on captions to better understand difficult accents in movies streamed on Netflix. &lt;/p&gt;
+&lt;p&gt;In February 2013, Microsoft joined industry stakeholders in the &lt;a href="http://www.w3.org/"&gt;W3C&lt;/a&gt; &lt;a href="http://www.w3.org/AudioVideo/TT/"&gt;Timed Text Working Group&lt;/a&gt; (TTWG) to deliver the &lt;a href="http://www.w3.org/TR/ttml10-sdp-us/"&gt;TTML Simple Delivery Profile for Closed Captions (SDP-US)&lt;/a&gt; profile specification. This new profile was created with input from media industry experts from &lt;a href="http://www.uvvu.com/"&gt;DECE&lt;/a&gt;, &lt;a href="https://www.smpte.org/standards/find"&gt;SMPTE&lt;/a&gt;, &lt;a href="http://tech.ebu.ch/"&gt;EBU&lt;/a&gt; and industry players including Adobe, MovieLabs, NBC Universal, Cox, Apple, Netflix and Microsoft.&lt;/p&gt;
+&lt;p&gt;SDP-US is based on &lt;a href="http://www.w3.org/TR/2010/REC-ttaf1-dfxp-20101118/"&gt;Timed Text Markup Language (TTML)&lt;/a&gt; (a caption interchange specification that has been used in the professional video industry for years) and clearly defines key caption format features like layout, style, timing and content requirements, enabling content authors and tool providers to easily create interoperable caption files that meet evolving industry requirements. SDP-US will help streamline creation of closed captions to deliver media content to the Web across a wide variety of software and devices – in a browser like Internet Explorer, on devices such as &lt;a href="http://www.xbox.com/en-US/video"&gt;Xbox&lt;/a&gt; or through applications built using the &lt;a href="http://playerframework.codeplex.com/"&gt;Microsoft Media Player Framework&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;Internet Explorer was &lt;a href="http://blogs.msdn.com/b/ie/archive/2011/11/29/html5-for-applications-the-fourth-ie10-platform-preview.aspx"&gt;one of the first browsers&lt;/a&gt; to include early support for HTML5-based video captioning via the &lt;a href="http://blogs.msdn.com/b/ie/archive/2011/10/12/html5-video-captioning.aspx"&gt;&amp;lt;track&amp;gt; element with TTML and WebVTT file formats&lt;/a&gt;.  Since then, we’ve heard clear feedback from content authors: They need an interoperable, simple and full-featured captioning solution that meets emerging requirements for browsers and other software on Internet-connected devices.  SDP-US will meet this need by defining a streamlined set of captioning capabilities for the &lt;a href="http://www.w3.org/TR/html5/embedded-content-0.html#the-track-element"&gt;HTML5 &amp;lt;track&amp;gt; element&lt;/a&gt;.  Developers will be able to add captioning to an HTML5 video by providing a caption file that contains a styled text representation of the video dialog or actions and by using the &amp;lt;track&amp;gt; element to render and display the contents of that file.  &lt;/p&gt;
+&lt;p&gt;To illustrate some of the power of the new SDP-US captioning specification, here’s an example of how Internet Explorer renders captions with a default plain text style and position:&lt;/p&gt;
+&lt;p style="text-align: center; font-size: 8.25pt; font-style: italic;"&gt;&lt;img alt="Captioning in IE10 always looked like this" src="http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-38-71-metablogapi/2437.auovcs_2D00_image1.png" /&gt;&lt;/p&gt;
+&lt;p&gt;With SDP-US, caption authors have much more flexibility in caption positioning and styling, as shown in the below examples:&lt;/p&gt;
+&lt;p style="text-align: center; font-size: 8.25pt; font-style: italic;"&gt;&lt;img style="max-width: 95%; border: 1px solid #999; box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.25);" alt="SDP-US allows captions to be placed anywhere on the screen" src="http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-38-71-metablogapi/8304.auovcs_2D00_image2_2D00_3.png" /&gt;&lt;/p&gt;
+&lt;p style="text-align: center; font-size: 8.25pt; font-style: italic;"&gt;&lt;img style="max-width: 95%; border: 1px solid #999; box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.25);" alt="It allows caption text to be emphasized and colored" src="http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-38-71-metablogapi/0218.auovcs_2D00_image3_2D00_3.png" /&gt;&lt;/p&gt;
+&lt;p style="text-align: center; font-size: 8.25pt; font-style: italic;"&gt;&lt;img style="max-width: 95%; border: 1px solid #999; box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.25);" alt="And caption regions can be filled with color" src="http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-38-71-metablogapi/1768.auovcs_2D00_image4_2D00_3.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Professional-quality online video is a forthcoming reality, enabled by emerging Web specifications and powerful content delivery infrastructure.  Captioning is an important building block for enabling professional-quality video, and Microsoft is actively working with industry partners to enable rich captioning experiences.  If you are working on Internet video, we invite you to review the new &lt;a href="http://www.w3.org/TR/ttml10-sdp-us/"&gt;SDP-US profile&lt;/a&gt;, join the industry discussion, start considering how your caption content can adapt to SDP-US, and let us have your feedback.&lt;/p&gt;
+&lt;p&gt;-- Sandeep Singhal, Group Program Manager, Internet Explorer&lt;/p&gt;
+&lt;div style="clear:both;"&gt;&lt;/div&gt;&lt;img src="http://blogs.msdn.com/aggbug.aspx?PostID=10413987" width="1" height="1"&gt;</content>
+    <author>
+      <name>ieblog</name>
+      <uri>http://blogs.msdn.com/ieblog/ProfileUrlRedirect.ashx</uri>
+    </author>
+    <category term="W3C" scheme="http://blogs.msdn.com/b/ie/archive/tags/W3C/" />
+    <category term="Feedback" scheme="http://blogs.msdn.com/b/ie/archive/tags/Feedback/" />
+    <category term="HTML5" scheme="http://blogs.msdn.com/b/ie/archive/tags/HTML5/" />
+  </entry>
+  <entry>
+    <title>April 2013  Internet Explorer Updates</title>
+    <link rel="alternate" type="text/html" href="http://blogs.msdn.com/b/ie/archive/2013/04/09/april-2013-internet-explorer-updates.aspx" />
+    <id>http://blogs.msdn.com/b/ie/archive/2013/04/09/april-2013-internet-explorer-updates.aspx</id>
+    <published>2013-04-09T18:17:44Z</published>
+    <updated>2013-04-09T18:17:44Z</updated>
+    <content type="html">&lt;h2&gt;Microsoft Security Bulletin MS13-028 - Critical&lt;/h2&gt;
+&lt;p&gt;This security update resolves two privately reported vulnerabilities in Internet Explorer. The most severe vulnerabilities could allow remote code execution if a user views a specially crafted Web page using Internet Explorer. An attacker who successfully exploited these vulnerabilities could gain the same user rights as the current user. Users whose accounts are configured to have fewer user rights on the system could be less impacted than users who operate with administrative user rights.&lt;/p&gt;
+&lt;p&gt;This security update is rated Critical for Internet Explorer 6, Internet Explorer 7, Internet Explorer 8, Internet Explorer 9, and Internet Explorer 10 on Windows clients and Moderate for Internet Explorer 6, Internet Explorer 7, Internet Explorer 8, Internet Explorer 9, and Internet Explorer 10 on Windows servers. For more information, see the &lt;a href="http://technet.microsoft.com/en-us/security/bulletin/ms13-028"&gt;full bulletin&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Recommendation.&lt;/b&gt; Most customers have automatic updating enabled and will not need to take any action because this security update will be downloaded and installed automatically. Customers who have not enabled automatic updating need to check for updates and install this update manually. For information about specific configuration options in automatic updating, see &lt;a href="http://support.microsoft.com/kb/294871"&gt;Microsoft Knowledge Base Article 294871&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For administrators and enterprise installations, or end users who want to install this security update manually, Microsoft recommends that customers apply the update immediately using update management software, or by checking for updates using the &lt;a href="http://go.microsoft.com/fwlink/?LinkID=40747"&gt;Microsoft Update&lt;/a&gt; service.&lt;/p&gt;
+&lt;h2&gt;Microsoft Security Advisory (2755801)&lt;/h2&gt;
+&lt;p&gt;Today we also released an update that addresses vulnerabilities in Adobe Flash Player in Internet Explorer 10 on Windows 8. The details of the vulnerabilities are documented in Adobe security bulletin &lt;a href="http://www.adobe.com/support/security/bulletins/apsb13-11.html"&gt;APSB13-11&lt;/a&gt;. The majority of customers have automatic updates enabled and will not need to take any action because the update will be downloaded and installed automatically. For those manually updating, we encourage you to read the &lt;a href="http://technet.microsoft.com/en-us/security/advisory/2755801"&gt;advisory&lt;/a&gt; and apply this update as quickly as possible.&lt;/p&gt;
+&lt;p&gt;This update addresses the vulnerabilities in Adobe Flash Player by updating the affected Adobe Flash binaries contained within Internet Explorer 10. For more information, see the &lt;a href="http://technet.microsoft.com/en-us/security/advisory/2755801"&gt;advisory&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;— Ceri Gallacher, Program Manager, Internet Explorer&lt;/p&gt;
+&lt;div style="clear:both;"&gt;&lt;/div&gt;&lt;img src="http://blogs.msdn.com/aggbug.aspx?PostID=10409729" width="1" height="1"&gt;</content>
+    <author>
+      <name>ieblog</name>
+      <uri>http://blogs.msdn.com/ieblog/ProfileUrlRedirect.ashx</uri>
+    </author>
+    <category term="Security" scheme="http://blogs.msdn.com/b/ie/archive/tags/Security/" />
+  </entry>
+  <entry>
+    <title>New on modern.IE:  Free VM Downloads, Windows 8 QuickStart Kits, Enhanced Code-Scanning Tools, and More</title>
+    <link rel="alternate" type="text/html" href="http://blogs.msdn.com/b/ie/archive/2013/04/02/new-on-modern-ie-free-vm-downloads-windows-8-quickstart-kits-enhanced-code-scanning-tools-and-more.aspx" />
+    <id>http://blogs.msdn.com/b/ie/archive/2013/04/02/new-on-modern-ie-free-vm-downloads-windows-8-quickstart-kits-enhanced-code-scanning-tools-and-more.aspx</id>
+    <published>2013-04-02T14:12:00Z</published>
+    <updated>2013-04-02T14:12:00Z</updated>
+    <content type="html">&lt;p&gt;Today, we are updating &lt;a href="http://modern.ie/"&gt;modern.IE&lt;/a&gt; with enhanced tools and resources to help you test your sites for modern browsers like Internet Explorer 9 and 10, while also helping you support older versions of browsers. These enhancements address the most common feedback, suggestions, and requests that we have received from enthusiastic users since &lt;a href="http://blogs.msdn.com/b/ie/archive/2013/02/01/modern-ie-a-new-set-of-tools-to-help-test-web-site-compatibility.aspx"&gt;introducing the site in January&lt;/a&gt;.&lt;/p&gt;
+&lt;p style="margin-bottom: 0;"&gt;With today&amp;rsquo;s update, we are making available a new offer, new downloads, and tool enhancements on &lt;a href="http://modern.ie/"&gt;modern.IE&lt;/a&gt;. Some highlights include:&lt;/p&gt;
+&lt;ul style="margin-top: 0px;"&gt;
+&lt;li&gt;&lt;a href="http://swish.com/details/devkit/"&gt;Order a Windows QuickStart Kit&lt;/a&gt; for Mac Developers, including Parallels Desktop 8 and Windows 8 on a USB stick shipped to you for a $25 donation to select charities&amp;nbsp; &lt;em&gt;(&lt;strong&gt;Update 10:45am PDT 4/2/2013&lt;/strong&gt;: The Windows Quickstart offer sold out quickly. Given how popular these were, we will look into making other offers available in the near future.)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.modern.ie/en-us/virtualization-tools"&gt;Download&lt;/a&gt; new virtual machines for &lt;em&gt;IE10 on Windows 7&lt;/em&gt; and &lt;em&gt;IE8 on Windows XP&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.modern.ie/en-us/report"&gt;Scan a Web page URL&lt;/a&gt; now identifies more interoperability issues, even for sites located behind a firewall.&lt;/li&gt;
+&lt;li&gt;Availability in 18 languages&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We continue to offer &lt;a href="http://modern.ie/developer-tools#todo"&gt;3 months of free BrowserStack&lt;/a&gt; access so you can easily test across browsers and OS platforms without changing your primary development environment.&lt;/p&gt;
+&lt;p&gt;We are excited to &lt;a href="https://twitter.com/LeaVerou/status/297023126645141504"&gt;see&lt;/a&gt; &lt;a href="https://twitter.com/slicknet/status/297032782515937280"&gt;the&lt;/a&gt; &lt;a href="https://twitter.com/grigs/status/297036103008010240"&gt;developer&lt;/a&gt; &lt;a href="http://techcrunch.com/2013/01/31/microsoft-launches-modern-ie-to-help-developers-test-their-web-apps-for-legacy-and-modern-versions-of-ie/"&gt;reception&lt;/a&gt; to modern.IE so far. We appreciate the thoughtful feedback in tweets and suggestions you have offered on ways we can help save time and improve how you test your Web experiences. Today&amp;rsquo;s &lt;a href="http://www.modern.IE"&gt;modern.IE&lt;/a&gt; release incorporates much of that feedback. Please do keep the comments coming, as we will continue to update the site regularly.&lt;/p&gt;
+&lt;h1&gt;For the Mac user: Get the Windows QuickStart Kit including Windows 8 with Parallels Desktop 8&lt;/h1&gt;
+&lt;p&gt;We heard that the most common way you test across browsers is through virtualization of browser and operating system combinations using your favorite virtualization platform, such as Hyper-V, VMWare, VirtualBox, or Parallels. However, costs to purchase software and licensing can be difficult if you&amp;rsquo;re that startup looking for your first big breakthrough.&lt;/p&gt;
+&lt;p&gt;Today we&amp;rsquo;re making it just a little easier with a new combo offer: We&amp;rsquo;ll &lt;a href="http://swish.com/details/devkit/"&gt;ship you a copy&lt;/a&gt; of Windows 8 and Parallels Desktop 8 for Mac virtualization on a USB stick for a $25 donation to your favorite charity, courtesy of our friends at &lt;a href="http://swish.com/details/devkit/"&gt;Swish&lt;/a&gt;.&amp;nbsp; &lt;em&gt;(&lt;strong&gt;Update 10:45am PDT&amp;nbsp;4/2/2013&lt;/strong&gt;: The Windows Quickstart offer sold out quickly. Given how popular these were, we will look into making other offers available in the near future.)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We only have a limited supply available. You can get the details and pre-order &lt;a href="http://www.modern.ie/en-us/virtualization-tools"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h1&gt;Download new virtual machines&lt;/h1&gt;
+&lt;p style="margin-bottom: 0;"&gt;You told us that you want to be able to access as many testing environments as possible with minimal extra effort. Today we announce new virtual machines that are &lt;a href="http://www.modern.ie/en-us/virtualization-tools"&gt;available&lt;/a&gt; for free:&lt;/p&gt;
+&lt;ul style="margin-top: 0;"&gt;
+&lt;li&gt;IE10 on Windows 7&lt;/li&gt;
+&lt;li&gt;IE8 on Windows XP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We also received lots of feedback from developers on Mac and Linux concerning how to simplify your testing experience. We have added Parallels for Mac images for all IE versions. Many of you had some challenges downloading the VMs previously, and in response, we have updated the VM installation process to be simpler. Complete download information is available &lt;a href="http://www.modern.ie/en-us/virtualization-tools"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h1&gt;Scan a Web page URL for common coding issues: Enhanced tools now also run behind a firewall&lt;/h1&gt;
+&lt;p style="margin-bottom: 0;"&gt;Based on your feedback and experience, we have enhanced the &lt;a href="http://www.modern.ie/en-us/report"&gt;scan a Web page URL&lt;/a&gt; tool to provide more flexibility and to offer more detailed and actionable guidance. Over the past two months, you have scanned hundreds of thousands of URLs &amp;ndash; from top sites like Facebook, Pandora, and Yahoo! to the local pizza store near you. We have studied the most common coding issues reported on these sites and looked at which issues resulted in fixes or enhancements to the site. We also received hundreds of new ideas directly from the community. The result was a set of new enhancements that make the scanner a more complete testing solution for your site:&lt;/p&gt;
+&lt;ul style="margin-top: 0;"&gt;
+&lt;li&gt;&lt;strong&gt;Scan your Web pages behind a firewall&lt;/strong&gt;: The most common feedback we heard is that today, so many sites include authentication, are internal or commercial line-of-business Web apps, or are otherwise not available to the public Internet. Now, you can install a local instance of modern.IE to scan your code while keeping your project secure from others (including Microsoft). Install it through &lt;a href="http://nodejs.org/"&gt;node.js&lt;/a&gt; and access your site via localhost.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Deeper scan for common IE compatibility issues: &lt;/strong&gt;We heard from you that the first step when testing for IE is knowing whether your site is on the &lt;a href="http://msdn.microsoft.com/en-us/library/dd567845(VS.85).aspx"&gt;Compatibility View list&lt;/a&gt;, but what you &lt;em&gt;really &lt;/em&gt;want to know is &lt;em&gt;how to fix&lt;/em&gt; the underlying compatibility issues. Now on modern.IE, you can &lt;a href="http://modern.ie/en-us/report"&gt;scan your site&lt;/a&gt; using our &lt;a href="http://ie.microsoft.com/testdrive/HTML5/CompatInspector/help/post.htm"&gt;Compat Inspector&lt;/a&gt; tool using browser automation, provided by &lt;a href="https://saucelabs.com/"&gt;Sauce Labs,&lt;/a&gt; without adding a single line of code to your site.&amp;nbsp; The result is a line-item list of suggested fixes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Breakpoint detection for responsively designed sites&lt;/strong&gt; &amp;ndash; We found that you were &lt;em&gt;most &lt;/em&gt;interested in learning how to adapt your Web experiences to support the growing range of devices &amp;ndash; from phones and tablets to the big screen IE on XBOX. About 20% of top traffic and influential sites now offer some form of mobile-optimized experience &amp;ndash; a significant growth in the past year. The &lt;a href="http://modern.ie/en-us/report"&gt;scan a Web page&lt;/a&gt; URL tool now has built-in logic to detect when a Web page has been optimized for the common horizontal screen resolutions (or &amp;ldquo;breakpoints&amp;rdquo;). While we recommend that you let your site&amp;rsquo;s content determine which breakpoints to build for, we do suggests the most common ones across a range of devices.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Touch-optimization detection&lt;/strong&gt;: As touch support &lt;a href="http://blogs.msdn.com/b/ie/archive/2013/02/27/learning-more-about-pointer-events-as-the-w3c-publishes-last-call-working-draft.aspx"&gt;evolves toward a Web standard&lt;/a&gt;, we also learned that sites currently implement touch support in a variety of ways. modern.IE now detects Touch functionality across multiple JavaScript-, HTML-, and CSS- based techniques.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Browser plug-ins&lt;/strong&gt;: Recently we &lt;a href="http://blogs.msdn.com/b/ie/archive/2013/03/11/flash-in-windows-8.aspx"&gt;announced&lt;/a&gt; that Internet Explorer 10 in Windows 8 and Windows RT have been updated to enable Flash content to run by default. If you want to check to see if your site is on the Flash CV block list, you can now &lt;a href="http://www.modern.ie/en-us/report"&gt;scan for this&lt;/a&gt; on modern.IE.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We have also made dozens of bug fixes in the scanning tool to handle Web pages that used less common practices or frameworks &amp;amp; libraries. If you scanned a Web page and got an error, we encourage you to try it again!&lt;/p&gt;
+&lt;h1&gt;modern.IE for the World-Wide Web&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://modern.IE"&gt;modern.IE&lt;/a&gt; will be available in 18 languages throughout the next two days, making it a bit easier for site developers around the world. The supported languages include Arabic, Bahasa Indonesia, Chinese (Simplified, Traditional, and Hong Kong), Dutch, French, German, Italian, Japanese, Korean, Portuguese (Brazilian), Russian, Spanish (Spain and Latin America), Swedish, Thai, Turkish, and Vietnamese.&lt;/p&gt;
+&lt;h1&gt;modern.IE &amp;ndash; Testing made easier&lt;/h1&gt;
+&lt;p&gt;We will continue to enhance &lt;a href="http://modern.ie/"&gt;modern.IE&lt;/a&gt; with your help. Please continue to share your feedback on this resource. Please continue to &lt;a href="https://twitter.com/IEDevChat"&gt;let us know&lt;/a&gt; what you like, and what we&amp;rsquo;re missing!&lt;/p&gt;
+&lt;p&gt;-- Sandeep Singhal, Group Program Manager, Internet Explorer&lt;/p&gt;&lt;div style="clear:both;"&gt;&lt;/div&gt;&lt;img src="http://blogs.msdn.com/aggbug.aspx?PostID=10406934" width="1" height="1"&gt;</content>
+    <author>
+      <name>ieblog</name>
+      <uri>http://blogs.msdn.com/ieblog/ProfileUrlRedirect.ashx</uri>
+    </author>
+    <category term="IE Announcements" scheme="http://blogs.msdn.com/b/ie/archive/tags/IE+Announcements/" />
+    <category term="Developers" scheme="http://blogs.msdn.com/b/ie/archive/tags/Developers/" />
+    <category term="Testing" scheme="http://blogs.msdn.com/b/ie/archive/tags/Testing/" />
+  </entry>
+  <entry>
+    <title>Spring Forward: Advancing Historical Date and Time Calculations on the Web</title>
+    <link rel="alternate" type="text/html" href="http://blogs.msdn.com/b/ie/archive/2013/03/25/spring-forward-advancing-historical-date-and-time-calculations-on-the-web.aspx" />
+    <id>http://blogs.msdn.com/b/ie/archive/2013/03/25/spring-forward-advancing-historical-date-and-time-calculations-on-the-web.aspx</id>
+    <published>2013-03-25T18:10:00Z</published>
+    <updated>2013-03-25T18:10:00Z</updated>
+    <content type="html">&lt;h2&gt;&lt;strong&gt;Spring Forward: Advancing Historical Date and Time Calculations on the Web &lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Web developers want to create world-ready applications to reach a global audience. Internet Explorer 10 brings the historical Daylight Saving Time, already available on the underlying OS, to the Web developer. This enables apps and sites to interact with historic dates and times across various time zones more accurately.&lt;/p&gt;
+&lt;p&gt;Earlier this year we &lt;a href="http://blogs.msdn.com/b/ie/archive/2012/10/04/building-world-ready-applications-in-javascript-becoming-a-reality.aspx"&gt;explored&lt;/a&gt; the emerging ECMAScript Internationalization APIs that will enable things like currency representation and locale sensitive string comparison from within the Web standards platform, scenarios that previously required native interoperability or use of a plug-in. Along the same theme of making the Web platform world-ready, we published a &lt;a href="http://ie.microsoft.com/testdrive/Browser/JavaScriptDateTime/"&gt;demo&lt;/a&gt; exploring how browsers interact with historical date and time zone information.&lt;/p&gt;
+&lt;p style="text-align: center; font-size: 8.25pt; font-style: italic;"&gt;&lt;img style="max-width: 95%; border: 1px solid #999; box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.25);" src="http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-38-71-metablogapi/8270.sfahdatcotw_2D00_image1_2D00_1_5F00_760x441.png" alt="Test Drive Demo" /&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;Challenges with historical date and time calculations&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;When interacting with historical dates, like interpreting historical stock prices or birthdays or historical events, Web developers often have to perform validation on the server. Developers have to rely on server because Daylight Saving Time adjustments done to the dates by JavaScript engines today are not as accurate as platforms commonly run on the server like .NET, PHP / Perl, and Java. In addition to historical JavaScript dates being inaccurate, they are often not interoperable among browser platforms. Hence, developers are not able to take reliable dependency on the DST adjusted dates generated in JavaScript.&lt;/p&gt;
+&lt;p&gt;IE10 is the first browser with more accurate DST adjusted dates aligned with the changes made to section 15.9.1.8 of the &lt;a href="http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts"&gt;ECMAScript 6&lt;/a&gt; draft specification. We expanded the capabilities of the Web platform based on the scenarios where Web developers have to interact with the server for accomplishing their needs. We looked at how JavaScript engines interpret historical dates and adjust for DST. We noticed a shortcoming in the ECMAScript standards specification that prevents existing JavaScript implementations from being more accurate in adjusting for daylight savings time. We worked with the ECMAScript standards committee and &lt;a href="https://bugs.ecmascript.org/show_bug.cgi?id=342"&gt;proposed&lt;/a&gt; a specification change to drive more clarity into the next version of the ECMAScript specification.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exploring the Test Drive Demo&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;To illustrate this problem and see how your favorite browser deals with historical dates, you can play with the Historic Dates Test Drive &lt;a href="http://ie.microsoft.com/testdrive/Browser/JavaScriptDateTime/"&gt;demo&lt;/a&gt; by clicking on any icon of an event in aerospace history at the bottom of the demo. When you do so, the browser reads the historic date when the event occurred, and shows the date and time by applying the daylight saving rule that the browser defaulted to for when the event occurred. The demo then verifies if the historic date and daylight saving is correct or not.&lt;/p&gt;
+&lt;p style="text-align: center; font-size: 8.25pt; font-style: italic;"&gt;&lt;img style="max-width: 95%; border: 1px solid #999; box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.25);" src="http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-38-71-metablogapi/5852.sfahdatcotw_2D00_image2_2D00_1_5F00_760x480.png" alt="Test Drive Demo In Action" /&gt;&lt;/p&gt;
+&lt;p&gt;In the above case, when viewing the historic date for when the IMAGE spacecraft was launched, IE10 running on a Windows 8 machine in Pacific Standard Time zone is now accurately able to determine the correct date and daylight saving time for the historic event.&lt;/p&gt;
+&lt;p&gt;Note: Daylight savings time is not applicable to all time zones, and there do exist time zones where the daylight savings rules have not changed ever. In case your system is currently in such a time zone, we&amp;rsquo;d recommend you to change your system&amp;rsquo;s time zone to one where the daylight savings rules exist and have changed over a period of time (like Pacific Standard Time) and re-run the demo. While IE10 does immediately picks up the system time zone change, in case you are using any other browser, you might need to restart the browser for the updated time zone to take effect.&lt;/p&gt;
+&lt;p style="text-align: center; font-size: 8.25pt; font-style: italic;"&gt;&lt;img style="max-width: 95%; border: 1px solid #999; box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.25);" src="http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-blogs-components-weblogfiles/00-00-00-38-71-metablogapi/3806.sfahdatcotw_2D00_image3_2D00_1.png" alt="How to change Time Zone settings" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Improved handling of historic dates and times in IE10&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Let us take a closer look at to see how the current ECMAScript specification impacts the accuracy of adjusting dates for DST in JavaScript:&lt;/p&gt;
+&lt;p&gt;Section 15.9.1.8 of &lt;a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm"&gt;ECMAScript 5.1&lt;/a&gt;, specifies that JavaScript implementations like Internet Explorer&amp;rsquo;s &lt;a href="http://en.wikipedia.org/wiki/Chakra_(JavaScript_engine)"&gt;Chakra&lt;/a&gt; engine should typically follow while dealing with historic dates:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The implementation of ECMAScript should not try to determine whether the exact time was subject to daylight saving time, but just whether daylight saving time would have been in effect if the current daylight saving time algorithm had been used at the time. This avoids complications such as taking into account the years that the locale observed daylight saving time year round. &lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;If the host environment provides functionality for determining daylight saving time, the implementation of ECMAScript is free to map the year in question to an equivalent year (same leap-year-ness and same starting week day for the year) for which the host environment provides daylight saving time information. &lt;strong&gt;The only restriction is that all equivalent years should produce the same result&lt;/strong&gt;&lt;/em&gt;&lt;em&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In simplified words, this means that to deal with a historical date, a JavaScript implementation should either apply the current daylight saving time algorithm to a historic date, or determine the day for Jan 1st of a year, calculate if it was a leap year, find the current daylight saving time rules for a year with the same attributes (start day and leap year), and apply that particular daylight savings time to the historical date.&amp;nbsp; As an example for the latter, the year 1972 was a leap year that started on a Saturday.&amp;nbsp; And, the next leap year that started on a Saturday was 2000.&amp;nbsp; According to the language specification, JavaScript implementations could either use the current, or use the daylight saving rules for year 2000 while manipulating any dates for the year 1972.&lt;/p&gt;
+&lt;p&gt;There are two key problems when either of the above rules is used to apply daylight saving time rules to historic dates. First, the daylight saving rules for a particular time zone are not constant and change over time. This could lead to wrong rules being applied to a historic date. Second, for the time zones where daylight saving rules have changed over a period of time, Web applications are no longer able to maintain parity for those historical dates as calculated by the OS platform that they are running on, often forcing developers to &lt;a href="http://stackoverflow.com/questions/2096368/daylight-saving-time-in-javascript-for-1974"&gt;hack around&lt;/a&gt; such interoperability problems between Web applications and the platform that they run on.&lt;/p&gt;
+&lt;p&gt;The ECMAScript 5.1 specification text in 15.9.1.8 as we saw above allows implementations to be as wrong as they would like about daylight savings adjustments, but constrains how correct they should try to be. This is somewhat counterintuitive, and in practice, has not succeeded in producing consensus between browsers. Instead of constraining time zone offset behavior as in section 15.9.1.8, the specification should leave DaylightSavingsTA implementation dependent.&lt;/p&gt;
+&lt;p&gt;Our testing showed that, none of the existing browser implementations (latest versions) fully adheres to either the behavior specified in the standard across platforms or accurate in DST adjustments when dealing with dates. Here are some examples that show the difference in the US Pacific time zone:&lt;/p&gt;
+&lt;table style="border-collapse: collapse; margin-left: auto; margin-right: auto;" border="1" cellspacing="0" cellpadding="4"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Date&lt;/td&gt;
+&lt;td colspan="5"&gt;
+&lt;p&gt;&lt;strong&gt;Windows&lt;/strong&gt;&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Debian&lt;/strong&gt;&lt;/td&gt;
+&lt;td colspan="4"&gt;
+&lt;p&gt;&lt;strong&gt;Mac&lt;/strong&gt;&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td&gt;IE9&lt;/td&gt;
+&lt;td&gt;Chrome&lt;/td&gt;
+&lt;td&gt;Firefox&lt;/td&gt;
+&lt;td&gt;Opera&lt;/td&gt;
+&lt;td&gt;Safari&lt;/td&gt;
+&lt;td&gt;Node&lt;/td&gt;
+&lt;td&gt;Node&lt;/td&gt;
+&lt;td&gt;Chrome&lt;/td&gt;
+&lt;td&gt;Firefox&lt;/td&gt;
+&lt;td&gt;Safari&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4/1/2000&lt;/td&gt;
+&lt;td&gt;420&lt;/td&gt;
+&lt;td&gt;420&lt;/td&gt;
+&lt;td&gt;420&lt;/td&gt;
+&lt;td&gt;420&lt;/td&gt;
+&lt;td&gt;420&lt;/td&gt;
+&lt;td&gt;420&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;420&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Note that on this date Chrome, FireFox and Node are inconsistent between OSes. Almost everyone is actually wrong though, the actual DST adjustment was 480.&lt;/p&gt;
+&lt;table style="border-collapse: collapse; margin-left: auto; margin-right: auto;" border="1" cellspacing="0" cellpadding="4"&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Date&lt;/td&gt;
+&lt;td colspan="5"&gt;
+&lt;p&gt;&lt;strong&gt;Windows&lt;/strong&gt;&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Debian&lt;/strong&gt;&lt;/td&gt;
+&lt;td colspan="4"&gt;
+&lt;p&gt;&lt;strong&gt;Mac&lt;/strong&gt;&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+&lt;td&gt;IE9&lt;/td&gt;
+&lt;td&gt;Chrome&lt;/td&gt;
+&lt;td&gt;Firefox&lt;/td&gt;
+&lt;td&gt;Opera&lt;/td&gt;
+&lt;td&gt;Safari&lt;/td&gt;
+&lt;td&gt;Node&lt;/td&gt;
+&lt;td&gt;Node&lt;/td&gt;
+&lt;td&gt;Chrome&lt;/td&gt;
+&lt;td&gt;Firefox&lt;/td&gt;
+&lt;td&gt;Safari&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3/10/2011&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3/10/2109&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;420&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;480&lt;/td&gt;
+&lt;td&gt;420&lt;/td&gt;
+&lt;td&gt;420&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Note that on this date, a few environments are again violating ES5.1 rules (these two years both start on Tuesday and are not leap years), but here there are disagreements even on a single OS (both on Windows and Mac).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Looking Ahead&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Starting with Internet Explorer 10, the Chakra engine now uses the daylight saving time information available from the Windows platform that the browser runs on for conversions between local time and UTC.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;After we reported the &lt;a href="https://bugs.ecmascript.org/show_bug.cgi?id=342"&gt;&lt;strong&gt;spec issue&lt;/strong&gt;&lt;/a&gt; and worked with the ECMAScript standards committee to drive more clarity into the next version of the ECMAScript specification to enable the Web platform to be interoperable and more accurate, the latest draft of the &lt;a href="http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts"&gt;ECMAScript 6&lt;/a&gt; specification now details how enhanced and accurate support for daylight saving time rules should be applied to dates to produce more accurate information. IE10 the first browser that conforms to the updated specification and we hope that other browsers will also enhance their support to address the issues in their next releases, allowing Web developers to create rich world ready applications.&lt;/p&gt;
+&lt;p&gt;As the Web platform continues to grow in importance, rich application logic is now often written entirely in JavaScript, including that used by calendaring applications, spreadsheets, project management software, etc. To allow developers to maintain compatibility, this change is only enabled in IE10&amp;rsquo;s standards mode. In case you calculate historic dates in your Web applications and have custom logic to work around the inaccuracies of the browsers, you might want to ensure that the custom logic still works properly as you upgrade your Web applications to work on IE10.&lt;/p&gt;
+&lt;p&gt;-- Suresh Jayabalan, Program Manager, JavaScript Team&lt;/p&gt;&lt;div style="clear:both;"&gt;&lt;/div&gt;&lt;img src="http://blogs.msdn.com/aggbug.aspx?PostID=10405194" width="1" height="1"&gt;</content>
+    <author>
+      <name>ieblog</name>
+      <uri>http://blogs.msdn.com/ieblog/ProfileUrlRedirect.ashx</uri>
+    </author>
+    <category term="Testing" scheme="http://blogs.msdn.com/b/ie/archive/tags/Testing/" />
+    <category term="ES5" scheme="http://blogs.msdn.com/b/ie/archive/tags/ES5/" />
+    <category term="New in IE10" scheme="http://blogs.msdn.com/b/ie/archive/tags/New+in+IE10/" />
+  </entry>
+  <entry>
+    <title>IEAK 10 now available for Windows 7 and Windows 8</title>
+    <link rel="alternate" type="text/html" href="http://blogs.msdn.com/b/ie/archive/2013/03/22/ieak-10-now-available-for-windows-7-and-windows-8.aspx" />
+    <id>http://blogs.msdn.com/b/ie/archive/2013/03/22/ieak-10-now-available-for-windows-7-and-windows-8.aspx</id>
+    <published>2013-03-22T18:11:30Z</published>
+    <updated>2013-03-22T18:11:30Z</updated>
+    <content type="html">&lt;p&gt;&lt;a href="http://ieak.microsoft.com/"&gt;Internet Explorer Administration Kit 10 (IEAK 10)&lt;/a&gt; now supports building custom Internet Explorer 10 packages for Windows 7 and Windows 8. IEAK 10 simplifies the creation, deployment, and management of customized Internet Explorer 10 packages. You can download IEAK 10 from &lt;a href="http://ieak.microsoft.com/"&gt;http://ieak.microsoft.com&lt;/a&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Kevin Luu, Program Manager, Internet Explorer&lt;/li&gt;
+&lt;div style="clear:both;"&gt;&lt;/div&gt;&lt;img src="http://blogs.msdn.com/aggbug.aspx?PostID=10404643" width="1" height="1"&gt;</content>
+    <author>
+      <name>ieblog</name>
+      <uri>http://blogs.msdn.com/ieblog/ProfileUrlRedirect.ashx</uri>
+    </author>
+    <category term="General IE Information" scheme="http://blogs.msdn.com/b/ie/archive/tags/General+IE+Information/" />
+    <category term="IT PRO" scheme="http://blogs.msdn.com/b/ie/archive/tags/IT+PRO/" />
+    <category term="Windows 7" scheme="http://blogs.msdn.com/b/ie/archive/tags/Windows+7/" />
+  </entry>
+</feed>
