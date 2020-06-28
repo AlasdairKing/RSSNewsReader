@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="620"
+   height="300"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="310_150.svg"
+   inkscape:export-filename="C:\Users\Alasdair\Desktop\TODO\RSS Reader for Store\Working\Tile_310_150.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="288.699"
+     inkscape:cy="74.446955"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     borderlayer="true"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-752.36218)"><rect
+   style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+   id="rect2985"
+   width="661.6499"
+   height="363.65491"
+   x="-13.131983"
+   y="727.09308" />
+<image
+   y="833.70239"
+   x="62.012802"
+   id="image2995"
+   xlink:href="file:///C:/Users/Alasdair/Desktop/TODO/RSS%20Reader%20for%20Store/Working/RSS.png"
+   width="137.31952"
+   height="137.31952" />
+&quot;
+       height=&quot;126.7919&quot;
+       width=&quot;126.7919&quot; /&gt;
+    <text
+   xml:space="preserve"
+   style="font-size:102.97359467px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+   x="392.73773"
+   y="891.45007"
+   id="text2998"
+   sodipodi:linespacing="100%"><tspan
+     sodipodi:role="line"
+     id="tspan3000"
+     x="392.73773"
+     y="891.45007"
+     style="font-size:72.79494476px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;font-family:Segoe UI;-inkscape-font-specification:Segoe UI">RSS News</tspan><tspan
+     sodipodi:role="line"
+     x="392.73773"
+     y="964.245"
+     style="font-size:72.79494476px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:100%;writing-mode:lr-tb;text-anchor:middle;font-family:Segoe UI;-inkscape-font-specification:Segoe UI"
+     id="tspan2986">Reader</tspan></text>
+</g>
+</svg>
