@@ -51,8 +51,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="WebbIEUpdater">
-      <HintPath>..\..\..\..\OneDrive\Projects\BBCiPlayerTV\BBCiPlayerTV\bin\Release\WebbIEUpdater.dll</HintPath>
+    <Reference Include="WebbIEUpdater, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common\WebbIEUpdater.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
