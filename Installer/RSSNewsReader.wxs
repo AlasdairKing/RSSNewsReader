@@ -5,26 +5,34 @@
 <?define ProductName="RSS News Reader 4" ?>
 <?define Manufacturer="Accessible and WebbIE" ?>
 <?define UpgradeCode="{F1C6DD42-72A0-4AE9-BE3B-D979BCBE73AC}" ?>
-<?define ProductVersion="4.0.0" ?>
+<?define ProductVersion="4.0.1" ?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
     <Product Id="*" Language="1033" Manufacturer="$(var.Manufacturer)" Name="$(var.ProductName)" UpgradeCode="$(var.UpgradeCode)" Version="$(var.ProductVersion)">
-        <Package Id="*" Compressed="yes" InstallerVersion="301" InstallScope="perMachine" InstallPrivileges="elevated" Comments="Version $(var.ProductVersion)"/>
+        <Package Id="*" Compressed="yes" InstallerVersion="500" InstallScope="perMachine" InstallPrivileges="elevated" Comments="Version $(var.ProductVersion)"/>
         <Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
 				<Directory Id="MANUFACTURERDIR" Name="$(var.Manufacturer)">			
 					<Directory Id="INSTALLDIR" Name="$(var.ProductName)">
 						<Component Feature="ProductFeature" Id="Common.Language.xml">
-							<File Id="Common.Language.xml" Source="SourceDir\Common.Language.xml" KeyPath="yes" />
+							<File Id="Common.Language.xml" Source="..\RSSNewsReader\bin\Release\Common.Language.xml" KeyPath="yes" />
 						</Component>
 						<Component Feature="ProductFeature" Id="default.opml">
-							<File Id="default.opml" Source="SourceDir\default.opml" KeyPath="yes" />
+							<File Id="default.opml" Source="..\RSSNewsReader\bin\Release\default.opml" KeyPath="yes" />
+						</Component>
+						<Component Feature="ProductFeature" Id="opmldoc.ico">
+							<File Id="opmldoc.ico" Source="..\RSSNewsReader\bin\Release\opmldoc.ico" />
+							<!-- ProgId -->
+							<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\RSSNewsReader.OPML.4\DefaultIcon" Type="string" Value="[#opmldoc.ico]" />
+						</Component>
+						<Component Feature="ProductFeature" Id="RSSCommon.dll">
+							<File Id="RSSCommon.dll" Source="..\RSSNewsReader\bin\Release\RSSCommon.dll" />
 						</Component>
 						<Component Feature="ProductFeature" Id="RSSNewsReader.exe">
 							<CreateFolder />
-							<File Id="RSSNewsReader.exe" Source="SourceDir\RSSNewsReader.exe" KeyPath="yes">
+							<File Id="RSSNewsReader.exe" Source="..\RSSNewsReader\bin\Release\RSSNewsReader.exe" KeyPath="yes">
 								<Shortcut Id='EXEName.exe' Name='$(var.ProductName)' Directory='ManufacturerGroup' 
 								Icon='EXEName.exe' WorkingDirectory="INSTALLDIR" Advertise="yes">
-									<Icon Id='EXEName.exe' SourceFile='SourceDir\RSSNewsReader.ico' />
+									<Icon Id='EXEName.exe' SourceFile='..\RSSNewsReader\bin\Release\RSSNewsReader.ico' />
 								</Shortcut>
 								<!-- Uncomment to add desktop shortcut -->
 								<!-- <Shortcut Id='DesktopShortcut' Name='$(var.ProductName)' Directory='DesktopFolder' Icon='EXEName.exe' Advertise="yes" /> -->
@@ -84,24 +92,16 @@
 							<RegistryValue Root="HKLM" Key="SOFTWARE\RegisteredApplications" Type="string" Name="$(var.ProductName)" Value="SOFTWARE\Classes\RSSNewsReader.OPML.4" /> 						
 						</Component>
 						<Component Feature="ProductFeature" Id="RSSNewsReader.exe.config">
-							<File Id="RSSNewsReader.exe.config" Source="SourceDir\RSSNewsReader.exe.config" />
-						</Component>
-						<Component Feature="ProductFeature" Id="RSSNewsReader.exe.manifest">
-							<File Id="RSSNewsReader.exe.manifest" Source="SourceDir\RSSNewsReader.exe.manifest" />
-						</Component>
-						<Component Feature="ProductFeature" Id="opmldoc.ico">
-							<File Id="opmldoc.ico" Source="SourceDir\opmldoc.ico" />
-							<!-- ProgId -->
-							<RegistryValue Root="HKLM" Key="SOFTWARE\Classes\RSSNewsReader.OPML.4\DefaultIcon" Type="string" Value="[#opmldoc.ico]" />
+							<File Id="RSSNewsReader.exe.config" Source="..\RSSNewsReader\bin\Release\RSSNewsReader.exe.config" />
 						</Component>
 						<Component Feature="ProductFeature" Id="RSSNewsReader.Help_en.rtf">
-							<File Id="RSSNewsReader.Help_en.rtf" Source="SourceDir\RSSNewsReader.Help-en.rtf" />
-						</Component>
-						<Component Feature="ProductFeature">
-							<File Source="SourceDir\WebbIEUpdater.dll" KeyPath="yes"/>
+							<File Id="RSSNewsReader.Help_en.rtf" Source="..\RSSNewsReader\bin\Release\RSSNewsReader.Help-en.rtf" />
 						</Component>
 						<Component Feature="ProductFeature" Id="RSSNewsReader.Language.xml">
-							<File Id="RSSNewsReader.Language.xml" Source="SourceDir\RSSNewsReader.Language.xml" />
+							<File Id="RSSNewsReader.Language.xml" Source="..\RSSNewsReader\bin\Release\RSSNewsReader.Language.xml" />
+						</Component>
+						<Component Feature="ProductFeature">
+							<File Source="..\RSSNewsReader\bin\Release\WebbIEUpdater.dll" KeyPath="yes"/>
 						</Component>
 					</Directory>
 					<Directory Id='ProgramMenuFolder'>

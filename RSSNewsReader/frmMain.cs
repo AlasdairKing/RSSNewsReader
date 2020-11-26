@@ -43,6 +43,7 @@ using RSSCommon;
 //                          ship to the Windows Store.
 //  4.0.0  25 June 2020     Added more code to handle Atom feeds - one was not showing anything.
 //                          Updated to .Net 4.7.2 to fix some HTTPS links not working. 
+//  4.0.1 26 Nove 2020      Fix to installer - missing RSSCommon.dll! 
 //
 //  Note:
 //      Microsoft.VisualBasic.Logging.Log.WriteException(ex, System.Diagnostics.TraceEventType.Error, "Exception in Main(): " + ex.Message);   

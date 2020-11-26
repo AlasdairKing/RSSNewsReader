@@ -58,6 +58,7 @@ namespace Podcatcher
                 // First note that we have now checked today.
                 Properties.Settings.Default.UpdateCheck = System.DateTime.Now.ToShortDateString();
                 Properties.Settings.Default.Save();
+                
                 WebbIE.Updater.CheckForUpdates("http://www.webbie.org.uk/rssnewsreader/updates.xml");
             }
         }

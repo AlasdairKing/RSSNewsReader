@@ -52,7 +52,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WebbIEUpdater">
-      <HintPath>..\..\BBCiPlayerTV\BBCiPlayerTV\bin\Release\WebbIEUpdater.dll</HintPath>
+      <HintPath>..\..\..\..\OneDrive\Projects\BBCiPlayerTV\BBCiPlayerTV\bin\Release\WebbIEUpdater.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
